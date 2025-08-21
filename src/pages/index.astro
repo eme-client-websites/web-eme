@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ReactCounter from '../components/ReactCounter';
+---
+
+<Layout title="Mi Proyecto Astro + React + Tailwind">
+	<main class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+		<div class="text-center">
+			<h1 class="text-6xl font-bold text-gray-800 mb-6">
+				¡Hola Astro!
+			</h1>
+			<p class="text-xl text-gray-600 mb-8">
+				Proyecto configurado con React y Tailwind CSS 3
+			</p>
+			<div class="space-x-4 mb-8">
+				<button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200">
+					React Component
+				</button>
+				<button class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200">
+					Tailwind Styles
+				</button>
+			</div>
+			
+			<ReactCounter client:load />
+		</div>
+	</main>
+</Layout>
