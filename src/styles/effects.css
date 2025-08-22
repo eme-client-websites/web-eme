@@ -1,0 +1,77 @@
+/* Efectos de luz personalizados */
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 67, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 67, 255, 0.8), 0 0 60px rgba(0, 51, 196, 0.6);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.glow-effect {
+  animation: glow 3s ease-in-out infinite;
+}
+
+.float-effect {
+  animation: float 6s ease-in-out infinite;
+}
+
+.rotate-effect {
+  animation: rotate 20s linear infinite;
+}
+
+.shimmer-effect {
+  background: linear-gradient(90deg, transparent, rgba(0, 67, 255, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+.neon-border {
+  box-shadow: 
+    0 0 5px rgba(0, 67, 255, 0.5),
+    0 0 10px rgba(0, 67, 255, 0.3),
+    0 0 15px rgba(0, 67, 255, 0.1),
+    inset 0 0 5px rgba(0, 67, 255, 0.1);
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.light-beam {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, rgba(0, 67, 255, 0.6), transparent);
+  transform-origin: left center;
+  animation: rotate 10s linear infinite;
+}

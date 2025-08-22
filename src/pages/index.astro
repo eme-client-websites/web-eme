@@ -1,27 +1,93 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ReactCounter from '../components/ReactCounter';
 ---
 
-<Layout title="Mi Proyecto Astro + React + Tailwind">
-	<main class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
-		<div class="text-center">
-			<h1 class="text-6xl font-bold text-gray-800 mb-6">
-				¡Hola Astro!
+<Layout title="Mi Proyecto Web - Astro + React + Tailwind">
+	<!-- Navegación -->
+	<nav class="fixed top-0 w-full bg-black/10 backdrop-blur-md z-50 border-b border-white/10">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="flex justify-between items-center h-16">
+				<div class="flex items-center">
+					<span class="text-white font-bold text-xl">MiProyecto</span>
+				</div>
+				<div class="hidden md:block">
+					<div class="ml-10 flex items-baseline space-x-4">
+						<a href="#inicio" class="text-white hover:text-[#0043FF] px-3 py-2 rounded-md text-sm font-medium transition-colors">Inicio</a>
+						<a href="#contacto" class="text-white hover:text-[#0043FF] px-3 py-2 rounded-md text-sm font-medium transition-colors">Contacto</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Hero Section -->
+	<section id="inicio" class="min-h-screen bg-gradient-to-b from-[#030B46] via-[#020A35] via-[#010824] to-[#000510] flex items-center justify-center relative overflow-hidden">
+		<!-- Efectos de luz sutiles -->
+		<div class="absolute top-0 left-1/4 w-96 h-96 bg-[#0043FF] rounded-full mix-blend-screen filter blur-3xl opacity-10"></div>
+		<div class="absolute bottom-0 right-1/4 w-96 h-96 bg-[#0033C4] rounded-full mix-blend-screen filter blur-3xl opacity-10"></div>
+		
+		<!-- Efecto de luz central sutil -->
+		<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-[#0043FF] to-[#0033C4] rounded-full mix-blend-screen filter blur-2xl opacity-5"></div>
+		
+		<div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+			<!-- Badge superior -->
+			<div class="inline-flex items-center px-4 py-2 rounded-full bg-[#0043FF]/20 border border-[#0043FF]/30 text-[#0043FF] text-sm font-medium mb-8">
+				<span>✨ Proyecto Moderno Disponible Ahora</span>
+				<svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+					<path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+				</svg>
+			</div>
+
+			<!-- Título principal -->
+			<h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+				El framework web para
+				<span class="bg-gradient-to-r from-[#0043FF] to-[#0033C4] bg-clip-text text-transparent">
+					sitios modernos
+				</span>
 			</h1>
-			<p class="text-xl text-gray-600 mb-8">
-				Proyecto configurado con React y Tailwind CSS 3
+
+			<!-- Subtítulo -->
+			<p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+				Astro, React y Tailwind CSS potencian los sitios web más rápidos, 
+				blogs, sitios de comercio electrónico y mucho más.
 			</p>
-			<div class="space-x-4 mb-8">
-				<button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200">
-					React Component
+
+			<!-- Botones de acción -->
+			<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+				<button class="bg-white text-purple-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-200 flex items-center">
+					Comenzar Ahora
+					<svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+						<path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+					</svg>
 				</button>
-				<button class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200">
-					Tailwind Styles
+				<button class="bg-[#0033C4] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#0043FF] transition-colors duration-200 flex items-center border border-[#0043FF]">
+					<span class="text-[#0043FF] mr-2">$</span>
+					npm create astro@latest
+					<svg class="ml-2 w-5 h-5 text-[#0043FF]" fill="currentColor" viewBox="0 0 20 20">
+						<path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z"></path>
+						<path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z"></path>
+					</svg>
 				</button>
 			</div>
-			
-			<ReactCounter client:load />
 		</div>
-	</main>
+	</section>
+
+
+
+	<!-- Sección de Contacto -->
+	<section id="contacto" class="py-20 bg-gradient-to-b from-[#030B46] via-[#020A35] via-[#010824] to-[#000510] relative overflow-hidden">
+		<!-- Efectos de luz sutiles -->
+		<div class="absolute top-0 left-0 w-64 h-64 bg-[#0043FF] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
+		<div class="absolute bottom-0 right-0 w-64 h-64 bg-[#0033C4] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
+		
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+			<h2 class="text-4xl font-bold text-white mb-4">¿Listo para comenzar?</h2>
+			<p class="text-xl text-gray-300 mb-8">
+				Únete a miles de desarrolladores que ya están construyendo el futuro del web
+			</p>
+			<button class="bg-white text-[#0033C4] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-200">
+				Empezar Proyecto
+			</button>
+		</div>
+	</section>
 </Layout>
