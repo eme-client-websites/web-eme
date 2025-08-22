@@ -1,1 +1,57 @@
 @import "tailwindcss";
+
+/* Clase personalizada para max-width de 1366px */
+.container-custom {
+  max-width: calc(1366px + 2rem) !important;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    max-width: calc(1366px + 3rem) !important;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    max-width: calc(1366px + 4rem) !important;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Asegurar que todos los elementos dentro del container respeten el max-width */
+.container-custom * {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ocultar scrollbar en toda la página manteniendo funcionalidad */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none; /* Chrome, Safari, Opera */
+}
+
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none; /* Chrome, Safari, Opera */
+}

@@ -1,0 +1,154 @@
+---
+// Datos de los servicios
+const servicios = [
+  {
+    numero: "01",
+    titulo: "Desarrollo de estrategia",
+    descripcion: "Más que solo un plan—esto transforma tu visión en resultados medibles."
+  },
+  {
+    numero: "02",
+    titulo: "AchieveApex",
+    descripcion: "Plataforma que no solo gestiona—potencia tu crecimiento empresarial."
+  },
+  {
+    numero: "03",
+    titulo: "Lead Nurturing para negocios",
+    descripcion: "Secuencias que no solo contactan—convierten prospectos en clientes."
+  },
+  {
+    numero: "04",
+    titulo: "Desarrollo Personalizado",
+    descripcion: "Software que no solo funciona—se adapta a tu negocio específico."
+  },
+  {
+    numero: "05",
+    titulo: "Landing Pages con AI",
+    descripcion: "Páginas que no solo se ven bien—optimizan para convertir visitantes."
+  },
+  {
+    numero: "06",
+    titulo: "SEO Local y GEO con AI",
+    descripcion: "Posicionamiento que no solo aparece—conecta con clientes locales."
+  },
+  {
+    numero: "07",
+    titulo: "Ads Management",
+    descripcion: "Campañas que no solo gastan—maximizan cada peso invertido."
+  },
+  {
+    numero: "08",
+    titulo: "AI Content",
+    descripcion: "Contenido que no solo llena—conecta y construye tu marca."
+  },
+  {
+    numero: "09",
+    titulo: "Branding",
+    descripcion: "Más que solo un logo—esto es la cara y voz de tu marca."
+  },
+  {
+    numero: "10",
+    titulo: "Consultoría",
+    descripcion: "Asesoramiento que no solo aconseja—acelera tu crecimiento empresarial."
+  }
+];
+---
+
+<section class="pb-[160px] xl:pb-[8.33rem] bg-gradient-to-b from-[#000510] via-[#000408] to-[#000000] relative overflow-hidden" data-color="#000000" data-active="false">
+  <!-- Efectos de luz sutiles y más reducidos -->
+  <div class="absolute top-0 left-1/4 w-64 h-64 bg-[#0043FF] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
+  <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-[#0033C4] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
+  
+  <div class="container-custom relative z-10">
+    <!-- Título de la sección -->
+    <div class="pt-20 xl:pt-[8rem]">
+              <div class="flex flex-wrap justify-between xl:flex-nowrap xl:gap-x-[5rem]">
+        <div class="w-full xl:w-auto">
+                     <h2 class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold flex flex-wrap items-start gap-x-3 xl:gap-x-[2.6rem] text-white leading-tight">
+            <span>¡Soluciones</span>
+            <span>que suenan</span>
+            <span>bien, y</span>
+            <span>también</span>
+            <span>funcionan!</span>
+          </h2>
+        </div>
+        <div class="w-full pt-8 xl:w-auto xl:pt-[2.08rem]">
+          <p class="text-[16px] font-normal leading-[1.45em] xl:text-[1.14rem] text-gray-300">
+            Creemos que las marcas deberían hacer más que solo aparecer—deberían hacer una entrada.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mt-10 w-full border-b border-t border-white/20 pt-10 md:mt-20 md:pt-10 lg:mt-[6.02rem] lg:pt-[2.08333rem] xl:mt-[13.02rem]">
+    <div class="group grid grid-cols-1 gap-y-10 md:gap-y-10 lg:gap-y-[2.08333rem]">
+      {servicios.map((servicio) => (
+        <div class="relative w-full border-b border-white/20 [&:last-of-type]:border-b-0">
+          <div class="group relative flex w-full flex-wrap pb-10 transition-opacity duration-500 ease-in-out hover:!opacity-100 md:pb-20 lg:pb-[4.17rem] group-hover:xl:opacity-30">
+            <div class="w-full">
+              <div class="font-mono text-[20px] font-normal text-white xl:text-[1.56rem]">
+                {servicio.numero}
+              </div>
+            </div>
+            <div class="flex w-full items-start gap-x-8">
+              <div class="w-[70%]">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white relative leading-tight">
+                  {servicio.titulo}
+                </h2>
+              </div>
+              <div class="w-[30%]">
+                <p class="font-sans text-[16px] font-normal leading-[1.45em] xl:text-[1.14rem] text-gray-300">
+                  {servicio.descripcion}
+                </p>
+              </div>
+            </div>
+            <!-- Elemento hover opcional para futuros efectos -->
+            <div class="pointer-events-none absolute z-10 -translate-x-1/2 max-lg:hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <!-- Aquí se pueden agregar efectos de hover en el futuro -->
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Botón de más información -->
+    <div class="w-full pt-10 xl:pt-[5.21rem]">
+      <a href="/servicios" class="group relative inline-flex items-center overflow-hidden font-bold text-[20px] font-medium uppercase text-white transition-all duration-300 ease-in-out xl:text-[1.46rem] hover:text-[#0043FF]">
+        Más Acerca de Nuestros Servicios
+        <svg width="24" height="24" class="ml-2 transition-all duration-300 ease-in-out group-hover:fill-[#0043FF] group-hover:md:ml-4" data-icon="arrow">
+          <g>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M18.8457 12L8.85393 1.63591L10.4311 0L22 12L10.4311 24L8.85393 22.3641L18.8457 12Z"></path>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 10.8431H20.4235V13.1566H0V10.8431Z"></path>
+          </g>
+        </svg>
+        <div class="absolute bottom-0 left-0 h-[2px] w-full bg-[#0043FF] transition-all duration-500 ease-in-out transform scale-x-0 group-hover:scale-x-100"></div>
+      </a>
+    </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Estilos adicionales para mejorar la experiencia */
+  .group:hover .group-hover\:xl\:opacity-30 {
+    opacity: 0.3;
+  }
+  
+  .group:hover .group-hover\:xl\:opacity-30:hover {
+    opacity: 1 !important;
+  }
+  
+  /* Animación suave para el texto */
+  h2 {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .group:hover h2 {
+    transform: translateX(10px);
+  }
+  
+  /* Efecto de hover en el botón */
+  .group a:hover .transform {
+    transform: scaleX(1);
+  }
+</style>

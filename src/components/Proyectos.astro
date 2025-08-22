@@ -1,0 +1,193 @@
+---
+// Datos de proyectos extraídos de e-me.co
+const proyectos = [
+  {
+    id: 'apparta',
+    nombre: 'Apparta',
+    descripcion: 'Donde las reservas digitales encuentran la simplicidad visual.',
+    imagen: '/proyecto-apparta.jpg',
+    link: '/proyectos/apparta',
+    servicios: ['UI/UX', 'Desarrollo', 'Branding']
+  },
+  {
+    id: 'carnes-santacruz',
+    nombre: 'Carnes Santacruz',
+    descripcion: 'E-commerce premium que conecta tradición con tecnología moderna.',
+    imagen: '/proyecto-carnes.jpg',
+    link: '/proyectos/carnes-santacruz',
+    servicios: ['E-commerce', 'Web Design', 'Marketing Digital']
+  },
+  {
+    id: 'sandra',
+    nombre: 'Sandra',
+    descripcion: 'Identidad digital que eleva servicios profesionales al siguiente nivel.',
+    imagen: '/proyecto-sandra.jpg',
+    link: '/proyectos/sandra',
+    servicios: ['Branding', 'Web Design', 'UI/UX']
+  },
+  {
+    id: 'eme-experience',
+    nombre: 'E-me Experience System',
+    descripcion: 'Sistema integral donde cada proceso empresarial cobra nueva vida.',
+    imagen: '/proyecto-eme-system.jpg',
+    link: '/proyectos/eme-experience',
+    servicios: ['UI/UX', 'Desarrollo', 'Web Design']
+  },
+  {
+    id: 'promigas',
+    nombre: 'Promigas App',
+    descripcion: 'App móvil que transforma la gestión de servicios de gas natural.',
+    imagen: '/proyecto-promigas.jpg',
+    link: '/proyectos/promigas',
+    servicios: ['Mobile App', 'UI/UX', 'Desarrollo']
+  },
+  {
+    id: 'yoyoso',
+    nombre: 'Yoyoso',
+    descripcion: 'Plataforma internacional donde el comercio global se vuelve personal.',
+    imagen: '/proyecto-yoyoso.jpg',
+    link: '/proyectos/yoyoso',
+    servicios: ['E-commerce', 'Branding', 'UI/UX']
+  }
+];
+---
+
+<!-- Título de la sección - Estructura exacta de Designatives -->
+<section class="xl:pt-32 bg-gradient-to-b from-[#030B46] via-[#020A35] to-[#010824] relative overflow-hidden" data-active="true" data-color="#FFFFFF">
+  <!-- Efectos de luz de fondo -->
+  <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#0043FF] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#0033C4] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
+
+  <div class="container-custom relative z-10">
+    <div class="w-1/2">
+      <h2 class="text-5xl lg:text-7xl font-bold text-white leading-tight tracking-tight max-w-lg">
+        <span class="relative opacity-100 transform-none">
+          <span class="opacity-100">Proyectos </span>
+          <div class="absolute left-0 top-0 w-full xl:-top-0 xl:left-0"></div>
+        </span>
+        <br>
+        <span class="opacity-100 transform-none text-gray-300">Seleccionados </span>
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- Grid de proyectos - Estructura exacta de Designatives -->
+<section data-active="false" data-color="#FFFFFF" class="pb-20 lg:pt-52 xl:pb-40 xl:pt-20 bg-gradient-to-b from-[#010824] via-[#020A35] to-[#030B46]">
+  <div class="container-custom">
+    <div class="grid grid-cols-1 gap-10 lg:gap-20 xl:gap-12">
+      <div class="space-y-10 lg:space-y-0 mt-10 lg:mt-[-20rem]">
+        {proyectos.map((proyecto, index) => (
+          <div class="relative flex w-full items-center">
+            <div class="absolute -top-1/2 w-full"></div>
+            <div class={`flex w-full gap-x-10 xl:gap-x-16 opacity-100 transform-none ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+              <div class="hidden w-full lg:flex lg:w-1/2"></div>
+              <div class="relative z-10 w-full lg:w-1/2">
+                <a href={proyecto.link}>
+                  <div class="aspect-square w-full">
+                    <div class="flex w-full items-center justify-center lg:cursor-none">
+                      <div class="w-full">
+                        <div class="w-full rounded-3xl overflow-hidden">
+                          <div class="w-full">
+                            <div class="aspect-square h-full w-full overflow-hidden">
+                              <!-- Placeholder para imagen con gradiente -->
+                              <div class="w-[102%] translate-x-[-1%] translate-y-[-1%] transform-gpu aspect-square bg-gradient-to-br from-[#0043FF]/30 to-[#0033C4]/30 flex items-center justify-center relative">
+                                <div class="absolute inset-0 bg-gradient-to-br from-[#0043FF]/20 to-[#0033C4]/20"></div>
+                                <div class="text-white/70 text-center z-10">
+                                  <div class="w-20 h-20 mx-auto mb-6 bg-white/15 rounded-3xl flex items-center justify-center backdrop-blur-sm">
+                                    <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 20 20">
+                                      <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                                    </svg>
+                                  </div>
+                                  <p class="text-lg font-medium">{proyecto.nombre}</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <span class="sr-only">Ver detalles sobre {proyecto.nombre}</span>
+                </a>
+                
+                <div class="bottom-0 pt-8 lg:absolute lg:translate-y-full lg:pt-6">
+                  <a href={proyecto.link}>
+                    <h2 class="flex flex-wrap gap-x-2 xl:gap-x-2 text-4xl xl:text-5xl font-bold text-white">
+                      {proyecto.nombre.split(' ').map((palabra, i) => (
+                        <div class="inline-flex w-auto opacity-100 transform-none">
+                          {palabra}
+                        </div>
+                      ))}
+                    </h2>
+                    <span class="sr-only">Ver detalles sobre {proyecto.nombre}</span>
+                    <p class="pt-2 text-gray-300 xl:pt-2 opacity-100 transform-none text-lg">
+                      {proyecto.descripcion}
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-2 pt-4 xl:pt-3">
+                      {proyecto.servicios.map((servicio) => (
+                        <div class="inline-block overflow-hidden opacity-100 transform-none">
+                          <div class="bg-[#0043FF]/20 px-4 py-2 text-sm font-medium uppercase text-[#0043FF] border border-[#0043FF]/30 rounded-2xl">
+                            <span class="inline-block opacity-100 transform-none">{servicio}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    
+    <!-- Enlace para ver más trabajos -->
+    <div class="w-full pt-20 md:pt-20 lg:pt-52 xl:pt-40">
+      <a href="/proyectos">
+        <span class="group relative inline-flex items-center overflow-hidden font-bold text-xl text-white transition-all duration-300 ease-in-out xl:text-2xl uppercase tracking-wide">
+          Más de nuestro trabajo
+          <svg width="24" height="24" class="ml-2 fill-white transition-all duration-300 ease-in-out group-hover:md:ml-4 xl:ml-2 group-hover:xl:ml-4" data-icon="arrow">
+            <g>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M18.8457 12L8.85393 1.63591L10.4311 0L22 12L10.4311 24L8.85393 22.3641L18.8457 12Z"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M0 10.8431H20.4235V13.1566H0V10.8431Z"></path>
+            </g>
+          </svg>
+          <div class="absolute bottom-0 left-0 h-0.5 w-full bg-white transition-all duration-500 ease-in-out group-hover:md:left-full"></div>
+          <div class="absolute -left-full bottom-0 h-0.5 w-full bg-white transition-all delay-100 duration-700 ease-in-out group-hover:md:left-0"></div>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Animaciones adicionales para suavizar las transiciones */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .group:hover .transition-transform {
+    animation: fadeInUp 0.3s ease-out;
+  }
+
+  /* Mejoras en la responsividad */
+  @media (max-width: 1023px) {
+    .lg\:grid-flow-col-dense {
+      grid-auto-flow: initial;
+    }
+    
+    .lg\:col-start-2,
+    .lg\:col-start-1 {
+      grid-column-start: auto;
+    }
+  }
+</style>

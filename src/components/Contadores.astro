@@ -1,0 +1,111 @@
+---
+// Datos de los contadores
+const contadores = [
+  {
+    numero: "10",
+    prefijo: "+",
+    titulo: "años de",
+    subtitulo: "experiencia"
+  },
+  {
+    numero: "130",
+    prefijo: "+",
+    titulo: "clientes nacionales",
+    subtitulo: "e internacionales"
+  },
+  {
+    numero: "150",
+    prefijo: "+",
+    titulo: "apps y websites",
+    subtitulo: "creados"
+  }
+];
+---
+
+<section class="py-20 bg-gradient-to-b from-[#000510] via-[#000408] to-[#000000] relative overflow-hidden">
+  <!-- Efectos de luz sutiles y más reducidos -->
+  <div class="absolute top-0 left-1/4 w-64 h-64 bg-[#0043FF] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
+  <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-[#0033C4] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
+  
+  <div class="container-custom relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-6xl mx-auto">
+      {contadores.map((contador, index) => (
+        <div class="contador-item text-center">
+          <!-- Número principal -->
+          <div class="mb-4">
+            <span class="text-6xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent">
+              {contador.prefijo}<span class="numero-animado" data-target={contador.numero}>0</span>
+            </span>
+          </div>
+          
+          <!-- Texto descriptivo -->
+          <div class="text-white">
+            <h3 class="text-xl md:text-2xl lg:text-3xl font-normal leading-tight">
+              {contador.titulo}
+            </h3>
+            <h4 class="text-xl md:text-2xl lg:text-3xl font-normal leading-tight">
+              {contador.subtitulo}
+            </h4>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .container-custom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .contador-item span {
+      font-size: 4rem !important;
+    }
+  }
+</style>
+
+<script>
+  // Función para animar solo los números contadores
+  function animateCounters() {
+    const contadores = document.querySelectorAll('.numero-animado') as NodeListOf<HTMLElement>;
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const contador = entry.target as HTMLElement;
+          const target = parseInt(contador.dataset.target || '0');
+          const duration = 2000; // 2 segundos
+          const increment = target / (duration / 16); // 60fps
+          let current = 0;
+          
+          const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+              contador.textContent = Math.floor(current).toString();
+              requestAnimationFrame(updateCounter);
+            } else {
+              contador.textContent = target.toString();
+            }
+          };
+          
+          updateCounter();
+          observer.unobserve(contador);
+        }
+      });
+    });
+    
+    contadores.forEach(contador => {
+      observer.observe(contador);
+    });
+  }
+  
+  // Inicializar animación de contadores cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', () => {
+    animateCounters();
+  });
+</script>
+
