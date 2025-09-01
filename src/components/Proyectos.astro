@@ -224,186 +224,268 @@ const proyectos = [
   <!-- Overlay -->
   <div class="fixed inset-0 bg-black/80 backdrop-blur-sm" onclick="closeProjectModal()"></div>
   
-  <!-- Modal Content -->
+  <!-- Modal Content Container -->
   <div class="fixed inset-0 overflow-y-auto">
-    <div class="flex min-h-full items-center justify-center p-4">
-      <div class="relative w-full max-w-6xl bg-white rounded-2xl shadow-2xl">
-        <!-- Close Button -->
-        <button 
-          onclick="closeProjectModal()" 
-          class="absolute top-6 right-6 z-10 w-12 h-12 bg-black/10 hover:bg-black/20 rounded-full flex items-center justify-center transition-all duration-200"
-        >
-          <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-
-        <!-- Modal Body -->
-        <div class="p-8">
-          <!-- Header Section -->
-          <div class="mb-8">
-            <!-- Tags -->
-            <div id="modalTags" class="flex flex-wrap gap-3 mb-6">
-              <!-- Tags will be populated by JavaScript -->
-            </div>
-            
-            <!-- Title -->
-            <h1 id="modalTitle" class="text-5xl lg:text-6xl font-bold text-black mb-6">
-              <!-- Title will be populated by JavaScript -->
-            </h1>
-            
-            <!-- Visit Website Button -->
-            <a 
-              id="modalWebsiteLink" 
-              href="#" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="inline-flex items-center px-6 py-3 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-all duration-200"
-            >
-              Visitar website
-              <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+    <div class="flex min-h-full items-start justify-center p-4">
+      <!-- Project Content -->
+      <div class="c-project-content w-full max-w-7xl bg-white rounded-xl shadow-2xl mt-8 mb-8" style="margin-left: 20px; margin-right: 20px;">
+        <div class="c-project-content__inner">
+          
+          <!-- Project Header Section -->
+          <section data-slice-type="project_header" data-slice-variation="default" class="s-projectheader relative">
+            <!-- Close Button -->
+            <button class="c-cta-close s-projectheader__close absolute top-8 right-8 z-10 w-14 h-14 bg-black/10 hover:bg-black/20 rounded-full flex items-center justify-center transition-all duration-200" onclick="closeProjectModal()">
+              <div class="c-cta-close__bg"></div>
+              <div class="c-cta-close__bg2"></div>
+              <svg class="c-cta-close__svg w-6 h-6 text-black" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 18L23 23M28 28L23 23M23 23L28 18M23 23L18 28" stroke="currentColor" stroke-width="2"></path>
               </svg>
-            </a>
-          </div>
+            </button>
 
-          <!-- Hero Image -->
-          <div class="mb-12 -mx-6">
-            <div class="w-full h-96 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
-              <img src="/Apparta.webp" alt="Apparta Hero" class="w-full h-full object-cover">
-            </div>
-          </div>
-
-          <!-- Project Description -->
-          <div class="mb-12">
-            <p id="modalDescription" class="text-lg text-gray-700 leading-relaxed">
-              <!-- Description will be populated by JavaScript -->
-            </p>
-          </div>
-
-          <!-- Project Info Grid -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            <!-- Role -->
-            <div class="bg-gray-50 p-4 rounded-lg">
-              <h3 class="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-2">ROLE</h3>
-              <p class="text-sm text-gray-700">
-                Art Direction / UX-UI / Copywriting / Development
-              </p>
-            </div>
-
-            <!-- Solutions -->
-            <div class="bg-gray-50 p-4 rounded-lg">
-              <h3 class="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-2">SOLUTIONS</h3>
-              <div id="modalTecnologias" class="text-sm text-gray-700 space-y-1">
-                <!-- Technologies will be populated by JavaScript -->
-              </div>
-            </div>
-
-            <!-- Credits -->
-            <div class="bg-gray-50 p-4 rounded-lg">
-              <h3 class="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-2">CREDITS</h3>
-              <p class="text-sm text-gray-700">
-                En partnership con Spaag
-              </p>
-            </div>
-
-            <!-- Project Duration -->
-            <div class="bg-gray-50 p-4 rounded-lg">
-              <h3 class="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-2">PROJECT DURATION</h3>
-              <p class="text-sm text-gray-700">
-                3 months
-              </p>
-            </div>
-          </div>
-
-          <!-- Alcance y Características Grid -->
-          <div class="mb-16">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              <!-- Left Column: Alcance -->
-              <div>
-                <div class="mb-6">
-                  <div class="bg-gray-100 px-4 py-2 rounded-lg mb-4 inline-block">
-                    <span class="text-xs font-semibold text-gray-900 uppercase tracking-wider">ALCANCE</span>
+            <div class="s-projectheader__wrapper p-8 pt-32 relative">
+              <div class="flex justify-between items-start">
+                <div class="flex-1">
+                  <!-- Tags -->
+                  <div class="s-projectheader__tags flex flex-wrap gap-3 mb-6">
+                    <div id="modalTags" class="flex flex-wrap gap-3">
+                      <!-- Tags will be populated by JavaScript -->
+                    </div>
                   </div>
-                  <ul class="space-y-2 text-gray-700">
-                    <li>- Aplicación móvil Android e iOS</li>
-                    <li>- Diseño y prototipo UI/UX</li>
-                    <li>- Desarrollo de back-end</li>
-                    <li>- Panel de administración</li>
-                    <li>- Arquitectura del servidor AWS</li>
-                  </ul>
+
+                  <!-- Title -->
+                  <div class="s-projectheader__title">
+                    <div class="c-a-h2">
+                      <h1 id="modalTitle" class="text-5xl lg:text-6xl font-bold text-black leading-tight">
+                        <!-- Title will be populated by JavaScript -->
+                      </h1>
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              <!-- Right Column: Características -->
-              <div>
-                <div class="mb-6">
-                  <div class="bg-gray-100 px-4 py-2 rounded-lg mb-4 inline-block">
-                    <span class="text-xs font-semibold text-gray-900 uppercase tracking-wider">CARACTERÍSTICAS</span>
-                  </div>
-                  <ul class="space-y-2 text-gray-700">
-                    <li>- Inicio de sesión con contraseña única</li>
-                    <li>- Reservas de mesa en tiempo real</li>
-                    <li>- Gestor de disponibilidad de descuentos</li>
-                    <li>- Apparta wallet para pagos en restaurante</li>
-                    <li>- Reservas compartibles con amigos</li>
-                    <li>- Búsqueda avanzada con filtros dinámicos</li>
-                    <li>- Funcionalidad de búsqueda dinámica de mapas</li>
-                    <li>- Menú digital interactivo del restaurante</li>
-                    <li>- Calificaciones y reseñas atractivas</li>
-                    <li>- Funcionalidad de reembolso por fidelidad</li>
-                  </ul>
+                <!-- Visit Website Button - Positioned at top right -->
+                <div class="flex-shrink-0 ml-8">
+                  <a 
+                    id="modalWebsiteLink" 
+                    href="#" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="c-cta-simple s-projectheader__cta inline-flex items-center px-6 py-3 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-all duration-200"
+                  >
+                    <div class="c-cta-simple__bg"></div>
+                    <div class="bold c-a-cta c-cta-simple__content">
+                      Visit website
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
 
-            <!-- Technologies Section Inline -->
-            <div class="text-center mt-12">
-              <div class="bg-gray-100 px-4 py-2 rounded-lg mb-6 inline-block">
-                <span class="text-xs font-semibold text-gray-900 uppercase tracking-wider">TECNOLOGÍAS</span>
-              </div>
-              <div>
-                <img src="/imgi_2_Grupo-19860.png" alt="Tecnologías utilizadas" class="mx-auto max-w-lg">
+            <!-- Hero Image -->
+            <div class="s-projectheader__image mb-8 px-8">
+              <div class="s-projectheader__image-inner rounded-2xl overflow-hidden">
+                <img id="modalHeroImage" src="/Apparta.webp" alt="Project Hero" class="w-full h-96 lg:h-[500px] object-cover">
               </div>
             </div>
-          </div>
+          </section>
 
-          <!-- Style Guide Section -->
-          <div class="mb-16">
-            <div class="text-center mb-8">
-              <h3 class="text-2xl font-bold text-black">Guía de estilo</h3>
-            </div>
-            
-            <!-- Full Image -->
-            <div class="mb-8">
-              <img src="/imgi_5_Grupo-20420-2.png" alt="Guía de estilo completa" class="w-full h-auto">
-            </div>
+          <!-- Project Info Section -->
+          <section data-slice-type="project_info" data-slice-variation="default" class="s-projectinfo p-8 lg:p-16">
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-20">
+              
+              <!-- Left side - Project Description -->
+              <div class="lg:w-1/2">
+                <div class="c-a-pl s-projectinfo__desc">
+                  <p id="modalDescription" class="text-lg lg:text-xl text-gray-700 leading-relaxed">
+                    <!-- Description will be populated by JavaScript -->
+                  </p>
+                </div>
+              </div>
 
-            <!-- Typography Section -->
-            <div class="text-center mb-8">
-              <h4 class="text-xl font-semibold mb-6">Poppins</h4>
-              <img src="/imgi_7_Grupo-9346999.png" alt="Tipografía Poppins" class="mx-auto max-w-2xl h-auto">
-            </div>
+              <!-- Right side - Project Info Grid -->
+              <div class="lg:w-1/2">
+                <div class="s-projectinfo__items space-y-6">
+                  <!-- Role -->
+                  <div class="s-projectinfo__items-item bg-gray-50 p-6 rounded-lg">
+                    <div class="s-projectinfo__items-item-bg"></div>
+                    <div class="flex justify-between items-center">
+                      <div class="c-a-h6 s-projectinfo__items-item-title text-xs font-semibold text-gray-900 uppercase tracking-wider">
+                        Role
+                      </div>
+                      <div class="c-a-pm s-projectinfo__items-item-content text-sm text-gray-700 text-right" id="modalRole">
+                        UX-UI / 3D / Development
+                      </div>
+                    </div>
+                  </div>
 
-            <!-- Design Elements -->
-            <div class="mb-8">
-              <img src="/imgi_8_Grupo-20421-1.png" alt="Elementos de diseño" class="w-full h-auto">
-            </div>
-          </div>
+                  <!-- Awards -->
+                  <div class="s-projectinfo__items-item bg-gray-50 p-6 rounded-lg">
+                    <div class="s-projectinfo__items-item-bg"></div>
+                    <div class="flex justify-between items-center">
+                      <div class="c-a-h6 s-projectinfo__items-item-title text-xs font-semibold text-gray-900 uppercase tracking-wider">
+                        Awards
+                      </div>
+                      <div class="c-a-pm s-projectinfo__items-item-content text-sm text-gray-700 text-right" id="modalAwards">
+                        SOTD AWWWARDS - FWA - CSS DESIGN - GSAP
+                      </div>
+                    </div>
+                  </div>
 
-          <!-- Hero Images Section -->
-          <div class="mb-16">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <img src="/imgi_88_Grupo-19921-768x449.png" alt="Vista de la aplicación" class="w-full h-auto rounded-lg">
-              <img src="/imgi_11_acercamiento-persona-que-disfruta-comida.png" alt="Usuario usando la app" class="w-full h-auto rounded-lg">
-            </div>
-          </div>
+                  <!-- Solutions -->
+                  <div class="s-projectinfo__items-item bg-gray-50 p-6 rounded-lg">
+                    <div class="s-projectinfo__items-item-bg"></div>
+                    <div class="flex justify-between items-center">
+                      <div class="c-a-h6 s-projectinfo__items-item-title text-xs font-semibold text-gray-900 uppercase tracking-wider">
+                        Solutions
+                      </div>
+                      <div class="c-a-pm s-projectinfo__items-item-content text-sm text-gray-700 text-right" id="modalTecnologias">
+                        Storyblok / Netlify / Spline
+                      </div>
+                    </div>
+                  </div>
 
-          <!-- Final Mobile Showcase -->
-          <div class="mb-8 -mx-6">
-            <img src="/imgi_17_Grupo-20422erowpeor.png" alt="Showcase completo de Apparta" class="w-full h-auto">
-          </div>
+                  <!-- Project Duration -->
+                  <div class="s-projectinfo__items-item bg-gray-50 p-6 rounded-lg">
+                    <div class="s-projectinfo__items-item-bg"></div>
+                    <div class="flex justify-between items-center">
+                      <div class="c-a-h6 s-projectinfo__items-item-title text-xs font-semibold text-gray-900 uppercase tracking-wider">
+                        Project Duration
+                      </div>
+                      <div class="c-a-pm s-projectinfo__items-item-content text-sm text-gray-700 text-right" id="modalDuration">
+                        2 months
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Project Gallery Sections -->
+          
+          <!-- Full Width Gallery - Dark Theme -->
+          <section data-slice-type="project_gallery" data-slice-variation="default" class="s-projectgallery mb-8 px-8">
+            <div class="bg-gradient-to-b from-[#000000] via-[#000408] to-[#000510] p-8 rounded-2xl">
+              <div class="s-projectgallery__item">
+                <div class="c-image-simple">
+                  <img src="/imgi_5_Grupo-20420-2.png" alt="Design System Overview" class="w-full h-auto object-cover rounded-xl shadow-lg">
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 50/50 Split Layout - Dark Blues -->
+          <section data-slice-type="project_gallery" data-slice-variation="default" class="s-projectgallery multiple mb-8 px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div class="bg-gradient-to-br from-[#0043FF] to-[#0033C4] p-6 rounded-2xl">
+                <div class="s-projectgallery__item">
+                  <div class="c-image-simple">
+                    <img src="/imgi_7_Grupo-9346999.png" alt="Typography System" class="w-full h-auto object-cover rounded-lg shadow-md">
+                  </div>
+                </div>
+              </div>
+              <div class="bg-gradient-to-br from-[#1a1a2e] to-[#16213e] p-6 rounded-2xl">
+                <div class="s-projectgallery__item">
+                  <div class="c-image-simple">
+                    <img src="/imgi_8_Grupo-20421-1.png" alt="UI Components" class="w-full h-auto object-cover rounded-lg shadow-md">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Single Image - Dark Navy -->
+          <section data-slice-type="project_gallery" data-slice-variation="default" class="s-projectgallery mb-8 px-8">
+            <div class="bg-gradient-to-br from-[#0f172a] to-[#1e293b] p-8 rounded-2xl">
+              <div class="s-projectgallery__item">
+                <div class="c-image-simple">
+                  <img src="/imgi_88_Grupo-19921-768x449.png" alt="App Interface" class="w-full h-auto object-cover rounded-xl shadow-lg">
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Single Image - Deep Blue -->
+          <section data-slice-type="project_gallery" data-slice-variation="default" class="s-projectgallery mb-8 px-8">
+            <div class="bg-gradient-to-br from-[#1e3a8a] to-[#1e40af] p-8 rounded-2xl">
+              <div class="s-projectgallery__item">
+                <div class="c-image-simple">
+                  <img src="/imgi_11_acercamiento-persona-que-disfruta-comida.png" alt="User Experience" class="w-full h-auto object-cover rounded-xl shadow-lg">
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Technologies - Pure Black -->
+          <section data-slice-type="project_gallery" data-slice-variation="default" class="s-projectgallery mb-8 px-8">
+            <div class="bg-black p-8 rounded-2xl border border-gray-800">
+              <div class="s-projectgallery__item">
+                <div class="c-image-simple">
+                  <img src="/imgi_2_Grupo-19860.png" alt="Technology Stack" class="w-full h-auto object-cover rounded-xl shadow-lg">
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Final Showcase - Dark Gradient -->
+          <section data-slice-type="project_gallery" data-slice-variation="default" class="s-projectgallery mb-8 px-8">
+            <div class="bg-gradient-to-br from-[#000510] via-[#000408] to-[#000000] p-8 rounded-2xl">
+              <div class="s-projectgallery__item">
+                <div class="c-image-simple">
+                  <img src="/imgi_17_Grupo-20422erowpeor.png" alt="Final Mobile Showcase" class="w-full h-auto object-cover rounded-xl shadow-2xl">
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Client Testimonial Section -->
+          <section data-slice-type="project_temoignage" data-slice-variation="default" class="s-projecttemoignage bg-black text-white relative overflow-hidden">
+            <div class="flex flex-col lg:flex-row min-h-[400px]">
+              
+              <!-- Left side - Title -->
+              <div class="lg:w-1/2 p-8 lg:p-16 flex items-center">
+                <div class="c-a-h3 s-projecttemoignage__title">
+                  <h3 class="text-4xl lg:text-5xl font-bold text-white leading-tight">
+                    Client<br>testimonial
+                  </h3>
+                </div>
+              </div>
+
+              <!-- Right side - Testimonial Card -->
+              <div class="lg:w-1/2 p-8 lg:p-16 flex items-center">
+                <div class="s-projecttemoignage__card bg-gray-800 bg-opacity-50 backdrop-blur-sm p-8 rounded-2xl w-full border border-gray-700">
+                  <div class="s-projecttemoignage__card-header flex items-start gap-6 mb-6">
+                    <div class="c-image-simple s-projecttemoignage__card-header-image flex-shrink-0">
+                      <img 
+                        width="80" 
+                        height="80" 
+                        alt="Client photo" 
+                        loading="lazy" 
+                        src="/imgi_72_Enmascarar-grupo-295111-2.png" 
+                        class="w-20 h-20 rounded-full object-cover border-2 border-gray-600"
+                      >
+                    </div>
+                    <div class="s-projecttemoignage__card-header-text">
+                      <div class="c-a-pl s-projecttemoignage__card-header-text-author text-xl font-semibold text-white mb-1" id="testimonialAuthor">
+                        Margot Helfter
+                      </div>
+                      <div class="c-a-pm s-projecttemoignage__card-header-text-job text-gray-300" id="testimonialJob">
+                        Homerun Executive Creative Director
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="c-a-pl s-projecttemoignage__card-quote">
+                    <p class="text-gray-100 text-lg leading-relaxed" id="testimonialQuote">
+                      "Working with LEOLEO on Homerun's website was a great experience. Coralie and Arthur were truly attentive while bringing fresh, creative, and relevant ideas at every stage. The result speaks for itself: a site that's both stunning and functional and even award-winning! Thanks for your commitment and talent."
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
         </div>
+        <div class="c-project-content__extra"></div>
       </div>
     </div>
   </div>
@@ -414,15 +496,14 @@ const proyectos = [
   const proyectosData = {
     'apparta': {
       nombre: 'Apparta',
-      descripcion: 'La fenomenal aplicación top 5 en la categoría de Alimentos y Bebidas de Colombia en AppStore y Google Playstore. Explora una amplia red de más de 2000 restaurantes y desbloquea descuentos exclusivos a través de reservas en restaurantes. Respaldado por una notable inversión de $2 millones de dólares de distinguidos capitales de riesgo de EE. UU. y Latinoamérica, y adoptado por más de 1 millón de usuarios.',
+      descripcion: 'Hemos abordado el diseño y desarrollo del sitio web de Apparta, una agencia en la encrucijada de la consultoría y la publicidad, diseñamos innovaciones culturales que crean valor y comunicaciones cruzadas que despiertan conversaciones.',
       imagen: '/Apparta.webp',
-      servicios: ['UI/UX', 'Desarrollo', 'Branding'],
+      servicios: ['3D', 'WEBSITE'],
       tecnologias: [
-        'Aplicación móvil Android e iOS',
-        'Diseño y prototipo UI/UX', 
-        'Desarrollo de back-end',
-        'Panel de administración',
-        'Arquitectura del servidor AWS'
+        'React Native',
+        'Node.js',
+        'AWS',
+        'MongoDB'
       ],
       caracteristicas: [
         'Inicio de sesión con contraseña única',
@@ -436,11 +517,17 @@ const proyectos = [
         'Calificaciones y reseñas atractivas',
         'Funcionalidad de reembolso por fidelidad'
       ],
-      rol: 'Desarrollo Completo',
-      solucion: 'Aplicación móvil / E-commerce',
+      rol: 'UX-UI / 3D / Development',
+      awards: 'SOTD AWWWARDS - FWA - CSS DESIGN - GSAP',
+      solucion: 'React Native / Node.js / AWS',
       creditos: 'E-me Growth Agency',
-      duracion: '8 meses',
-      website: 'https://apparta.com'
+      duracion: '2 meses',
+      website: 'https://apparta.com',
+      testimonial: {
+        author: 'Margot Helfter',
+        job: 'Apparta Executive Creative Director',
+        quote: 'Trabajar con E-me en el sitio web de Apparta fue una gran experiencia. El equipo fue verdaderamente atento mientras aportaba ideas frescas, creativas y relevantes en cada etapa. El resultado habla por sí solo: un sitio que es a la vez impresionante y funcional, ¡e incluso galardonado! Gracias por su compromiso y talento.'
+      }
     }
   };
 
@@ -453,47 +540,58 @@ const proyectos = [
     // Populate modal content
     const modalTitle = document.getElementById('modalTitle');
     const modalDescription = document.getElementById('modalDescription');
-    const modalImage = document.getElementById('modalImage');
-    const modalRol = document.getElementById('modalRol');
-    const modalSolucion = document.getElementById('modalSolucion');
-    const modalCreditos = document.getElementById('modalCreditos');
-    const modalDuracion = document.getElementById('modalDuracion');
+    const modalHeroImage = document.getElementById('modalHeroImage');
+    const modalRole = document.getElementById('modalRole');
+    const modalAwards = document.getElementById('modalAwards');
+    const modalTecnologias = document.getElementById('modalTecnologias');
+    const modalDuration = document.getElementById('modalDuration');
     const modalWebsiteLink = document.getElementById('modalWebsiteLink');
+    const testimonialAuthor = document.getElementById('testimonialAuthor');
+    const testimonialJob = document.getElementById('testimonialJob');
+    const testimonialQuote = document.getElementById('testimonialQuote');
     
     if (modalTitle) modalTitle.textContent = project.nombre;
     if (modalDescription) modalDescription.textContent = project.descripcion;
-    if (modalImage) {
-      modalImage.src = project.imagen;
-      modalImage.alt = project.nombre;
+    if (modalHeroImage) {
+      modalHeroImage.src = project.imagen;
+      modalHeroImage.alt = project.nombre;
     }
-    if (modalRol) modalRol.textContent = project.rol;
-    if (modalSolucion) modalSolucion.textContent = project.solucion;
-    if (modalCreditos) modalCreditos.textContent = project.creditos;
-    if (modalDuracion) modalDuracion.textContent = project.duracion;
-    if (modalWebsiteLink) modalWebsiteLink.href = project.website;
+    if (modalRole) modalRole.textContent = project.rol || 'UX-UI / 3D / Development';
+    if (modalAwards) modalAwards.textContent = project.awards || 'SOTD AWWWARDS - FWA - CSS DESIGN - GSAP';
+    if (modalDuration) modalDuration.textContent = project.duracion || '2 months';
+    if (modalWebsiteLink) modalWebsiteLink.href = project.website || '#';
     
-    // Populate tags
+    // Populate tags with improved styling
     const tagsContainer = document.getElementById('modalTags');
     if (tagsContainer) {
       tagsContainer.innerHTML = '';
       project.servicios.forEach(function(servicio) {
         const tag = document.createElement('div');
-        tag.className = 'bg-gray-100 px-4 py-2 text-sm font-normal text-gray-700 rounded-lg';
+        tag.className = 'c-a-minitag s-projectheader__tags-item bg-gray-100 px-4 py-2 text-sm font-normal text-gray-700 rounded-lg';
         tag.textContent = servicio;
         tagsContainer.appendChild(tag);
       });
     }
     
-    // Populate technologies/solutions
-    const tecnologiasContainer = document.getElementById('modalTecnologias');
-    if (tecnologiasContainer) {
-      tecnologiasContainer.innerHTML = '';
-      project.tecnologias.forEach(function(tech) {
-        const div = document.createElement('div');
-        div.className = 'text-gray-700';
-        div.textContent = tech;
-        tecnologiasContainer.appendChild(div);
-      });
+    // Populate technologies/solutions as single line
+    if (modalTecnologias) {
+      if (project.tecnologias && project.tecnologias.length > 0) {
+        modalTecnologias.textContent = project.tecnologias.join(' / ');
+      } else {
+        modalTecnologias.textContent = 'Storyblok / Netlify / Spline';
+      }
+    }
+    
+    // Populate testimonial with project-specific or default data
+    if (testimonialAuthor) {
+      testimonialAuthor.textContent = project.testimonial?.author || 'Cliente E-me';
+    }
+    if (testimonialJob) {
+      testimonialJob.textContent = project.testimonial?.job || 'Director Ejecutivo';
+    }
+    if (testimonialQuote) {
+      testimonialQuote.textContent = project.testimonial?.quote || 
+        '"Trabajar con E-me en nuestro proyecto fue una experiencia excepcional. Su equipo fue verdaderamente atento mientras aportaba ideas frescas, creativas y relevantes en cada etapa. El resultado habla por sí solo: un proyecto que es a la vez impresionante y funcional. ¡Gracias por su compromiso y talento!"';
     }
     
     // Show modal
@@ -518,6 +616,216 @@ const proyectos = [
 </script>
 
 <style>
+  /* Estilos específicos para el modal de proyecto */
+  .c-project-content {
+    max-height: 90vh;
+    overflow-y: auto;
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+  }
+
+  .c-project-content__inner {
+    position: relative;
+  }
+
+  .s-projectheader {
+    position: relative;
+  }
+
+  .s-projectheader__close {
+    clip-path: inset(0% round 0.694444vw);
+    transition: all 0.3s ease;
+  }
+
+  .s-projectheader__close:hover {
+    transform: scale(1.1);
+  }
+
+  .c-cta-close__bg,
+  .c-cta-close__bg2 {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: inherit;
+    transition: all 0.3s ease;
+  }
+
+  .c-cta-close__bg2 {
+    background: rgba(0, 0, 0, 0.1);
+    opacity: 0;
+  }
+
+  .s-projectheader__close:hover .c-cta-close__bg2 {
+    opacity: 1;
+  }
+
+  .c-a-minitag {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.7);
+    transition: all 0.3s ease;
+  }
+
+  .c-a-minitag:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+  }
+
+  .s-projectheader__image {
+    clip-path: inset(0% round 0.694444vw);
+    overflow: hidden;
+    border-radius: 0.694444vw;
+  }
+
+  .s-projectinfo__items-item {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .s-projectinfo__items-item-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 67, 255, 0.02) 0%, rgba(0, 51, 196, 0.02) 100%);
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .s-projectinfo__items-item:hover .s-projectinfo__items-item-bg {
+    opacity: 1;
+  }
+
+  .s-projectinfo__items-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .s-projectgallery {
+    margin-bottom: 3rem;
+  }
+
+  .s-projectgallery__item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.75rem;
+  }
+
+  .c-image-simple img {
+    transition: all 0.4s ease;
+  }
+
+  .s-projectgallery__item:hover .c-image-simple img {
+    transform: scale(1.03);
+  }
+
+  /* Estilos para las nuevas galerías con fondos oscuros */
+  .s-projectgallery [class*="bg-"] {
+    transition: all 0.3s ease;
+  }
+
+  .s-projectgallery [class*="bg-"]:hover {
+    transform: translateY(-4px);
+  }
+
+  /* Efectos específicos para diferentes fondos oscuros */
+  .bg-gradient-to-b:hover,
+  .bg-gradient-to-br:hover {
+    box-shadow: 0 20px 40px rgba(0, 67, 255, 0.3);
+  }
+
+  /* Efectos específicos para gradientes azules */
+  .s-projectgallery .bg-gradient-to-br[class*="0043FF"]:hover {
+    box-shadow: 0 20px 40px rgba(0, 67, 255, 0.5);
+  }
+
+  .s-projectgallery .bg-gradient-to-br[class*="1a1a2e"]:hover {
+    box-shadow: 0 20px 40px rgba(26, 26, 46, 0.5);
+  }
+
+  .s-projectgallery .bg-gradient-to-br[class*="0f172a"]:hover {
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.5);
+  }
+
+  .s-projectgallery .bg-gradient-to-br[class*="1e3a8a"]:hover {
+    box-shadow: 0 20px 40px rgba(30, 58, 138, 0.5);
+  }
+
+  .bg-black:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+    border-color: rgba(0, 67, 255, 0.3);
+  }
+
+  /* Animaciones para las imágenes dentro de las galerías */
+  .s-projectgallery .shadow-lg,
+  .s-projectgallery .shadow-md,
+  .s-projectgallery .shadow-2xl {
+    transition: all 0.3s ease;
+  }
+
+  .s-projectgallery:hover .shadow-lg {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  .s-projectgallery:hover .shadow-md {
+    box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.15);
+  }
+
+  .s-projectgallery:hover .shadow-2xl {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+  }
+
+  .s-projecttemoignage {
+    border-radius: 0;
+    background: #000;
+    color: white;
+  }
+
+  .s-projecttemoignage__card {
+    position: relative;
+    border-radius: 1rem;
+    background: rgba(55, 65, 81, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(107, 114, 128, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .s-projecttemoignage__card:hover {
+    transform: translateY(-2px);
+    background: rgba(55, 65, 81, 0.7);
+    border-color: rgba(107, 114, 128, 0.5);
+  }
+
+  .c-cta-simple {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .c-cta-simple__bg {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: inherit;
+    transition: all 0.3s ease;
+  }
+
+  .c-cta-simple:hover .c-cta-simple__bg {
+    background: rgba(0, 0, 0, 1);
+    transform: scale(1.02);
+  }
+
+  .c-cta-simple__content {
+    position: relative;
+    z-index: 1;
+  }
+
   /* Animaciones adicionales para suavizar las transiciones */
   @keyframes fadeInUp {
     from {
@@ -534,6 +842,51 @@ const proyectos = [
     animation: fadeInUp 0.3s ease-out;
   }
 
+  /* Scrollbar personalizado para el modal */
+  .c-project-content::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .c-project-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+  }
+
+  .c-project-content::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+  }
+
+  .c-project-content::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+  }
+
+  /* Estilos específicos para el header */
+  .s-projectheader__wrapper .flex {
+    align-items: flex-start;
+  }
+
+  /* Estilos para las cards de información */
+  .s-projectinfo__items-item {
+    border: 1px solid #e5e7eb;
+  }
+
+  .s-projectinfo__items-item .flex {
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .s-projectinfo__items-item-title {
+    min-width: 120px;
+    flex-shrink: 0;
+  }
+
+  .s-projectinfo__items-item-content {
+    flex: 1;
+    text-align: right;
+    font-weight: 500;
+  }
+
   /* Mejoras en la responsividad */
   @media (max-width: 1023px) {
     .lg\:grid-flow-col-dense {
@@ -543,6 +896,90 @@ const proyectos = [
     .lg\:col-start-2,
     .lg\:col-start-1 {
       grid-column-start: auto;
+    }
+
+    .c-project-content {
+      margin-left: 20px !important;
+      margin-right: 20px !important;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      max-width: calc(100vw - 40px);
+    }
+
+    .s-projectheader__wrapper {
+      padding: 1.5rem;
+      padding-top: 4rem;
+    }
+
+    .s-projectheader__wrapper .flex {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .s-projectheader__wrapper .flex-shrink-0 {
+      margin-left: 0;
+      align-self: flex-start;
+    }
+
+    .s-projectinfo {
+      padding: 1.5rem;
+    }
+
+    .s-projecttemoignage .flex {
+      flex-direction: column;
+    }
+
+    .s-projecttemoignage .lg\:w-1\/2 {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .c-project-content {
+      margin-left: 15px !important;
+      margin-right: 15px !important;
+      max-width: calc(100vw - 30px);
+    }
+
+    .s-projectheader__close {
+      top: 1rem;
+      right: 1rem;
+      width: 3rem;
+      height: 3rem;
+    }
+
+    .c-a-h2 h1 {
+      font-size: 2.5rem;
+      line-height: 1.1;
+    }
+
+    .s-projectinfo__items-item .flex {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .s-projectinfo__items-item-content {
+      text-align: left;
+    }
+
+    .s-projecttemoignage h3 {
+      font-size: 2rem;
+    }
+
+    /* Responsividad para las nuevas galerías oscuras */
+    .s-projectgallery [class*="bg-gradient-"],
+    .s-projectgallery .bg-black {
+      padding: 1rem !important;
+    }
+
+    .s-projectgallery .px-8 {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .s-projectgallery .gap-6 {
+      gap: 1rem;
     }
   }
 </style>

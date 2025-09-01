@@ -2,110 +2,191 @@
 // Datos de los contadores
 const contadores = [
   {
-    numero: "10",
-    prefijo: "+",
-    titulo: "años de",
-    subtitulo: "experiencia"
+    numeroContador: 150,
+    titulo: "Proyectos",
+    subtitulo: "Completados"
   },
   {
-    numero: "130",
-    prefijo: "+",
-    titulo: "clientes nacionales",
-    subtitulo: "e internacionales"
+    numeroContador: 98,
+    titulo: "Clientes",
+    subtitulo: "Satisfechos"
   },
   {
-    numero: "150",
-    prefijo: "+",
-    titulo: "apps y websites",
-    subtitulo: "creados"
+    numeroContador: 5,
+    titulo: "Años",
+    subtitulo: "De experiencia"
   }
 ];
 ---
 
-<section class="py-20 bg-gradient-to-b from-[#000510] via-[#000408] to-[#000000] relative overflow-hidden">
-  <!-- Efectos de luz sutiles y más reducidos -->
-  <div class="absolute top-0 left-1/4 w-64 h-64 bg-[#0043FF] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
-  <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-[#0033C4] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
+<!-- Sección de Contadores Animados -->
+<section class="pb-[160px] xl:pb-[8.33rem] bg-white relative overflow-hidden" data-color="#FFFFFF" data-active="false">
   
   <div class="container-custom relative z-10">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-6xl mx-auto">
-      {contadores.map((contador, index) => (
-        <div class="contador-item text-center">
-          <!-- Número principal -->
-          <div class="mb-4">
-            <span class="text-6xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent">
-              {contador.prefijo}<span class="numero-animado" data-target={contador.numero}>0</span>
-            </span>
-          </div>
-          
-          <!-- Texto descriptivo -->
-          <div class="text-white">
-            <h3 class="text-xl md:text-2xl lg:text-3xl font-normal leading-tight">
-              {contador.titulo}
-            </h3>
-            <h4 class="text-xl md:text-2xl lg:text-3xl font-normal leading-tight">
-              {contador.subtitulo}
-            </h4>
-          </div>
+    <!-- Título de la sección -->
+    <div class="pt-20 xl:pt-[8rem]">
+      <div class="flex flex-wrap justify-between xl:flex-nowrap xl:gap-x-[5rem]">
+        <div class="w-full xl:w-auto">
+          <h2 class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold flex flex-wrap items-start gap-x-3 xl:gap-x-[2.6rem] text-black leading-tight">
+            <span>Números</span>
+            <span>que no</span>
+            <span>solo miden—</span>
+            <span>también</span>
+            <span>inspiran</span>
+          </h2>
         </div>
-      ))}
+        <div class="w-full pt-8 xl:w-auto xl:pt-[2.08rem]">
+          <p class="text-[16px] font-normal leading-[1.45em] xl:text-[1.14rem] text-gray-600">
+            Cada número cuenta una historia de transformación, crecimiento y éxito compartido.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Grid horizontal de contadores -->
+    <div class="mt-10 md:mt-20 lg:mt-[6.02rem] xl:mt-[13.02rem]">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 xl:gap-16">
+        {contadores.map((contador, index) => (
+          <div 
+            class="contador-card group text-center transition-all duration-500 ease-in-out"
+            data-numero-contador={contador.numeroContador}
+            data-delay={index * 200}
+          >
+            <!-- Número contador animado -->
+            <div class="mb-8">
+              <div class="flex items-baseline justify-center">
+                <span 
+                  class="contador-numero text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-black font-mono leading-none"
+                  data-target={contador.numeroContador}
+                >
+                  0
+                </span>
+                <span class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black">+</span>
+              </div>
+            </div>
+            
+            <!-- Título y subtítulo -->
+            <div>
+              <h3 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-black relative leading-tight mb-2">
+                {contador.titulo}
+              </h3>
+              <p class="text-lg md:text-xl lg:text-2xl xl:text-3xl font-normal text-gray-600">
+                {contador.subtitulo}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </section>
 
-<style>
-  .container-custom {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .contador-item span {
-      font-size: 4rem !important;
-    }
-  }
-</style>
-
 <script>
-  // Función para animar solo los números contadores
+  // Función para animar contadores
   function animateCounters() {
-    const contadores = document.querySelectorAll('.numero-animado') as NodeListOf<HTMLElement>;
+    const counters = document.querySelectorAll('.contador-numero');
     
+    const animateNumber = (counter: HTMLElement, target: number, duration = 2000) => {
+      const start = 0;
+      const increment = target / (duration / 16);
+      let current = start;
+      
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        counter.textContent = Math.floor(current).toString();
+      }, 16);
+    };
+
+    // Intersection Observer para activar animación cuando sea visible
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const contador = entry.target as HTMLElement;
-          const target = parseInt(contador.dataset.target || '0');
-          const duration = 2000; // 2 segundos
-          const increment = target / (duration / 16); // 60fps
-          let current = 0;
+          const card = entry.target as HTMLElement;
+          const numero = card.querySelector('.contador-numero') as HTMLElement;
+          if (numero && numero.dataset.target) {
+            const target = parseInt(numero.dataset.target);
+            const delay = parseInt(card.dataset.delay || '0') || 0;
           
-          const updateCounter = () => {
-            current += increment;
-            if (current < target) {
-              contador.textContent = Math.floor(current).toString();
-              requestAnimationFrame(updateCounter);
-            } else {
-              contador.textContent = target.toString();
-            }
-          };
+            // Agregar clase de animación de entrada
+            setTimeout(() => {
+              card.classList.add('animate-in');
+              animateNumber(numero, target);
+            }, delay);
           
-          updateCounter();
-          observer.unobserve(contador);
+            observer.unobserve(card);
+          }
         }
       });
+    }, {
+      threshold: 0.3
     });
-    
-    contadores.forEach(contador => {
-      observer.observe(contador);
+
+    // Observar todas las tarjetas de contador
+    document.querySelectorAll('.contador-card').forEach(card => {
+      observer.observe(card);
     });
   }
-  
-  // Inicializar animación de contadores cuando el DOM esté listo
-  document.addEventListener('DOMContentLoaded', () => {
+
+  // Inicializar cuando el DOM esté listo
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', animateCounters);
+  } else {
     animateCounters();
-  });
+  }
 </script>
 
+<style>
+  /* Estilos específicos siguiendo el diseño del proyecto */
+  .contador-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .contador-card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Estilo básico para los números */
+  .contador-numero {
+    position: relative;
+    letter-spacing: -0.02em;
+  }
+
+  /* Animación de entrada staggered */
+  .contador-card:nth-child(1) { transition-delay: 0ms; }
+  .contador-card:nth-child(2) { transition-delay: 200ms; }
+  .contador-card:nth-child(3) { transition-delay: 400ms; }
+
+  /* Efectos adicionales para mobile */
+  @media (max-width: 768px) {
+    .contador-card {
+      padding: 1rem;
+    }
+  }
+
+  /* Mejorar la tipografía en números grandes */
+  @media (min-width: 1280px) {
+    .contador-numero {
+      font-feature-settings: 'tnum', 'lnum';
+    }
+  }
+
+  /* Animación más suave para el conjunto */
+  .contador-card {
+    will-change: transform, opacity;
+  }
+
+  /* Asegurar que el texto se vea limpio */
+  .contador-card * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+
+</style>
