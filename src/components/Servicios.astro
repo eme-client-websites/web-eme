@@ -2,52 +2,42 @@
 // Datos de los servicios
 const servicios = [
   {
-    numero: "01",
     titulo: "Desarrollo de estrategia",
     descripcion: "Más que solo un plan—esto transforma tu visión en resultados medibles."
   },
   {
-    numero: "02",
     titulo: "AchieveApex",
     descripcion: "Plataforma que no solo gestiona—potencia tu crecimiento empresarial."
   },
   {
-    numero: "03",
     titulo: "Lead Nurturing para negocios",
     descripcion: "Secuencias que no solo contactan—convierten prospectos en clientes."
   },
   {
-    numero: "04",
     titulo: "Desarrollo Personalizado",
     descripcion: "Software que no solo funciona—se adapta a tu negocio específico."
   },
   {
-    numero: "05",
     titulo: "Landing Pages con AI",
     descripcion: "Páginas que no solo se ven bien—optimizan para convertir visitantes."
   },
   {
-    numero: "06",
     titulo: "SEO Local y GEO con AI",
     descripcion: "Posicionamiento que no solo aparece—conecta con clientes locales."
   },
   {
-    numero: "07",
     titulo: "Ads Management",
     descripcion: "Campañas que no solo gastan—maximizan cada peso invertido."
   },
   {
-    numero: "08",
     titulo: "AI Content",
     descripcion: "Contenido que no solo llena—conecta y construye tu marca."
   },
   {
-    numero: "09",
     titulo: "Branding",
     descripcion: "Más que solo un logo—esto es la cara y voz de tu marca."
   },
   {
-    numero: "10",
     titulo: "Consultoría",
     descripcion: "Asesoramiento que no solo aconseja—acelera tu crecimiento empresarial."
   }
@@ -85,11 +75,7 @@ const servicios = [
       {servicios.map((servicio) => (
         <div class="relative w-full border-b border-white/20 [&:last-of-type]:border-b-0">
           <div class="group relative flex w-full flex-wrap pb-10 transition-opacity duration-500 ease-in-out hover:!opacity-100 md:pb-20 lg:pb-[4.17rem] group-hover:xl:opacity-30">
-            <div class="w-full">
-              <div class="font-mono text-[20px] font-normal text-white xl:text-[1.56rem]">
-                {servicio.numero}
-              </div>
-            </div>
+
             <div class="flex w-full items-start gap-x-8 flex-col lg:flex-row">
               <div class="w-full lg:w-[70%]">
                 <h2 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white relative leading-tight">
