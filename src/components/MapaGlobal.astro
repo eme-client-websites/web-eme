@@ -1,0 +1,99 @@
+---
+// Componente de estadísticas globales con mapa de fondo
+import WorldMap from './ui/WorldMap.tsx';
+---
+
+<section class="relative py-20 md:py-32 lg:py-40 bg-gradient-to-br from-[#0043FF] via-[#0033C4] to-[#001E7A] overflow-hidden">
+  <!-- Mapa interactivo de fondo -->
+  <div class="absolute inset-0 opacity-40">
+    <WorldMap 
+      client:load
+      dots={[
+        {
+          start: {
+            lat: 64.2008,
+            lng: -149.4937,
+          },
+          end: {
+            lat: 34.0522,
+            lng: -118.2437,
+          },
+        },
+        {
+          start: { lat: 64.2008, lng: -149.4937 },
+          end: { lat: -15.7975, lng: -47.8919 },
+        },
+        {
+          start: { lat: -15.7975, lng: -47.8919 },
+          end: { lat: 38.7223, lng: -9.1393 },
+        },
+        {
+          start: { lat: 51.5074, lng: -0.1278 },
+          end: { lat: 28.6139, lng: 77.209 },
+        },
+        {
+          start: { lat: 28.6139, lng: 77.209 },
+          end: { lat: 43.1332, lng: 131.9113 },
+        },
+        {
+          start: { lat: 28.6139, lng: 77.209 },
+          end: { lat: -1.2921, lng: 36.8219 },
+        },
+      ]}
+      lineColor="#ffffff"
+    />
+  </div>
+  
+  <!-- Efectos de luz adicionales -->
+  <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0043FF]/20"></div>
+  
+  <!-- Contenido principal -->
+  <div class="container-custom relative z-10 text-center">
+    <div class="max-w-6xl mx-auto">
+      <!-- Primera línea -->
+      <h2 class="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white mb-4 md:mb-8 tracking-tight leading-none">
+        1300 MINDS
+      </h2>
+      
+      <!-- Segunda línea -->
+      <h2 class="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white mb-4 md:mb-8 tracking-tight leading-none">
+        30 LOCATIONS
+      </h2>
+      
+      <!-- Tercera línea -->
+      <h2 class="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white tracking-tight leading-none">
+        ONE TEAM
+      </h2>
+    </div>
+  </div>
+  
+  <!-- Efectos de partículas flotantes -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full opacity-60 animate-ping"></div>
+    <div class="absolute top-3/4 right-1/4 w-1 h-1 bg-white rounded-full opacity-40 animate-ping" style="animation-delay: 1s;"></div>
+    <div class="absolute top-1/2 left-3/4 w-1.5 h-1.5 bg-white rounded-full opacity-50 animate-ping" style="animation-delay: 2s;"></div>
+    <div class="absolute bottom-1/4 left-1/2 w-1 h-1 bg-white rounded-full opacity-30 animate-ping" style="animation-delay: 3s;"></div>
+  </div>
+</section>
+
+<style>
+  /* Efecto de brillo en el texto */
+  h2 {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 3rem;
+      line-height: 0.9;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 2.5rem;
+    }
+  }
+</style>
