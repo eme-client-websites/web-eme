@@ -1,33 +1,33 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Servicios from '../components/Servicios.astro';
-import Contadores from '../components/Contadores.astro';
-import Proyectos from '../components/Proyectos.astro';
-import MapaGlobal from '../components/MapaGlobal.astro';
-import Equipo from '../components/Equipo.astro';
-import LanguageSwitcher from '../components/LanguageSwitcher.astro';
-import Footer from '../components/Footer.astro';
-import ClientesShowcase from '../components/ClientesShowcase.astro';
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import Layout from '../../layouts/Layout.astro';
+import Servicios from '../../components/Servicios.astro';
+import Contadores from '../../components/Contadores.astro';
+import Proyectos from '../../components/Proyectos.astro';
+import MapaGlobal from '../../components/MapaGlobal.astro';
+import Equipo from '../../components/Equipo.astro';
+import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
+import Footer from '../../components/Footer.astro';
+import ClientesShowcase from '../../components/ClientesShowcase.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<Layout title="Mi Proyecto Web - Astro + React + Tailwind">
+<Layout title="My Project Web - Astro + React + Tailwind">
 	<!-- Navegación -->
 	<nav class="fixed top-0 w-full bg-black/10 backdrop-blur-md z-50 border-b border-white/10">
 		<div class="container-custom">
 			<div class="flex justify-between items-center h-16">
 				<div class="flex items-center">
-					<span class="text-white font-bold text-xl">{t('hero.brandName') || 'MiProyecto'}</span>
+					<span class="text-white font-bold text-xl">{t('hero.brandName') || 'MyProject'}</span>
 				</div>
 				<div class="hidden md:flex items-center space-x-6">
 					<div class="flex items-baseline space-x-4">
-						<a href="#inicio" class="text-white hover:text-[#0043FF] px-3 py-2 rounded-md text-sm font-medium transition-colors">{t('nav.home') || 'Inicio'}</a>
-						<a href="#servicios" class="text-white hover:text-[#0043FF] px-3 py-2 rounded-md text-sm font-medium transition-colors">{t('nav.services') || 'Servicios'}</a>
-						<a href="#proyectos" class="text-white hover:text-[#0043FF] px-3 py-2 rounded-md text-sm font-medium transition-colors">{t('nav.projects') || 'Proyectos'}</a>
-						<a href="#contacto" class="text-white hover:text-[#0043FF] px-3 py-2 rounded-md text-sm font-medium transition-colors">{t('nav.contact') || 'Contacto'}</a>
+						<a href="#inicio" class="text-white hover:text-[#0043FF] px-3 py-2 rounded-md text-sm font-medium transition-colors">{t('nav.home') || 'Home'}</a>
+						<a href="#servicios" class="text-white hover:text-[#0043FF] px-3 py-2 rounded-md text-sm font-medium transition-colors">{t('nav.services') || 'Services'}</a>
+						<a href="#proyectos" class="text-white hover:text-[#0043FF] px-3 py-2 rounded-md text-sm font-medium transition-colors">{t('nav.projects') || 'Projects'}</a>
+						<a href="#contacto" class="text-white hover:text-[#0043FF] px-3 py-2 rounded-md text-sm font-medium transition-colors">{t('nav.contact') || 'Contact'}</a>
 					</div>
 					<LanguageSwitcher />
 				</div>
@@ -47,7 +47,7 @@ const t = useTranslations(lang);
 		<div class="container-custom relative z-10 text-center">
 			<!-- Badge superior -->
 			<div class="inline-flex items-center px-4 py-2 rounded-full bg-[#0043FF]/20 border border-[#0043FF]/30 text-[#0043FF] text-sm font-medium mb-8">
-				<span>{t('hero.badge') || '✨ Proyecto Moderno Disponible Ahora'}</span>
+				<span>{t('hero.badge') || '✨ Modern Project Available Now'}</span>
 				<svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
 					<path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
 				</svg>
@@ -55,21 +55,21 @@ const t = useTranslations(lang);
 
 			<!-- Título principal -->
 			<h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-				{t('hero.title') || 'El framework web para'}
+				{t('hero.title') || 'The web framework for'}
 				<span class="bg-gradient-to-r from-[#0043FF] to-[#0033C4] bg-clip-text text-transparent">
-					{t('hero.titleHighlight') || 'sitios modernos'}
+					{t('hero.titleHighlight') || 'modern sites'}
 				</span>
 			</h1>
 
 			<!-- Subtítulo -->
 			<p class="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed">
-				{t('hero.subtitle') || 'Astro, React y Tailwind CSS potencian los sitios web más rápidos, blogs, sitios de comercio electrónico y mucho más.'}
+				{t('hero.subtitle') || 'Astro, React and Tailwind CSS power the fastest websites, blogs, e-commerce sites and much more.'}
 			</p>
 
 			<!-- Botones de acción -->
 			<div class="flex justify-center items-center">
 				<button class="bg-white text-purple-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-200 flex items-center">
-					{t('hero.ctaButton') || 'Comenzar Ahora'}
+					{t('hero.ctaButton') || 'Get Started'}
 					<svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
 						<path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
 					</svg>

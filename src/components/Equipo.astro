@@ -1,19 +1,24 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 // Datos del equipo
 const equipo = [
   {
     id: 'daniel',
-    nombre: 'Daniel Vengoechea',
-    cargo: 'Co-fundador, Growth Marketer y CEO',
-    descripcion: 'Es la mente detrás del éxito de EME, Apex AI, Gettranscribe y Elevvate. Convierte retos en oportunidades con estrategia, datos y AI. Cofundador de Apparta y speaker internacional, impulsa marcas con creatividad y tecnología de alto impacto.',
+    nombre: t('team.members.0.name') || 'Daniel Vengoechea',
+    cargo: t('team.members.0.role') || 'Co-fundador, Growth Marketer y CEO',
+    descripcion: t('team.members.0.description') || 'Es la mente detrás del éxito de EME, Apex AI, Gettranscribe y Elevvate. Convierte retos en oportunidades con estrategia, datos y AI. Cofundador de Apparta y speaker internacional, impulsa marcas con creatividad y tecnología de alto impacto.',
     imagen: '/DanielVengoechea.jpg',
     especialidades: ['Growth Marketing', 'AI Strategy', 'Business Development']
   },
   {
     id: 'marcela',
-    nombre: 'Marcela Hinestrosa',
-    cargo: 'Co-fundadora, Estratega de Marca y Negocios',
-    descripcion: 'Cree en marcas con propósito y estrategias que se sienten. Acompaña a empresas que quieren crecer con sentido, construyendo desde adentro: visión clara, estructura sólida y experiencias que conectan de verdad.',
+    nombre: t('team.members.1.name') || 'Marcela Hinestrosa',
+    cargo: t('team.members.1.role') || 'Co-fundadora, Estratega de Marca y Negocios',
+    descripcion: t('team.members.1.description') || 'Cree en marcas con propósito y estrategias que se sienten. Acompaña a empresas que quieren crecer con sentido, construyendo desde adentro: visión clara, estructura sólida y experiencias que conectan de verdad.',
     imagen: '/MarcelaHinestrosa.jpg',
     especialidades: ['Brand Strategy', 'Business Strategy', 'UX Strategy']
   }
@@ -32,17 +37,30 @@ const equipo = [
       <div class="flex flex-wrap justify-between xl:flex-nowrap xl:gap-x-[5rem]">
         <div class="w-full xl:w-auto">
           <h2 class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold flex flex-wrap items-start gap-x-3 xl:gap-x-[2.6rem] text-white leading-tight">
-            <span>Un</span>
-            <span>equipo</span>
-            <span>que es</span>
-            <span>todo</span>
-            <span>menos</span>
-            <span>ordinario</span>
+            {lang === 'en' ? (
+              <>
+                <span>A</span>
+                <span>team</span>
+                <span>that is</span>
+                <span>anything</span>
+                <span>but</span>
+                <span>ordinary</span>
+              </>
+            ) : (
+              <>
+                <span>Un</span>
+                <span>equipo</span>
+                <span>que es</span>
+                <span>todo</span>
+                <span>menos</span>
+                <span>ordinario</span>
+              </>
+            )}
           </h2>
         </div>
         <div class="w-full pt-8 xl:w-auto xl:pt-[2.08rem]">
           <p class="text-[16px] font-normal leading-[1.45em] xl:text-[1.14rem] text-gray-300">
-            Conoce a los visionarios detrás de E-me. Un dúo estratégico que combina creatividad, tecnología y datos para transformar ideas extraordinarias.
+            {t('team.subtitle') || 'Conoce a los visionarios detrás de E-me. Un dúo estratégico que combina creatividad, tecnología y datos para transformar ideas extraordinarias.'}
           </p>
         </div>
       </div>
@@ -89,7 +107,7 @@ const equipo = [
                   <!-- Nombre y cargo -->
                   <div class="mb-6">
                     <h3 class="text-4xl xl:text-5xl font-bold text-white mb-3 leading-tight">
-                      {miembro.nombre.split(' ').map((palabra, i) => (
+                      {miembro.nombre.split(' ').map((palabra: string, i: number) => (
                         <div class="inline-flex w-auto opacity-100 transform-none mr-2">
                           {palabra}
                         </div>

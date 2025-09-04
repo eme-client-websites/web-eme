@@ -1,45 +1,60 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 // Datos de los servicios
 const servicios = [
   {
-    titulo: "Desarrollo de estrategia",
-    descripcion: "Más que solo un plan—esto transforma tu visión en resultados medibles."
+    numero: "01",
+    titulo: t('services.items.0.title') || "Desarrollo de estrategia",
+    descripcion: t('services.items.0.description') || "Más que solo un plan—esto transforma tu visión en resultados medibles."
   },
   {
-    titulo: "AchieveApex",
-    descripcion: "Plataforma que no solo gestiona—potencia tu crecimiento empresarial."
+    numero: "02", 
+    titulo: t('services.items.1.title') || "AchieveApex",
+    descripcion: t('services.items.1.description') || "Plataforma que no solo gestiona—potencia tu crecimiento empresarial."
   },
   {
-    titulo: "Lead Nurturing para negocios",
-    descripcion: "Secuencias que no solo contactan—convierten prospectos en clientes."
+    numero: "03",
+    titulo: t('services.items.2.title') || "Lead Nurturing para negocios",
+    descripcion: t('services.items.2.description') || "Secuencias que no solo contactan—convierten prospectos en clientes."
   },
   {
-    titulo: "Desarrollo Personalizado",
-    descripcion: "Software que no solo funciona—se adapta a tu negocio específico."
+    numero: "04",
+    titulo: t('services.items.3.title') || "Desarrollo Personalizado",
+    descripcion: t('services.items.3.description') || "Software que no solo funciona—se adapta a tu negocio específico."
   },
   {
-    titulo: "Landing Pages con AI",
-    descripcion: "Páginas que no solo se ven bien—optimizan para convertir visitantes."
+    numero: "05",
+    titulo: t('services.items.4.title') || "Landing Pages con AI",
+    descripcion: t('services.items.4.description') || "Páginas que no solo se ven bien—optimizan para convertir visitantes."
   },
   {
-    titulo: "SEO Local y GEO con AI",
-    descripcion: "Posicionamiento que no solo aparece—conecta con clientes locales."
+    numero: "06",
+    titulo: t('services.items.5.title') || "SEO Local y GEO con AI",
+    descripcion: t('services.items.5.description') || "Posicionamiento que no solo aparece—conecta con clientes locales."
   },
   {
-    titulo: "Ads Management",
-    descripcion: "Campañas que no solo gastan—maximizan cada peso invertido."
+    numero: "07",
+    titulo: t('services.items.6.title') || "Ads Management",
+    descripcion: t('services.items.6.description') || "Campañas que no solo gastan—maximizan cada peso invertido."
   },
   {
-    titulo: "AI Content",
-    descripcion: "Contenido que no solo llena—conecta y construye tu marca."
+    numero: "08",
+    titulo: t('services.items.7.title') || "AI Content",
+    descripcion: t('services.items.7.description') || "Contenido que no solo llena—conecta y construye tu marca."
   },
   {
-    titulo: "Branding",
-    descripcion: "Más que solo un logo—esto es la cara y voz de tu marca."
+    numero: "09",
+    titulo: t('services.items.8.title') || "Branding",
+    descripcion: t('services.items.8.description') || "Más que solo un logo—esto es la cara y voz de tu marca."
   },
   {
-    titulo: "Consultoría",
-    descripcion: "Asesoramiento que no solo aconseja—acelera tu crecimiento empresarial."
+    numero: "10",
+    titulo: t('services.items.9.title') || "Consultoría",
+    descripcion: t('services.items.9.description') || "Asesoramiento que no solo aconseja—acelera tu crecimiento empresarial."
   }
 ];
 ---
@@ -55,16 +70,27 @@ const servicios = [
               <div class="flex flex-wrap justify-between xl:flex-nowrap xl:gap-x-[5rem]">
         <div class="w-full xl:w-auto">
                      <h2 class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold flex flex-wrap items-start gap-x-3 xl:gap-x-[2.6rem] text-white leading-tight">
-            <span>¡Soluciones</span>
-            <span>que suenan</span>
-            <span>bien, y</span>
-            <span>también</span>
-            <span>funcionan!</span>
+            {lang === 'en' ? (
+              <>
+                <span>Solutions</span>
+                <span>that sound</span>
+                <span>good, and</span>
+                <span>work too!</span>
+              </>
+            ) : (
+              <>
+                <span>¡Soluciones</span>
+                <span>que suenan</span>
+                <span>bien, y</span>
+                <span>también</span>
+                <span>funcionan!</span>
+              </>
+            )}
           </h2>
         </div>
         <div class="w-full pt-8 xl:w-auto xl:pt-[2.08rem]">
           <p class="text-[16px] font-normal leading-[1.45em] xl:text-[1.14rem] text-gray-300">
-            Creemos que las marcas deberían hacer más que solo aparecer—deberían hacer una entrada.
+            {t('services.subtitle') || 'Creemos que las marcas deberían hacer más que solo aparecer—deberían hacer una entrada.'}
           </p>
         </div>
       </div>
@@ -100,7 +126,7 @@ const servicios = [
     <!-- Botón de más información -->
     <div class="w-full pt-10 xl:pt-[5.21rem]">
       <a href="/servicios" class="group relative inline-flex items-center overflow-hidden font-bold text-[20px] font-medium uppercase text-white transition-all duration-300 ease-in-out xl:text-[1.46rem] hover:text-[#0043FF]">
-        Más Acerca de Nuestros Servicios
+        {t('services.moreButton') || 'Más Acerca de Nuestros Servicios'}
         <svg width="24" height="24" class="ml-2 transition-all duration-300 ease-in-out group-hover:fill-[#0043FF] group-hover:md:ml-4" data-icon="arrow">
           <g>
             <path fill-rule="evenodd" clip-rule="evenodd" d="M18.8457 12L8.85393 1.63591L10.4311 0L22 12L10.4311 24L8.85393 22.3641L18.8457 12Z"></path>

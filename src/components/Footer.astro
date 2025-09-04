@@ -1,0 +1,244 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Enlaces de navegación
+const navLinks = [
+  { href: '#inicio', text: t('nav.home') || 'Inicio' },
+  { href: '#servicios', text: t('nav.services') || 'Servicios' },
+  { href: '#proyectos', text: t('nav.projects') || 'Proyectos' },
+  { href: '#equipo', text: t('nav.team') || 'Equipo' },
+  { href: '#contacto', text: t('nav.contact') || 'Contacto' }
+];
+
+// Enlaces sociales/reconocimientos
+const socialLinks = [
+  { href: '#', text: 'LINKEDIN' },
+  { href: '#', text: 'INSTAGRAM' },
+  { href: '#', text: 'AWWWARDS' },
+  { href: '#', text: 'DRIBBBLE' }
+];
+---
+
+<footer class="relative bg-gray-50 border-t-2 border-red-500 min-h-[400px] overflow-hidden">
+  <!-- Container principal -->
+  <div class="container-custom relative z-10 h-full">
+    <div class="flex flex-col lg:flex-row min-h-[400px]">
+      
+      <!-- Columna izquierda - Navegación -->
+      <div class="lg:w-1/4 flex flex-col justify-start pt-12 lg:pt-16">
+        <!-- Logo/Marca -->
+        <div class="mb-8">
+          <div class="w-8 h-8 bg-black rounded-sm mb-4"></div>
+        </div>
+        
+        <!-- Enlaces de navegación -->
+        <nav class="space-y-2">
+          {navLinks.map((link) => (
+            <a 
+              href={link.href}
+              class="block text-black hover:text-gray-600 transition-colors duration-200 text-sm uppercase tracking-wide font-medium"
+            >
+              {link.text}
+            </a>
+          ))}
+        </nav>
+      </div>
+
+      <!-- Columna central - Call to Action -->
+      <div class="lg:w-1/2 flex flex-col justify-center items-center text-center py-16 lg:py-0">
+        <!-- Texto pequeño superior -->
+        <p class="text-sm text-gray-600 mb-4 uppercase tracking-wide">
+          {lang === 'en' ? 'Ready to build something with us?' : '¿Listo para hacer proyectos increíbles y geniales?'}
+        </p>
+        
+        <!-- Texto principal "Let's Chat" -->
+        <div class="relative">
+          <h2 class="text-6xl lg:text-8xl xl:text-9xl font-bold text-black leading-none tracking-tight relative z-10">
+            {lang === 'en' ? "Let's Chat" : 'Hablemos'}
+          </h2>
+          
+          <!-- Flecha -->
+          <div class="absolute -top-4 -right-8 lg:-right-12">
+            <svg class="w-8 h-8 lg:w-12 lg:h-12 text-black" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M7 11.5H17.0635M17.0635 11.5L12.5635 7M17.0635 11.5L12.5635 16"/>
+            </svg>
+          </div>
+        </div>
+        
+        <!-- Botón de contacto -->
+        <a 
+          href={lang === 'en' ? '/en/contact' : '/contacto'}
+          class="mt-8 inline-flex items-center px-8 py-4 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-all duration-200 group"
+        >
+          <span>{lang === 'en' ? 'Start a project' : 'Iniciar proyecto'}</span>
+          <svg class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M7 11.5H17.0635M17.0635 11.5L12.5635 7M17.0635 11.5L12.5635 16"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Columna derecha - Enlaces sociales y reconocimientos -->
+      <div class="lg:w-1/4 flex flex-col justify-between pt-12 lg:pt-16 pb-8">
+        <!-- Enlaces sociales -->
+        <div class="lg:text-right">
+          <div class="space-y-2">
+            {socialLinks.map((link) => (
+              <a 
+                href={link.href}
+                class="block text-black hover:text-gray-600 transition-colors duration-200 text-sm uppercase tracking-wide font-medium"
+              >
+                {link.text}
+              </a>
+            ))}
+          </div>
+        </div>
+        
+        <!-- Copyright y marca registrada -->
+        <div class="lg:text-right mt-16 lg:mt-0">
+          <div class="flex items-center justify-start lg:justify-end space-x-2">
+            <span class="text-2xl lg:text-4xl font-bold text-black">E-ME</span>
+            <div class="w-6 h-6 lg:w-8 lg:h-8 border-2 border-black rounded-full flex items-center justify-center">
+              <span class="text-xs lg:text-sm font-bold">©</span>
+            </div>
+          </div>
+          <p class="text-xs text-gray-500 mt-2">
+            © 2024 E-me Growth Agency. {lang === 'en' ? 'All rights reserved.' : 'Todos los derechos reservados.'}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  
+  <!-- Marquesina al final -->
+  <div class="w-full bg-black text-white py-4 overflow-hidden">
+    <div class="marquee">
+      <div class="marquee-content">
+        <span class="text-2xl lg:text-4xl font-bold tracking-wider mx-8">E-ME GROWTH AGENCY</span>
+        <span class="text-2xl lg:text-4xl font-bold tracking-wider mx-8">E-ME GROWTH AGENCY</span>
+        <span class="text-2xl lg:text-4xl font-bold tracking-wider mx-8">E-ME GROWTH AGENCY</span>
+        <span class="text-2xl lg:text-4xl font-bold tracking-wider mx-8">E-ME GROWTH AGENCY</span>
+        <span class="text-2xl lg:text-4xl font-bold tracking-wider mx-8">E-ME GROWTH AGENCY</span>
+        <span class="text-2xl lg:text-4xl font-bold tracking-wider mx-8">E-ME GROWTH AGENCY</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* Animaciones y efectos */
+  footer a {
+    position: relative;
+  }
+  
+  footer a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+  }
+  
+  footer a:hover::after {
+    width: 100%;
+  }
+  
+  /* Efecto hover en el texto principal */
+  footer h2:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Responsividad mejorada */
+  @media (max-width: 1023px) {
+    footer .lg\:text-right {
+      text-align: left;
+    }
+    
+    footer .lg\:justify-end {
+      justify-content: flex-start;
+    }
+    
+    footer .lg\:w-1\/4,
+    footer .lg\:w-1\/2 {
+      width: 100%;
+    }
+    
+    footer .lg\:flex-row {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    footer h2 {
+      font-size: 3.5rem;
+    }
+    
+    footer .text-\[20vw\] {
+      font-size: 25vw;
+    }
+    
+    footer .container-custom {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  
+  /* Mejoras en la tipografía */
+  footer h2 {
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Efectos de hover mejorados */
+  footer .group:hover svg {
+    transform: translateX(4px);
+  }
+  
+  /* Animación de marquesina */
+  .marquee {
+    white-space: nowrap;
+    overflow: hidden;
+    display: flex;
+  }
+  
+  .marquee-content {
+    display: flex;
+    animation: marquee 20s linear infinite;
+    white-space: nowrap;
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  /* Pausar animación en hover */
+  .marquee:hover .marquee-content {
+    animation-play-state: paused;
+  }
+  
+  /* Responsive para la marquesina */
+  @media (max-width: 640px) {
+    .marquee-content {
+      animation-duration: 15s;
+    }
+    
+    .marquee-content span {
+      font-size: 1.5rem;
+      margin: 0 1rem;
+    }
+  }
+</style>

@@ -1,11 +1,16 @@
 
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 // Datos de proyectos extraídos de e-me.co
 const proyectos = [
   {
     id: 'apparta',
-    nombre: 'Apparta',
-    descripcion: 'Donde las reservas digitales encuentran la simplicidad visual.',
+    nombre: t('projects.items.0.name') || 'Apparta',
+    descripcion: t('projects.items.0.description') || 'Donde las reservas digitales encuentran la simplicidad visual.',
     imagen: '/Apparta.webp',
     link: '/proyectos/apparta',
     servicios: ['UI/UX', 'Desarrollo', 'Branding'],
@@ -39,40 +44,40 @@ const proyectos = [
   },
   {
     id: 'carnes-santacruz',
-    nombre: 'Carnes Santacruz',
-    descripcion: 'E-commerce premium que conecta tradición con tecnología moderna.',
+    nombre: t('projects.items.1.name') || 'Carnes Santacruz',
+    descripcion: t('projects.items.1.description') || 'E-commerce premium que conecta tradición con tecnología moderna.',
     imagen: '/proyecto-carnes.jpg',
     link: '/proyectos/carnes-santacruz',
     servicios: ['E-commerce', 'Web Design', 'Marketing Digital']
   },
   {
     id: 'sandra',
-    nombre: 'Sandra',
-    descripcion: 'Identidad digital que eleva servicios profesionales al siguiente nivel.',
+    nombre: t('projects.items.2.name') || 'Sandra',
+    descripcion: t('projects.items.2.description') || 'Identidad digital que eleva servicios profesionales al siguiente nivel.',
     imagen: '/proyecto-sandra.jpg',
     link: '/proyectos/sandra',
     servicios: ['Branding', 'Web Design', 'UI/UX']
   },
   {
     id: 'eme-experience',
-    nombre: 'E-me Experience System',
-    descripcion: 'Sistema integral donde cada proceso empresarial cobra nueva vida.',
+    nombre: t('projects.items.3.name') || 'E-me Experience System',
+    descripcion: t('projects.items.3.description') || 'Sistema integral donde cada proceso empresarial cobra nueva vida.',
     imagen: '/proyecto-eme-system.jpg',
     link: '/proyectos/eme-experience',
     servicios: ['UI/UX', 'Desarrollo', 'Web Design']
   },
   {
     id: 'promigas',
-    nombre: 'Promigas App',
-    descripcion: 'App móvil que transforma la gestión de servicios de gas natural.',
+    nombre: t('projects.items.4.name') || 'Promigas App',
+    descripcion: t('projects.items.4.description') || 'App móvil que transforma la gestión de servicios de gas natural.',
     imagen: '/proyecto-promigas.jpg',
     link: '/proyectos/promigas',
     servicios: ['Mobile App', 'UI/UX', 'Desarrollo']
   },
   {
     id: 'yoyoso',
-    nombre: 'Yoyoso',
-    descripcion: 'Plataforma internacional donde el comercio global se vuelve personal.',
+    nombre: t('projects.items.5.name') || 'Yoyoso',
+    descripcion: t('projects.items.5.description') || 'Plataforma internacional donde el comercio global se vuelve personal.',
     imagen: '/proyecto-yoyoso.jpg',
     link: '/proyectos/yoyoso',
     servicios: ['E-commerce', 'Branding', 'UI/UX']
@@ -89,9 +94,19 @@ const proyectos = [
   <div class="container-custom relative z-10">
     <div class="w-1/2">
       <h2 class="text-5xl lg:text-7xl font-bold text-white leading-tight tracking-tight max-w-lg">
-        <span class="opacity-100">Proyectos</span>
-        <br>
-        <span class="opacity-100">Seleccionados</span>
+        {lang === 'en' ? (
+          <>
+            <span class="opacity-100">Selected</span>
+            <br>
+            <span class="opacity-100">Projects</span>
+          </>
+        ) : (
+          <>
+            <span class="opacity-100">Proyectos</span>
+            <br>
+            <span class="opacity-100">Seleccionados</span>
+          </>
+        )}
       </h2>
     </div>
   </div>
@@ -169,7 +184,7 @@ const proyectos = [
                 <div class="bottom-0 pt-8 lg:absolute lg:translate-y-full lg:pt-6">
                   <button class="w-full text-left" onclick={`openProjectModal('${proyecto.id}')`}>
                     <h2 class="flex flex-wrap gap-x-2 xl:gap-x-2 text-4xl xl:text-5xl font-bold text-white">
-                      {proyecto.nombre.split(' ').map((palabra, i) => (
+                      {proyecto.nombre.split(' ').map((palabra: string, i: number) => (
                         <div class="inline-flex w-auto opacity-100 transform-none">
                           {palabra}
                         </div>
@@ -201,7 +216,7 @@ const proyectos = [
     <!-- Enlace para ver más trabajos -->
     <div class="w-full pt-32 md:pt-40 lg:pt-52 xl:pt-64">
       <a href="/proyectos" class="group relative inline-flex items-center overflow-hidden font-bold text-[20px] font-medium uppercase text-white transition-all duration-300 ease-in-out xl:text-[1.46rem] hover:text-[#0043FF]">
-        Más de nuestro trabajo
+        {t('projects.viewMore') || 'Más de nuestro trabajo'}
         <svg width="24" height="24" class="ml-2 transition-all duration-300 ease-in-out group-hover:fill-[#0043FF] group-hover:md:ml-4" data-icon="arrow">
           <g>
             <path fill-rule="evenodd" clip-rule="evenodd" d="M18.8457 12L8.85393 1.63591L10.4311 0L22 12L10.4311 24L8.85393 22.3641L18.8457 12Z"></path>

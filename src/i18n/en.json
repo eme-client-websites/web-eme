@@ -1,0 +1,178 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects",
+    "team": "Team",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "✨ Modern Project Available Now",
+    "title": "The web framework for",
+    "titleHighlight": "modern sites",
+    "subtitle": "Astro, React and Tailwind CSS power the fastest websites, blogs, e-commerce sites and much more.",
+    "ctaButton": "Get Started",
+    "brandName": "MyProject"
+  },
+  "services": {
+    "title": "Solutions that sound good, and work too!",
+    "subtitle": "We believe brands should do more than just show up—they should make an entrance.",
+    "items": [
+      {
+        "number": "01",
+        "title": "Strategy Development",
+        "description": "More than just a plan—this transforms your vision into measurable results."
+      },
+      {
+        "number": "02", 
+        "title": "AchieveApex",
+        "description": "Platform that doesn't just manage—it powers your business growth."
+      },
+      {
+        "number": "03",
+        "title": "Lead Nurturing for Business",
+        "description": "Sequences that don't just contact—they convert prospects into customers."
+      },
+      {
+        "number": "04",
+        "title": "Custom Development",
+        "description": "Software that doesn't just work—it adapts to your specific business."
+      },
+      {
+        "number": "05",
+        "title": "AI Landing Pages",
+        "description": "Pages that don't just look good—they optimize to convert visitors."
+      },
+      {
+        "number": "06",
+        "title": "Local SEO and GEO with AI",
+        "description": "Positioning that doesn't just appear—it connects with local customers."
+      },
+      {
+        "number": "07",
+        "title": "Ads Management",
+        "description": "Campaigns that don't just spend—they maximize every dollar invested."
+      },
+      {
+        "number": "08",
+        "title": "AI Content",
+        "description": "Content that doesn't just fill—it connects and builds your brand."
+      },
+      {
+        "number": "09",
+        "title": "Branding",
+        "description": "More than just a logo—this is the face and voice of your brand."
+      },
+      {
+        "number": "10",
+        "title": "Consulting",
+        "description": "Advice that doesn't just counsel—it accelerates your business growth."
+      }
+    ],
+    "moreButton": "More About Our Services"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "subtitle": "Discover our latest work and innovative solutions",
+    "viewMore": "View All Projects"
+  },
+  "team": {
+    "title": "Our Team",
+    "subtitle": "Meet the professionals behind our success",
+    "roles": {
+      "ceo": "CEO & Founder",
+      "designer": "Lead Designer",
+      "developer": "Senior Developer",
+      "marketing": "Marketing Director"
+    }
+  },
+  "counters": {
+    "title": "Numbers that don't just measure—they also inspire",
+    "subtitle": "Each number tells a story of transformation, growth and shared success.",
+    "items": [
+      {
+        "number": 150,
+        "title": "Projects",
+        "subtitle": "Completed"
+      },
+      {
+        "number": 98,
+        "title": "Clients",
+        "subtitle": "Satisfied"
+      },
+      {
+        "number": 5,
+        "title": "Years",
+        "subtitle": "Of experience"
+      }
+    ]
+  },
+  "projects": {
+    "title": "Selected Projects",
+    "subtitle": "Discover our latest work and innovative solutions",
+    "viewMore": "More of our work",
+    "items": [
+      {
+        "name": "Apparta",
+        "description": "Where digital reservations meet visual simplicity."
+      },
+      {
+        "name": "Carnes Santacruz",
+        "description": "Premium e-commerce that connects tradition with modern technology."
+      },
+      {
+        "name": "Sandra",
+        "description": "Digital identity that elevates professional services to the next level."
+      },
+      {
+        "name": "E-me Experience System",
+        "description": "Comprehensive system where every business process comes to new life."
+      },
+      {
+        "name": "Promigas App",
+        "description": "Mobile app that transforms natural gas service management."
+      },
+      {
+        "name": "Yoyoso",
+        "description": "International platform where global commerce becomes personal."
+      }
+    ]
+  },
+  "team": {
+    "title": "A team that is anything but ordinary",
+    "subtitle": "Meet the visionaries behind E-me. A strategic duo that combines creativity, technology and data to transform extraordinary ideas.",
+    "members": [
+      {
+        "name": "Daniel Vengoechea",
+        "role": "Co-founder, Growth Marketer and CEO",
+        "description": "He is the mind behind the success of EME, Apex AI, Gettranscribe and Elevvate. He turns challenges into opportunities with strategy, data and AI. Co-founder of Apparta and international speaker, he drives brands with creativity and high-impact technology."
+      },
+      {
+        "name": "Marcela Hinestrosa",
+        "role": "Co-founder, Brand and Business Strategist",
+        "description": "She believes in brands with purpose and strategies that feel right. She accompanies companies that want to grow with meaning, building from within: clear vision, solid structure and experiences that truly connect."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Ready to get started?",
+    "subtitle": "Join thousands of developers who are already building the future of the web",
+    "ctaButton": "Start Project"
+  },
+  "footer": {
+    "copyright": "© 2024 MyProject. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Try again",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "next": "Next",
+    "previous": "Previous"
+  }
+}

@@ -1,20 +1,25 @@
 ---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 // Datos de los contadores
 const contadores = [
   {
     numeroContador: 150,
-    titulo: "Proyectos",
-    subtitulo: "Completados"
+    titulo: t('counters.items.0.title') || "Proyectos",
+    subtitulo: t('counters.items.0.subtitle') || "Completados"
   },
   {
     numeroContador: 98,
-    titulo: "Clientes",
-    subtitulo: "Satisfechos"
+    titulo: t('counters.items.1.title') || "Clientes",
+    subtitulo: t('counters.items.1.subtitle') || "Satisfechos"
   },
   {
     numeroContador: 5,
-    titulo: "Años",
-    subtitulo: "De experiencia"
+    titulo: t('counters.items.2.title') || "Años",
+    subtitulo: t('counters.items.2.subtitle') || "De experiencia"
   }
 ];
 ---
@@ -28,16 +33,28 @@ const contadores = [
       <div class="flex flex-wrap justify-between xl:flex-nowrap xl:gap-x-[5rem]">
         <div class="w-full xl:w-auto">
           <h2 class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold flex flex-wrap items-start gap-x-3 xl:gap-x-[2.6rem] text-black leading-tight">
-            <span>Números</span>
-            <span>que no</span>
-            <span>solo miden—</span>
-            <span>también</span>
-            <span>inspiran</span>
+            {lang === 'en' ? (
+              <>
+                <span>Numbers</span>
+                <span>that don't</span>
+                <span>just measure—</span>
+                <span>they also</span>
+                <span>inspire</span>
+              </>
+            ) : (
+              <>
+                <span>Números</span>
+                <span>que no</span>
+                <span>solo miden—</span>
+                <span>también</span>
+                <span>inspiran</span>
+              </>
+            )}
           </h2>
         </div>
         <div class="w-full pt-8 xl:w-auto xl:pt-[2.08rem]">
           <p class="text-[16px] font-normal leading-[1.45em] xl:text-[1.14rem] text-gray-600">
-            Cada número cuenta una historia de transformación, crecimiento y éxito compartido.
+            {t('counters.subtitle') || 'Cada número cuenta una historia de transformación, crecimiento y éxito compartido.'}
           </p>
         </div>
       </div>
