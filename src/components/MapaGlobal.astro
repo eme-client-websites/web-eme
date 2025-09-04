@@ -1,47 +1,13 @@
 ---
-// Componente de estadísticas globales con mapa de fondo
-import WorldMap from './ui/WorldMap.tsx';
+// Componente de estadísticas globales
 ---
 
 <section class="relative py-20 md:py-32 lg:py-40 bg-gradient-to-br from-[#0043FF] via-[#0033C4] to-[#001E7A] overflow-hidden">
-  <!-- Mapa interactivo de fondo -->
-  <div class="absolute inset-0 opacity-40">
-    <WorldMap 
-      client:load
-      dots={[
-        {
-          start: {
-            lat: 64.2008,
-            lng: -149.4937,
-          },
-          end: {
-            lat: 34.0522,
-            lng: -118.2437,
-          },
-        },
-        {
-          start: { lat: 64.2008, lng: -149.4937 },
-          end: { lat: -15.7975, lng: -47.8919 },
-        },
-        {
-          start: { lat: -15.7975, lng: -47.8919 },
-          end: { lat: 38.7223, lng: -9.1393 },
-        },
-        {
-          start: { lat: 51.5074, lng: -0.1278 },
-          end: { lat: 28.6139, lng: 77.209 },
-        },
-        {
-          start: { lat: 28.6139, lng: 77.209 },
-          end: { lat: 43.1332, lng: 131.9113 },
-        },
-        {
-          start: { lat: 28.6139, lng: 77.209 },
-          end: { lat: -1.2921, lng: 36.8219 },
-        },
-      ]}
-      lineColor="#ffffff"
-    />
+  <!-- Efectos de fondo geométricos -->
+  <div class="absolute inset-0 opacity-20">
+    <div class="absolute top-1/4 left-1/4 w-32 h-32 border border-white/20 rotate-45"></div>
+    <div class="absolute top-3/4 right-1/4 w-24 h-24 border border-white/20 rotate-12"></div>
+    <div class="absolute bottom-1/4 left-1/3 w-16 h-16 border border-white/20 rotate-45"></div>
   </div>
   
   <!-- Efectos de luz adicionales -->
