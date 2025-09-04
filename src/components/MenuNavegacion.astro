@@ -1,0 +1,144 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Enlaces del menú simplificado para E-ME
+const menuItems = [
+  { href: '#servicios', text: lang === 'en' ? 'Services' : 'Servicios' },
+  { href: '#proyectos', text: lang === 'en' ? 'Work' : 'Trabajos' },
+  { href: '#contacto', text: lang === 'en' ? 'Contact' : 'Contacto' }
+];
+---
+
+<!-- Logo arriba del menú -->
+<div class="flex flex-col items-end -mt-96 -mr-8">
+  <img src="/logo-emeblanco.svg" alt="E-ME Growth Agency" class="h-6 w-auto mb-4 mr-8" />
+  
+  <!-- Menú de navegación vertical estilo Galileo -->
+  <nav class="hero-menu flex flex-col space-y-1">
+  {menuItems.map((item) => (
+    <a 
+      href={item.href}
+      class="group block py-2 px-8 text-white/70 hover:text-white transition-all duration-300 text-3xl font-medium text-right"
+    >
+      <span class="group-hover:translate-x-[-8px] transition-transform duration-300 inline-block">
+        {item.text}
+      </span>
+    </a>
+  ))}
+  </nav>
+</div>
+
+<!-- Botón de acceso para móviles/tablets -->
+<div class="xl:hidden fixed bottom-6 right-6 z-50">
+  <button 
+    id="mobile-menu-toggle"
+    class="bg-white text-gray-900 px-6 py-3 rounded-full font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+  >
+    {lang === 'en' ? 'Client Access' : 'Acceso de Clientes'}
+  </button>
+</div>
+
+<!-- Menú móvil desplegable -->
+<div 
+  id="mobile-menu" 
+  class="xl:hidden fixed inset-0 backdrop-blur-xl z-[60] opacity-0 invisible transition-all duration-300"
+  style="background-color: rgba(0, 51, 196, 0.95);"
+>
+  <div class="flex flex-col justify-center items-center h-full space-y-6">
+    <button 
+      id="mobile-menu-close"
+      class="absolute top-6 right-6 text-white/60 hover:text-white text-2xl"
+      aria-label="Cerrar menú"
+    >
+      ×
+    </button>
+    
+    {menuItems.map((item) => (
+      <a 
+        href={item.href}
+        class="text-white text-xl font-medium hover:text-blue-400 transition-colors duration-300"
+      >
+        {item.text}
+      </a>
+    ))}
+    
+    <div class="mt-8">
+      <button class="bg-white text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300">
+        {lang === 'en' ? 'Client Access' : 'Acceso de Clientes'}
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    
+    function openMobileMenu() {
+      mobileMenu?.classList.remove('opacity-0', 'invisible');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeMobileMenu() {
+      mobileMenu?.classList.add('opacity-0', 'invisible');
+      document.body.style.overflow = 'auto';
+    }
+    
+    mobileMenuToggle?.addEventListener('click', openMobileMenu);
+    mobileMenuClose?.addEventListener('click', closeMobileMenu);
+    mobileMenu?.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) closeMobileMenu();
+    });
+    
+    // Cerrar menú al hacer clic en enlaces
+    const mobileLinks = mobileMenu?.querySelectorAll('a');
+    mobileLinks?.forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+    
+    // Cerrar con tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMobileMenu();
+    });
+  });
+</script>
+
+<style>
+  /* Efectos hover suaves */
+  nav a:hover span:first-child {
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Animación de entrada escalonada para móvil */
+  #mobile-menu a {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideInUp 0.4s ease forwards;
+  }
+  
+  #mobile-menu a:nth-child(1) { animation-delay: 0.1s; }
+  #mobile-menu a:nth-child(2) { animation-delay: 0.2s; }
+  #mobile-menu a:nth-child(3) { animation-delay: 0.3s; }
+  #mobile-menu a:nth-child(4) { animation-delay: 0.4s; }
+  #mobile-menu a:nth-child(5) { animation-delay: 0.5s; }
+  #mobile-menu a:nth-child(6) { animation-delay: 0.6s; }
+  #mobile-menu a:nth-child(7) { animation-delay: 0.7s; }
+  
+  @keyframes slideInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Glassmorphism para el menú móvil */
+  #mobile-menu {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+</style>

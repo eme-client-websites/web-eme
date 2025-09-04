@@ -86,7 +86,7 @@ const proyectos = [
 ---
 
 <!-- Título de la sección - Estructura exacta de Designatives -->
-<section class="xl:pt-32 bg-gradient-to-b from-[#000000] via-[#000408] to-[#000510] relative overflow-hidden" data-active="true" data-color="#FFFFFF">
+<section class="xl:pt-32 relative overflow-hidden" data-active="true" data-color="#FFFFFF" style="background: #030B46;">
   <!-- Efectos de luz de fondo -->
   <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#0043FF] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
   <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#0033C4] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
@@ -113,7 +113,7 @@ const proyectos = [
 </section>
 
 <!-- Grid de proyectos - Estructura exacta de Designatives -->
-<section data-active="false" data-color="#FFFFFF" class="pb-20 lg:pt-52 xl:pb-40 xl:pt-20 bg-gradient-to-b from-[#000510] via-[#000408] to-[#000000]">
+<section data-active="false" data-color="#FFFFFF" class="pb-20 lg:pt-52 xl:pb-40 xl:pt-20" style="background: #030B46;">
   <div class="container-custom">
     <div class="grid grid-cols-1 gap-10 lg:gap-20 xl:gap-12">
       <div class="space-y-10 lg:space-y-0 mt-10 lg:mt-[-20rem]">
@@ -168,7 +168,7 @@ const proyectos = [
                         <!-- Icono con fondo negro en hover -->
                         <div class="relative w-6 h-6 flex items-center justify-center">
                           <!-- Fondo negro con animación suave -->
-                          <div class="absolute inset-0 bg-black rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          <div class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background-color: #0033C4;"></div>
                           
                           <!-- Flecha -->
                           <svg class="relative w-4 h-4 text-black group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -232,7 +232,7 @@ const proyectos = [
 <!-- Modal para mostrar detalles del proyecto -->
 <div id="projectModal" class="fixed inset-0 z-50 hidden">
   <!-- Overlay -->
-  <div class="fixed inset-0 bg-black/80 backdrop-blur-sm" onclick="closeProjectModal()"></div>
+  <div class="fixed inset-0 backdrop-blur-sm" onclick="closeProjectModal()" style="background-color: rgba(0, 51, 196, 0.8);"></div>
   
   <!-- Modal Content Container -->
   <div class="fixed inset-0 overflow-y-auto">
@@ -244,7 +244,7 @@ const proyectos = [
           <!-- Project Header Section -->
           <section data-slice-type="project_header" data-slice-variation="default" class="s-projectheader relative">
             <!-- Close Button -->
-            <button class="c-cta-close s-projectheader__close absolute top-8 right-8 z-10 w-14 h-14 bg-black/10 hover:bg-black/20 rounded-full flex items-center justify-center transition-all duration-200" onclick="closeProjectModal()">
+            <button class="c-cta-close s-projectheader__close absolute top-8 right-8 z-10 w-14 h-14 rounded-full flex items-center justify-center transition-all duration-200" onclick="closeProjectModal()" style="background-color: rgba(0, 51, 196, 0.1);" onmouseover="this.style.backgroundColor='rgba(0, 51, 196, 0.2)'" onmouseout="this.style.backgroundColor='rgba(0, 51, 196, 0.1)'">
               <div class="c-cta-close__bg"></div>
               <div class="c-cta-close__bg2"></div>
               <svg class="c-cta-close__svg w-6 h-6 text-black" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -279,7 +279,8 @@ const proyectos = [
                     href="#" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    class="c-cta-simple s-projectheader__cta inline-flex items-center px-6 py-3 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-all duration-200"
+                    class="c-cta-simple s-projectheader__cta inline-flex items-center px-6 py-3 text-white rounded-full font-medium transition-all duration-200"
+                    style="background-color: #0033C4;"
                   >
                     <div class="c-cta-simple__bg"></div>
                     <div class="bold c-a-cta c-cta-simple__content">
@@ -427,7 +428,7 @@ const proyectos = [
 
           <!-- Technologies - Pure Black -->
           <section data-slice-type="project_gallery" data-slice-variation="default" class="s-projectgallery mb-8 px-8">
-            <div class="bg-black p-8 rounded-2xl border border-gray-800">
+            <div class="p-8 rounded-2xl border border-gray-800" style="background-color: #0033C4;">
               <div class="s-projectgallery__item">
                 <div class="c-image-simple">
                   <img src="/imgi_2_Grupo-19860.png" alt="Technology Stack" class="w-full h-auto object-cover rounded-xl shadow-lg">
@@ -438,7 +439,7 @@ const proyectos = [
 
           <!-- Final Showcase - Dark Gradient -->
           <section data-slice-type="project_gallery" data-slice-variation="default" class="s-projectgallery mb-8 px-8">
-            <div class="bg-gradient-to-br from-[#000510] via-[#000408] to-[#000000] p-8 rounded-2xl">
+            <div class="p-8 rounded-2xl" style="background: #030B46;">
               <div class="s-projectgallery__item">
                 <div class="c-image-simple">
                   <img src="/imgi_17_Grupo-20422erowpeor.png" alt="Final Mobile Showcase" class="w-full h-auto object-cover rounded-xl shadow-2xl">
@@ -448,7 +449,7 @@ const proyectos = [
           </section>
 
           <!-- Client Testimonial Section -->
-          <section data-slice-type="project_temoignage" data-slice-variation="default" class="s-projecttemoignage bg-black text-white relative overflow-hidden">
+          <section data-slice-type="project_temoignage" data-slice-variation="default" class="s-projecttemoignage text-white relative overflow-hidden" style="background-color: #0033C4;">
             <div class="flex flex-col lg:flex-row min-h-[400px]">
               
               <!-- Left side - Title -->
@@ -789,7 +790,7 @@ const proyectos = [
 
   .s-projecttemoignage {
     border-radius: 0;
-    background: #000;
+    background: #0033C4;
     color: white;
   }
 
@@ -975,7 +976,7 @@ const proyectos = [
 
     /* Responsividad para las nuevas galerías oscuras */
     .s-projectgallery [class*="bg-gradient-"],
-    .s-projectgallery .bg-black {
+    .s-projectgallery [style*="#0033C4"] {
       padding: 1rem !important;
     }
 

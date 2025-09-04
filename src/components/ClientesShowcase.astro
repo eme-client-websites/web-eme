@@ -57,7 +57,7 @@ const clientesGroup2 = clientes.slice(14, 28);
 const clientesGroup3 = clientes.slice(28);
 ---
 
-<section class="py-20 lg:py-32 bg-gradient-to-b from-[#000000] via-[#000408] to-[#000510] relative overflow-hidden">
+<section class="py-20 lg:py-32 relative overflow-hidden" style="background: #030B46;">
   <!-- Efectos de luz de fondo -->
   <div class="absolute top-0 left-1/4 w-96 h-96 bg-[#0043FF] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
   <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-[#0033C4] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
@@ -111,7 +111,7 @@ const clientesGroup3 = clientes.slice(28);
                 src={cliente.logo} 
                 alt={cliente.name}
                 class="client-logo"
-                loading="lazy"
+                loading="eager"
               />
             </div>
           </div>
@@ -129,7 +129,7 @@ const clientesGroup3 = clientes.slice(28);
                 src={cliente.logo} 
                 alt={cliente.name}
                 class="client-logo"
-                loading="lazy"
+                loading="eager"
               />
             </div>
           </div>
@@ -147,7 +147,7 @@ const clientesGroup3 = clientes.slice(28);
                 src={cliente.logo} 
                 alt={cliente.name}
                 class="client-logo"
-                loading="lazy"
+                loading="eager"
               />
             </div>
           </div>
@@ -156,39 +156,10 @@ const clientesGroup3 = clientes.slice(28);
     </div>
 
     <!-- Gradientes de fade en los extremos -->
-    <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#000510] to-transparent pointer-events-none z-10"></div>
-    <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#000510] to-transparent pointer-events-none z-10"></div>
+    <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#030B46] to-transparent pointer-events-none z-10"></div>
+    <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#030B46] to-transparent pointer-events-none z-10"></div>
   </div>
 
-  <!-- Estadísticas impresionantes -->
-  <div class="container-custom relative z-10 mt-20">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-      <div class="stat-item">
-        <div class="text-3xl md:text-4xl font-bold text-[#0043FF] mb-2">40+</div>
-        <div class="text-sm text-gray-400 uppercase tracking-wide">
-          {lang === 'en' ? 'Trusted Clients' : 'Clientes que Confían'}
-        </div>
-      </div>
-      <div class="stat-item">
-        <div class="text-3xl md:text-4xl font-bold text-[#0043FF] mb-2">5+</div>
-        <div class="text-sm text-gray-400 uppercase tracking-wide">
-          {lang === 'en' ? 'Years Experience' : 'Años de Experiencia'}
-        </div>
-      </div>
-      <div class="stat-item">
-        <div class="text-3xl md:text-4xl font-bold text-[#0043FF] mb-2">150+</div>
-        <div class="text-sm text-gray-400 uppercase tracking-wide">
-          {lang === 'en' ? 'Projects Delivered' : 'Proyectos Entregados'}
-        </div>
-      </div>
-      <div class="stat-item">
-        <div class="text-3xl md:text-4xl font-bold text-[#0043FF] mb-2">98%</div>
-        <div class="text-sm text-gray-400 uppercase tracking-wide">
-          {lang === 'en' ? 'Client Satisfaction' : 'Satisfacción Cliente'}
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 
 <style>
@@ -206,19 +177,21 @@ const clientesGroup3 = clientes.slice(28);
     align-items: center;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
+    /* Asegurar altura consistente */
+    min-height: 80px;
   }
   
   /* Animaciones direccionales - Más suaves y lentas */
   .clients-track-right {
-    animation: marquee-right 120s linear infinite;
+    animation: marquee-right 200s linear infinite;
   }
   
   .clients-track-left {
-    animation: marquee-left 100s linear infinite;
+    animation: marquee-left 180s linear infinite;
   }
   
   .clients-track-right-slow {
-    animation: marquee-right 150s linear infinite;
+    animation: marquee-right 250s linear infinite;
   }
   
   /* Keyframes para animaciones */
@@ -252,6 +225,10 @@ const clientesGroup3 = clientes.slice(28);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Asegurar que siempre mantenga su tamaño */
+    min-width: 160px;
+    min-height: 80px;
+    flex-shrink: 0;
   }
   
   /* Logo principal */
@@ -317,15 +294,15 @@ const clientesGroup3 = clientes.slice(28);
     }
     
     .clients-track-right {
-      animation-duration: 80s;
+      animation-duration: 140s;
     }
     
     .clients-track-left {
-      animation-duration: 70s;
+      animation-duration: 120s;
     }
     
     .clients-track-right-slow {
-      animation-duration: 100s;
+      animation-duration: 180s;
     }
   }
   

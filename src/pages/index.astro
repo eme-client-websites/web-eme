@@ -8,6 +8,8 @@ import Equipo from '../components/Equipo.astro';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import Footer from '../components/Footer.astro';
 import ClientesShowcase from '../components/ClientesShowcase.astro';
+import MenuNavegacion from '../components/MenuNavegacion.astro';
+import MenuScrollDesktop from '../components/MenuScrollDesktop.astro';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -16,64 +18,46 @@ const t = useTranslations(lang);
 
 <Layout title="Mi Proyecto Web - Astro + React + Tailwind">
 	<!-- Navegación -->
-	<nav class="fixed top-0 w-full bg-black/10 backdrop-blur-md z-50 border-b border-white/10">
+	<nav class="absolute top-0 w-full bg-transparent z-20">
 		<div class="container-custom">
 			<div class="flex justify-between items-center h-16">
-				<div class="flex items-center">
-					<span class="text-white font-bold text-xl">{t('hero.brandName') || 'MiProyecto'}</span>
-				</div>
-				<div class="hidden md:flex items-center space-x-6">
-					<div class="flex items-baseline space-x-4">
-						<a href="#inicio" class="text-white hover:text-[#0043FF] px-3 py-2 rounded-md text-sm font-medium transition-colors">{t('nav.home') || 'Inicio'}</a>
-						<a href="#servicios" class="text-white hover:text-[#0043FF] px-3 py-2 rounded-md text-sm font-medium transition-colors">{t('nav.services') || 'Servicios'}</a>
-						<a href="#proyectos" class="text-white hover:text-[#0043FF] px-3 py-2 rounded-md text-sm font-medium transition-colors">{t('nav.projects') || 'Proyectos'}</a>
-						<a href="#contacto" class="text-white hover:text-[#0043FF] px-3 py-2 rounded-md text-sm font-medium transition-colors">{t('nav.contact') || 'Contacto'}</a>
-					</div>
-					<LanguageSwitcher />
-				</div>
 			</div>
 		</div>
 	</nav>
 
 	<!-- Hero Section -->
-	<section id="inicio" class="min-h-screen bg-gradient-to-b from-[#030B46] via-[#020A35] via-[#010824] to-[#000510] flex items-center justify-center relative overflow-hidden">
-		<!-- Efectos de luz sutiles -->
-		<div class="absolute top-0 left-1/4 w-96 h-96 bg-[#0043FF] rounded-full mix-blend-screen filter blur-3xl opacity-10"></div>
-		<div class="absolute bottom-0 right-1/4 w-96 h-96 bg-[#0033C4] rounded-full mix-blend-screen filter blur-3xl opacity-10"></div>
+	<section id="inicio" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+		<!-- Imagen de fondo -->
+		<div class="absolute inset-0 z-0">
+			<img src="/fondohero.jpg" alt="Hero Background" class="w-full h-full object-cover" />
+			<!-- Overlay oscuro para legibilidad -->
+			<div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80"></div>
+		</div>
+		
+		<!-- Efectos de luz sutiles sobre la imagen -->
+		<div class="absolute top-0 left-1/4 w-96 h-96 bg-[#0043FF] rounded-full mix-blend-screen filter blur-3xl opacity-5 z-10"></div>
+		<div class="absolute bottom-0 right-1/4 w-96 h-96 bg-[#0033C4] rounded-full mix-blend-screen filter blur-3xl opacity-5 z-10"></div>
 		
 		<!-- Efecto de luz central sutil -->
-		<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-[#0043FF] to-[#0033C4] rounded-full mix-blend-screen filter blur-2xl opacity-5"></div>
+		<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-[#0043FF] to-[#0033C4] rounded-full mix-blend-screen filter blur-2xl opacity-3 z-10"></div>
 		
-		<div class="container-custom relative z-10 text-center">
-			<!-- Badge superior -->
-			<div class="inline-flex items-center px-4 py-2 rounded-full bg-[#0043FF]/20 border border-[#0043FF]/30 text-[#0043FF] text-sm font-medium mb-8">
-				<span>{t('hero.badge') || '✨ Proyecto Moderno Disponible Ahora'}</span>
-				<svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-					<path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-				</svg>
-			</div>
+		<div class="container-custom relative z-20 flex items-center h-full max-w-7xl mx-auto px-8">
+			<!-- Columna izquierda: Contenido principal (65%) -->
+			<div class="w-[65%] text-left pr-12">
 
 			<!-- Título principal -->
-			<h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+			<h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-none -mt-80">
 				{t('hero.title') || 'El framework web para'}
-				<span class="bg-gradient-to-r from-[#0043FF] to-[#0033C4] bg-clip-text text-transparent">
+				<span class="text-white">
 					{t('hero.titleHighlight') || 'sitios modernos'}
 				</span>
 			</h1>
 
-			<!-- Subtítulo -->
-			<p class="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed">
-				{t('hero.subtitle') || 'Astro, React y Tailwind CSS potencian los sitios web más rápidos, blogs, sitios de comercio electrónico y mucho más.'}
-			</p>
-
-			<!-- Botones de acción -->
-			<div class="flex justify-center items-center">
-				<button class="bg-white text-purple-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors duration-200 flex items-center">
-					{t('hero.ctaButton') || 'Comenzar Ahora'}
-					<svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-						<path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-					</svg>
-				</button>
+			</div>
+			
+			<!-- Columna derecha: Menú de navegación (35%) -->
+			<div class="w-[35%] hidden xl:flex flex-col justify-start items-end pr-8 pt-16">
+				<MenuNavegacion />
 			</div>
 		</div>
 	</section>
@@ -104,4 +88,7 @@ const t = useTranslations(lang);
 
 	<!-- Footer -->
 	<Footer />
+
+	<!-- Menú Desktop para Scroll -->
+	<MenuScrollDesktop />
 </Layout>
