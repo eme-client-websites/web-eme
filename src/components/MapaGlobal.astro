@@ -2,13 +2,13 @@
 // Componente de estadísticas globales
 ---
 
-<section class="relative py-20 md:py-32 lg:py-40 overflow-hidden" style="background: transparent;">
+<section class="relative py-32 md:py-48 lg:py-56 xl:py-64 overflow-hidden min-h-screen" style="background: transparent;">
   <!-- Mapa del mundo como fondo -->
-  <div class="absolute inset-0 flex items-center justify-center">
+  <div class="absolute inset-0 flex items-center justify-center -m-10">
     <img 
       src="/mapworld.svg" 
       alt="Mapa del mundo" 
-      class="w-full h-full object-contain"
+      class="w-[140%] h-[140%] object-contain opacity-80"
     />
   </div>
   
@@ -23,20 +23,68 @@
   <!-- Contenido principal -->
   <div class="container-custom relative z-10 text-center">
     <div class="max-w-6xl mx-auto">
-      <!-- Primera línea -->
-      <h2 class="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black dynamic-text mb-4 md:mb-8 tracking-tight leading-none transition-colors duration-300">
-        1300 MINDS
-      </h2>
-      
-      <!-- Segunda línea -->
-      <h2 class="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black dynamic-text mb-4 md:mb-8 tracking-tight leading-none transition-colors duration-300">
-        30 LOCATIONS
-      </h2>
-      
-      <!-- Tercera línea -->
-      <h2 class="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black dynamic-text tracking-tight leading-none transition-colors duration-300">
-        ONE TEAM
-      </h2>
+      <!-- Grid horizontal de contadores -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 xl:gap-16">
+        <!-- Contador Proyectos -->
+        <div class="contador-card group text-center">
+          <div class="mb-4">
+            <div class="flex items-baseline justify-center">
+              <span class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black dynamic-text transition-colors duration-300">+</span>
+              <span class="contador-numero text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black dynamic-text leading-none transition-colors duration-300">
+                370
+              </span>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold dynamic-text leading-tight mb-2 transition-colors duration-300">
+              Proyectos
+            </h3>
+            <p class="text-lg md:text-xl lg:text-2xl xl:text-3xl font-normal dynamic-text opacity-70 transition-colors duration-300">
+              Markenig y Desarrollo
+            </p>
+          </div>
+        </div>
+
+        <!-- Contador Clientes -->
+        <div class="contador-card group text-center">
+          <div class="mb-4">
+            <div class="flex items-baseline justify-center">
+              <span class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black dynamic-text transition-colors duration-300">+</span>
+              <span class="contador-numero text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black dynamic-text leading-none transition-colors duration-300">
+                183
+              </span>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold dynamic-text leading-tight mb-2 transition-colors duration-300">
+              Clientes
+            </h3>
+            <p class="text-lg md:text-xl lg:text-2xl xl:text-3xl font-normal dynamic-text opacity-70 transition-colors duration-300">
+              Nacionales e Internacionales
+            </p>
+          </div>
+        </div>
+
+        <!-- Contador Años -->
+        <div class="contador-card group text-center">
+          <div class="mb-4">
+            <div class="flex items-baseline justify-center">
+              <span class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black dynamic-text transition-colors duration-300">+</span>
+              <span class="contador-numero text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black dynamic-text leading-none transition-colors duration-300">
+                10
+              </span>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold dynamic-text leading-tight mb-2 transition-colors duration-300">
+              Años
+            </h3>
+            <p class="text-lg md:text-xl lg:text-2xl xl:text-3xl font-normal dynamic-text opacity-70 transition-colors duration-300">
+              De experiencia
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   
@@ -51,21 +99,50 @@
 
 <style>
   /* Efecto de brillo en el texto */
-  h2 {
+  .contador-numero, h3 {
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Estilos para las tarjetas de contador */
+  .contador-card {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Estilo básico para los números */
+  .contador-numero {
+    position: relative;
+    letter-spacing: -0.02em;
+    font-feature-settings: 'tnum', 'lnum';
   }
   
   /* Responsive adjustments */
   @media (max-width: 768px) {
-    h2 {
+    .contador-card {
+      padding: 1rem;
+    }
+    .contador-numero {
       font-size: 3rem;
       line-height: 0.9;
+    }
+    h3 {
+      font-size: 1.5rem;
     }
   }
   
   @media (max-width: 480px) {
-    h2 {
+    .contador-numero {
       font-size: 2.5rem;
     }
+    h3 {
+      font-size: 1.25rem;
+    }
+  }
+
+  /* Asegurar que el texto se vea limpio */
+  .contador-card * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 </style>

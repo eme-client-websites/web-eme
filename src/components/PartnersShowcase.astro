@@ -8,357 +8,66 @@ const t = useTranslations(lang);
 const partners = [
   {
     name: 'Pinterest',
-    logo: '/logos/partners/P-Pinteres.png',
-    category: 'Social Media'
+    logo: '/logos/partners/P-Pinteres.png'
   },
   {
     name: 'OpenAI',
-    logo: '/logos/partners/OpenAI_.png',
-    category: 'AI Technology'
+    logo: '/logos/partners/OpenAI_.png'
   },
   {
     name: 'Meta Business',
-    logo: '/logos/partners/imgi_5_263601789_228953422693663_3786388595935595545_n.svg',
-    category: 'Advertising'
+    logo: '/logos/partners/imgi_5_263601789_228953422693663_3786388595935595545_n.svg'
   },
   {
     name: 'Scrum Alliance',
-    logo: '/logos/partners/Certified-Scrum-Master-Badge.png',
-    category: 'Methodology'
+    logo: '/logos/partners/Certified-Scrum-Master-Badge.png'
   },
   {
     name: 'AWS',
-    logo: '/logos/partners/APN-Logo_Color_678x186.8ed843d613d4e41b85021a213a05e25933b00ea6.png',
-    category: 'Cloud Services'
+    logo: '/logos/partners/APN-Logo_Color_678x186.8ed843d613d4e41b85021a213a05e25933b00ea6.png'
   },
   {
     name: 'Shopify',
-    logo: '/logos/partners/1651851123285.png',
-    category: 'E-commerce Platform'
+    logo: '/logos/partners/1651851123285.png'
   }
 ];
 ---
 
-<section class="py-20 lg:py-32 relative overflow-hidden" style="background: #F1F1F1;">
-  <!-- Efectos de luz sutiles -->
-  <div class="absolute top-0 left-1/4 w-96 h-96 bg-[#0033C4] rounded-full mix-blend-multiply filter blur-3xl opacity-5"></div>
-  <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-[#0043FF] rounded-full mix-blend-multiply filter blur-3xl opacity-5"></div>
+<!-- Título de la sección -->
+<section class="pt-12 pb-8 lg:pt-16 lg:pb-12 xl:pt-20 xl:pb-16 relative overflow-hidden" style="background: transparent;" data-active="true" data-color="#FFFFFF">
+  <!-- Efectos de luz de fondo -->
+  <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#0043FF] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#0033C4] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
 
-  <!-- Título principal -->
-  <div class="container-custom relative z-10 mb-16">
-    <div class="text-center">
-      <div class="inline-flex items-center px-6 py-3 rounded-full bg-[#0033C4]/10 border border-[#0033C4]/20 text-[#0033C4] text-sm font-medium mb-8">
-        <span class="w-2 h-2 bg-[#0033C4] rounded-full mr-3 animate-pulse"></span>
-        {lang === 'en' ? 'Trusted Technology Partners' : 'Partners Tecnológicos de Confianza'}
+  <div class="container-custom relative z-10">
+    <!-- Título de la sección -->
+    <div class="pt-8 xl:pt-12">
+      <div class="flex flex-wrap justify-between xl:flex-nowrap xl:gap-x-[5rem]">
+        <div class="w-full xl:w-auto">
+          <h2 class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold flex flex-wrap items-start gap-x-3 xl:gap-x-[2.6rem] dynamic-text leading-tight transition-colors duration-300">
+            <span>Partners</span>
+          </h2>
+        </div>
       </div>
-      
-      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0033C4] mb-6 leading-tight">
-        {lang === 'en' ? (
-          <>
-            Powered by <span class="bg-gradient-to-r from-[#0043FF] to-[#0033C4] bg-clip-text text-transparent">industry leaders</span>
-          </>
-        ) : (
-          <>
-            Potenciados por <span class="bg-gradient-to-r from-[#0043FF] to-[#0033C4] bg-clip-text text-transparent">líderes de la industria</span>
-          </>
-        )}
-      </h2>
-      
-      <p class="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-        {lang === 'en' 
-          ? 'We collaborate with the most innovative technology companies to deliver cutting-edge solutions that drive your business forward.'
-          : 'Colaboramos con las empresas tecnológicas más innovadoras para entregar soluciones de vanguardia que impulsan tu negocio hacia adelante.'
-        }
-      </p>
     </div>
   </div>
+</section>
 
-  <!-- Showcase de Partners - Diseño Hexagonal Dinámico -->
-  <div class="relative partners-container">
-    
-    <!-- Grid hexagonal responsivo -->
-    <div class="partners-hexagon-grid">
-      {partners.map((partner, index) => (
-        <div 
-          class="partner-hexagon"
-          data-category={partner.category}
-          style={`animation-delay: ${index * 0.2}s`}
-        >
-          <div class="hexagon-inner">
-            <div class="hexagon-content">
-              <img 
-                src={partner.logo} 
-                alt={`${partner.name} Partner`}
-                class={`partner-logo ${partner.name === 'Meta Business' ? 'meta-logo-large' : ''}`}
-                loading="eager"
-              />
-              <div class="partner-overlay">
-                <div class="partner-info">
-                  <h3 class="partner-name">{partner.name}</h3>
-                  <p class="partner-category">{partner.category}</p>
-                </div>
-              </div>
-            </div>
-          </div>
+<!-- Logos de Partners -->
+<section class="pb-20 lg:pb-32 xl:pb-40" style="background: transparent;" data-active="false" data-color="#FFFFFF">
+  <div class="container-custom">
+    <div class="grid grid-cols-3 gap-8 lg:gap-12 items-center justify-items-center">
+      {partners.map((partner) => (
+        <div class="w-full flex items-center justify-center p-6">
+          <img 
+            src={partner.logo} 
+            alt={`${partner.name} Logo`}
+            class="max-w-full max-h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+            loading="lazy"
+          />
         </div>
       ))}
     </div>
-
-    <!-- Elementos decorativos - detrás de las cajas -->
-    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-[#0043FF] to-[#0033C4] rounded-full mix-blend-multiply filter blur-3xl opacity-5 animate-pulse -z-10"></div>
-    
-    <!-- Líneas de conexión animadas - detrás de las cajas -->
-    <div class="connection-lines -z-10">
-      <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 800 600">
-        <defs>
-          <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#0043FF;stop-opacity:0.3" />
-            <stop offset="50%" style="stop-color:#0033C4;stop-opacity:0.6" />
-            <stop offset="100%" style="stop-color:#0043FF;stop-opacity:0.3" />
-          </linearGradient>
-        </defs>
-        <path class="connection-path" d="M200,150 Q400,100 600,150 T800,200" stroke="url(#lineGradient)" stroke-width="2" fill="none" />
-        <path class="connection-path" d="M100,300 Q300,250 500,300 T700,350" stroke="url(#lineGradient)" stroke-width="2" fill="none" />
-        <path class="connection-path" d="M150,450 Q350,400 550,450 T750,500" stroke="url(#lineGradient)" stroke-width="2" fill="none" />
-      </svg>
-    </div>
-
   </div>
-
-  <!-- Call to action -->
-  <div class="container-custom relative z-10 mt-16 text-center">
-    <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-xl">
-      <h3 class="text-2xl font-bold text-[#0033C4] mb-4">
-        {lang === 'en' ? 'Ready to leverage these partnerships?' : '¿Listo para aprovechar estas alianzas?'}
-      </h3>
-      <p class="text-gray-600 mb-6">
-        {lang === 'en' 
-          ? 'Let\'s discuss how our technology partnerships can accelerate your project.'
-          : 'Hablemos sobre cómo nuestras alianzas tecnológicas pueden acelerar tu proyecto.'
-        }
-      </p>
-      <button class="bg-gradient-to-r from-[#0043FF] to-[#0033C4] text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg hover:scale-105 transition-all duration-300">
-        {lang === 'en' ? 'Start Conversation' : 'Iniciar Conversación'}
-      </button>
-    </div>
-  </div>
-
 </section>
 
-<style>
-  /* Contenedor principal */
-  .partners-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    position: relative;
-  }
-  
-  /* Grid hexagonal */
-  .partners-hexagon-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 3rem;
-    justify-items: center;
-    align-items: center;
-    min-height: 400px;
-  }
-  
-  /* Hexágono individual */
-  .partner-hexagon {
-    width: 180px;
-    height: 180px;
-    position: relative;
-    margin: 1rem;
-    animation: fadeInScale 0.8s ease-out forwards;
-    opacity: 0;
-    transform: scale(0.8) translateY(20px);
-    z-index: 10;
-  }
-  
-  /* Animación de entrada */
-  @keyframes fadeInScale {
-    to {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-    }
-  }
-  
-  /* Inner hexagon */
-  .hexagon-inner {
-    width: 100%;
-    height: 100%;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 51, 196, 0.1);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    position: relative;
-    overflow: hidden;
-    border: 2px solid rgba(0, 51, 196, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Hover effect en hexágono */
-  .partner-hexagon:hover .hexagon-inner {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(0, 51, 196, 0.2);
-    border-color: rgba(0, 51, 196, 0.3);
-  }
-  
-  /* Contenido del hexágono */
-  .hexagon-content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    position: relative;
-  }
-  
-  /* Logo del partner - siempre visible en gris oscuro */
-  .partner-logo {
-    max-width: 120px;
-    max-height: 60px;
-    object-fit: contain;
-    filter: brightness(0) saturate(100%) invert(20%) sepia(8%) saturate(1033%) hue-rotate(202deg) brightness(95%) contrast(91%);
-    transition: all 0.4s ease;
-    z-index: 2;
-    position: relative;
-    opacity: 1;
-  }
-  
-  /* Logo de Meta más grande */
-  .meta-logo-large {
-    max-width: 150px !important;
-    max-height: 75px !important;
-  }
-  
-  /* Cambiar logos a azul en hover */
-  .partner-hexagon:hover .partner-logo {
-    filter: brightness(0) saturate(100%) invert(25%) sepia(99%) saturate(2676%) hue-rotate(221deg) brightness(97%) contrast(94%);
-    transform: scale(1.1);
-  }
-  
-  /* Overlay con información */
-  .partner-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0, 51, 196, 0.9), transparent);
-    padding: 1rem;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
-  }
-  
-  .partner-hexagon:hover .partner-overlay {
-    transform: translateY(0);
-  }
-  
-  /* Información del partner */
-  .partner-info {
-    text-align: center;
-    color: white;
-  }
-  
-  .partner-name {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 4px;
-  }
-  
-  .partner-category {
-    font-size: 12px;
-    opacity: 0.8;
-  }
-  
-  /* Líneas de conexión animadas */
-  .connection-lines {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-    opacity: 0.3;
-  }
-  
-  .connection-path {
-    stroke-dasharray: 5, 5;
-    animation: dash 20s linear infinite;
-  }
-  
-  @keyframes dash {
-    to {
-      stroke-dashoffset: -100;
-    }
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .partners-hexagon-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-    
-    .partner-hexagon {
-      width: 140px;
-      height: 140px;
-    }
-    
-    .partner-logo {
-      max-width: 80px;
-      max-height: 40px;
-    }
-    
-    .meta-logo-large {
-      max-width: 100px !important;
-      max-height: 50px !important;
-    }
-    
-    .hexagon-content {
-      padding: 1.5rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .partners-hexagon-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-    
-    .partner-hexagon {
-      width: 120px;
-      height: 120px;
-    }
-    
-    .partner-logo {
-      max-width: 70px;
-      max-height: 35px;
-    }
-    
-    .meta-logo-large {
-      max-width: 85px !important;
-      max-height: 42px !important;
-    }
-    
-    .hexagon-content {
-      padding: 1rem;
-    }
-  }
-  
-  /* Efecto de pulsación en badge */
-  @keyframes pulse {
-    0%, 100% {
-      transform: scale(1);
-      opacity: 1;
-    }
-    50% {
-      transform: scale(1.1);
-      opacity: 0.8;
-    }
-  }
-</style>

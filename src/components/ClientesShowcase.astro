@@ -64,37 +64,39 @@ const clientesGroup3 = clientes.slice(28);
 
   <!-- Título principal -->
   <div class="container-custom relative z-10 mb-16">
-    <div class="text-center">
-      <div class="inline-block mb-6">
-        <span class="text-[#0043FF] text-sm font-semibold uppercase tracking-widest">
-          {lang === 'en' ? 'Trusted by Industry Leaders' : 'Confianza de Líderes Industriales'}
-        </span>
+    <div class="pt-8 xl:pt-12">
+      <div class="flex flex-wrap justify-between xl:flex-nowrap xl:gap-x-[5rem]">
+        <div class="w-full xl:w-auto">
+          <h2 class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold flex flex-wrap items-start gap-x-3 xl:gap-x-[2.6rem] dynamic-text leading-tight transition-colors duration-300">
+            {lang === 'en' ? (
+              <>
+                <span>Every</span>
+                <span>brand</span>
+                <span>is</span>
+                <span>unique,</span>
+                <span>so</span>
+                <span>are</span>
+                <span>our</span>
+                <span>solutions</span>
+              </>
+            ) : (
+              <>
+                <span>Cada</span>
+                <span>marca</span>
+                <span>es</span>
+                <span>distinta,</span>
+                <span>por</span>
+                <span>eso</span>
+                <span>nuestras</span>
+                <span>soluciones</span>
+                <span>también</span>
+                <span>lo</span>
+                <span>son.</span>
+              </>
+            )}
+          </h2>
+        </div>
       </div>
-      
-      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold dynamic-text mb-6 leading-tight transition-colors duration-300">
-        {lang === 'en' ? (
-          <>
-            <span class="block">Brands that</span>
-            <span class="block bg-gradient-to-r from-[#0043FF] to-[#0033C4] bg-clip-text text-transparent">
-              believe in us
-            </span>
-          </>
-        ) : (
-          <>
-            <span class="block">Marcas que</span>
-            <span class="block bg-gradient-to-r from-[#0043FF] to-[#0033C4] bg-clip-text text-transparent">
-              confían en nosotros
-            </span>
-          </>
-        )}
-      </h2>
-      
-      <p class="text-lg dynamic-text opacity-70 max-w-2xl mx-auto transition-colors duration-300">
-        {lang === 'en' 
-          ? 'Over 40+ leading companies have chosen E-ME Growth Agency to transform their digital presence and accelerate their growth.'
-          : 'Más de 40+ empresas líderes han elegido E-ME Growth Agency para transformar su presencia digital y acelerar su crecimiento.'
-        }
-      </p>
     </div>
   </div>
 

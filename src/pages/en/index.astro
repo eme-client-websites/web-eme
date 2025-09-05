@@ -43,15 +43,15 @@ const t = useTranslations(lang);
 		<!-- Efecto de luz central sutil -->
 		<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-[#0043FF] to-[#0033C4] rounded-full mix-blend-screen filter blur-2xl opacity-3 z-10"></div>
 		
-		<div class="container-custom relative z-20 flex items-center h-full max-w-7xl mx-auto px-8">
-			<!-- Columna izquierda: Contenido principal (65%) -->
-			<div class="w-[65%] text-left pr-12">
+		<div class="relative z-20 flex items-center h-full w-full px-0">
+			<!-- Columna izquierda: Contenido principal (70%) -->
+			<div class="w-[70%] text-left pl-[40px]">
 
 			<!-- Título principal -->
-			<h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-none -mt-80">
-				{t('hero.title') || 'The web framework for'}
+			<h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-none -mt-80 uppercase">
+				{t('hero.title') || 'THE WEB FRAMEWORK FOR'}
 				<span class="text-white">
-					{t('hero.titleHighlight') || 'modern sites'}
+					{t('hero.titleHighlight') || 'MODERN SITES'}
 				</span>
 			</h1>
 

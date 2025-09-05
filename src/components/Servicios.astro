@@ -9,57 +9,123 @@ const servicios = [
   {
     numero: "01",
     titulo: t('services.items.0.title') || "Estrategia de Crecimiento",
-    descripcion: t('services.items.0.description') || "Replanteemos procesos y hagamos crecer tu empresa."
+    descripcion: t('services.items.0.description') || "Replanteemos procesos y hagamos crecer tu empresa.",
+    bullets: [
+      "Análisis profundo del mercado objetivo",
+      "Optimización de procesos internos",
+      "Definición de KPIs y métricas clave",
+      "Plan de crecimiento escalable"
+    ]
   },
   {
     numero: "02", 
     titulo: t('services.items.1.title') || "AchieveApex",
-    descripcion: t('services.items.1.description') || "Automatiza, atiende y vende 24/7."
+    descripcion: t('services.items.1.description') || "Automatiza, atiende y vende 24/7.",
+    bullets: [
+      "Implementación de flujos automatizados",
+      "Integración de CRM y chatbots",
+      "Seguimiento de leads en tiempo real",
+      "Reportes automáticos de ventas"
+    ]
   },
   {
     numero: "03",
-    titulo: t('services.items.2.title') || "Lead Nurturing",
-    descripcion: t('services.items.2.description') || "Sácale el máximo provecho a tu base de datos."
+    titulo: t('services.items.2.title') || "Smart Loop",
+    descripcion: t('services.items.2.description') || "Sácale el máximo provecho a tu base de datos.",
+    bullets: [
+      "Segmentación avanzada de audiencias",
+      "Secuencias de email marketing personalizadas",
+      "Scoring automático de leads",
+      "Campañas multicanal integradas"
+    ]
   },
   {
     numero: "04",
     titulo: t('services.items.3.title') || "Desarrollo Personalizado",
-    descripcion: t('services.items.3.description') || "Construimos software a la medida."
+    descripcion: t('services.items.3.description') || "Construimos software a la medida.",
+    bullets: [
+      "Aplicaciones web y móviles nativas",
+      "APIs y microservicios escalables",
+      "Integraciones con sistemas existentes",
+      "Arquitectura cloud moderna"
+    ]
   },
   {
     numero: "05",
     titulo: t('services.items.4.title') || "Landing Pages con AI",
-    descripcion: t('services.items.4.description') || "Páginas web con estrategia comercial."
+    descripcion: t('services.items.4.description') || "Páginas web con estrategia comercial.",
+    bullets: [
+      "Diseño responsivo y optimizado",
+      "Copy persuasivo generado con IA",
+      "A/B testing automatizado",
+      "Integración con herramientas de analytics"
+    ]
   },
   {
     numero: "06",
     titulo: t('services.items.5.title') || "SEO Local y GEO con AI",
-    descripcion: t('services.items.5.description') || "Vuélvete visible en las búsquedas en Google."
+    descripcion: t('services.items.5.description') || "Vuélvete visible en las búsquedas en Google.",
+    bullets: [
+      "Optimización para búsquedas locales",
+      "Google My Business completo",
+      "Keywords research con IA",
+      "Monitoreo de posicionamiento"
+    ]
   },
   {
     numero: "07",
     titulo: t('services.items.6.title') || "AI Content",
-    descripcion: t('services.items.6.description') || "Contenido que vende."
+    descripcion: t('services.items.6.description') || "Contenido que vende.",
+    bullets: [
+      "Contenido SEO optimizado",
+      "Posts para redes sociales",
+      "Copy para anuncios publicitarios",
+      "Blogs y artículos especializados"
+    ]
   },
   {
     numero: "08",
     titulo: t('services.items.7.title') || "Ads Management",
-    descripcion: t('services.items.7.description') || "Anuncios con propósito y resultados."
+    descripcion: t('services.items.7.description') || "Anuncios con propósito y resultados.",
+    bullets: [
+      "Campañas en Google Ads y Meta",
+      "Optimización de presupuesto automática",
+      "Audiencias lookalike avanzadas",
+      "Retargeting inteligente"
+    ]
   },
   {
     numero: "09",
     titulo: t('services.items.8.title') || "Branding",
-    descripcion: t('services.items.8.description') || "Creemos la identidad de tu marca."
+    descripcion: t('services.items.8.description') || "Creemos la identidad de tu marca.",
+    bullets: [
+      "Diseño de logo y identidad visual",
+      "Manual de marca completo",
+      "Estrategia de comunicación",
+      "Aplicaciones en diferentes medios"
+    ]
   },
   {
     numero: "10",
     titulo: t('services.items.9.title') || "Consultoría",
-    descripcion: t('services.items.9.description') || "Te guiamos paso a paso."
+    descripcion: t('services.items.9.description') || "Te guiamos paso a paso.",
+    bullets: [
+      "Auditoría digital completa",
+      "Estrategia de transformación",
+      "Capacitación del equipo",
+      "Acompañamiento continuo"
+    ]
   },
   {
     numero: "11",
     titulo: t('services.items.10.title') || "Experiencia de Marca",
-    descripcion: t('services.items.10.description') || "Diseñamos cómo tu cliente vive tu marca."
+    descripcion: t('services.items.10.description') || "Diseñamos cómo tu cliente vive tu marca.",
+    bullets: [
+      "Customer Journey mapping",
+      "Touchpoints optimization",
+      "Experiencia omnicanal",
+      "Métricas de satisfacción"
+    ]
   }
 ];
 ---
@@ -84,19 +150,11 @@ const servicios = [
               </>
             ) : (
               <>
-                <span>¡Soluciones</span>
-                <span>que suenan</span>
-                <span>bien, y</span>
-                <span>también</span>
-                <span>funcionan!</span>
+                <span class="w-full">Nuestros</span>
+                <span class="w-full">Servicios</span>
               </>
             )}
           </h2>
-        </div>
-        <div class="w-full pt-8 xl:w-auto xl:pt-[2.08rem]">
-          <p class="text-[16px] font-normal leading-[1.45em] xl:text-[1.14rem] dynamic-text opacity-70 transition-colors duration-300">
-            {t('services.subtitle') || 'Creemos que las marcas deberían hacer más que solo aparecer—deberían hacer una entrada.'}
-          </p>
         </div>
       </div>
     </div>
@@ -107,16 +165,32 @@ const servicios = [
         <div class="relative w-full border-b border-white/20 [&:last-of-type]:border-b-0">
           <div class="group relative flex w-full flex-wrap pb-10 transition-opacity duration-500 ease-in-out hover:!opacity-100 md:pb-20 lg:pb-[4.17rem] group-hover:xl:opacity-30">
 
-            <div class="flex w-full items-start gap-x-8 flex-col lg:flex-row">
-              <div class="w-full lg:w-[70%]">
-                <h2 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold dynamic-text relative leading-tight transition-colors duration-300">
+            <div class="grid w-full grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
+              {/* Columna 1: Título - Alineado a la izquierda */}
+              <div class="w-full flex justify-start">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold dynamic-text relative leading-tight transition-colors duration-300 text-left">
                   {servicio.titulo}
                 </h2>
               </div>
-              <div class="w-full lg:w-[30%] mt-4 lg:mt-0">
-                <p class="font-sans text-[16px] font-normal leading-[1.45em] xl:text-[1.14rem] dynamic-text opacity-70 transition-colors duration-300">
-                  {servicio.descripcion}
-                </p>
+              
+              {/* Columna 2: Bullets - Alineados a la derecha con texto justificado a la izquierda */}
+              <div class="w-full flex justify-end">
+                <div class="w-80">
+                  <ul class="space-y-3">
+                    {servicio.bullets?.map((bullet) => (
+                      <li class="flex items-start gap-3">
+                        <div class="mt-1.5 flex-shrink-0">
+                          <svg width="16" height="16" viewBox="0 0 685.723 677.731" class="text-white fill-current">
+                            <path d="m163.754,468.933c-20.68,6.72-40.213,13.065-59.745,19.414-19.67,6.394-39.357,12.739-58.988,19.254-2.658.882-3.584.445-4.452-2.247-13.306-41.274-26.68-82.526-40.214-123.725-1.102-3.355.506-3.727,2.798-4.466,38.067-12.272,76.123-24.577,114.179-36.882.941-.304,1.86-.677,3.028-1.105-.956-1.367-2.388-1.406-3.579-1.794-37.675-12.27-75.339-24.573-113.065-36.683-3.624-1.163-4.161-2.367-2.986-5.947,13.3-40.489,26.443-81.03,39.503-121.598,1.05-3.263,2.031-4.115,5.604-2.935,37.269,12.307,74.609,24.399,111.945,36.503,1.353.439,2.684,1.436,4.336.804.306-1.615-.978-2.467-1.722-3.492-23.242-32.009-46.487-64.017-69.838-95.947-1.8-2.461-1.81-3.569.807-5.462,34.986-25.304,69.896-50.712,104.739-76.212,2.5-1.83,3.474-1.394,5.141.913,23.391,32.368,46.88,64.665,70.349,96.976.725.997,1.487,1.967,2.431,3.212.896-1.514.541-2.874.542-4.128.024-39.714.071-79.428-.067-119.141-.012-3.532,1.037-4.242,4.352-4.234,42.577.109,85.154.117,127.73-.01,3.63-.011,4.798.667,4.781,4.612-.171,39.463-.104,78.928-.104,118.392,0,1.334,0,2.668,0,4.002.236.121.472.242.708.363.76-1.019,1.532-2.029,2.279-3.058,23.318-32.113,46.669-64.201,69.886-96.387,2.014-2.792,3.176-3.347,6.215-1.119,34.721,25.454,69.555,50.756,104.412,76.024,2.155,1.562,2.572,2.476.829,4.857-23.365,31.922-46.597,63.942-69.86,95.939-1.017,1.399-2.013,2.812-3.587,5.015,8.767-2.836,16.659-5.378,24.544-7.94,31.403-10.203,62.816-20.376,94.183-30.687,2.645-.87,3.58-.455,4.433,2.188,13.204,40.913,26.462,81.809,39.869,122.656,1.215,3.701.247,4.772-3.229,5.888-37.725,12.114-75.391,24.412-113.072,36.664-1.06.345-2.106.734-3.396,1.186.915,1.403,2.354,1.42,3.529,1.801,37.81,12.257,75.613,24.539,113.474,36.64,3.391,1.084,3.778,2.316,2.739,5.491-13.341,40.738-26.588,81.507-39.725,122.312-1.014,3.149-2.147,3.624-5.224,2.614-37.765-12.397-75.576-24.652-113.377-36.94-1.272-.414-2.558-.787-4.666-1.433,5.494,7.615,10.482,14.561,15.504,21.482,19.203,26.463,38.38,52.946,57.691,79.331,1.793,2.45,1.494,3.503-.845,5.194-34.99,25.298-69.935,50.657-104.811,76.112-2.415,1.763-3.442,1.493-5.125-.833-23.411-32.348-46.919-64.626-70.407-96.918-.722-.992-1.491-1.949-2.319-3.026-1.174,1.349-.62,2.764-.621,4.026-.037,39.714-.071,79.428.045,119.142.009,3.243-.724,4.152-4.078,4.143-42.951-.125-85.903-.118-128.854-.01-3.129.008-3.896-.822-3.887-3.917.109-39.714.072-79.428.072-119.142v-4.099c-1.741.506-2.153,1.781-2.845,2.733-23.351,32.085-46.727,64.153-69.944,96.335-2.187,3.031-3.456,3.226-6.492,1.006-34.547-25.271-69.194-50.406-103.903-75.456-2.573-1.857-2.7-2.939-.868-5.448,23.181-31.749,46.245-63.582,69.337-95.396,1.091-1.503,2.167-3.016,3.882-5.404Z"/>
+                          </svg>
+                        </div>
+                        <span class="font-sans text-[14px] font-normal leading-[1.4em] xl:text-[1rem] dynamic-text opacity-60 transition-colors duration-300 text-left">
+                          {bullet}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
             <!-- Elemento hover opcional para futuros efectos -->
@@ -128,17 +202,16 @@ const servicios = [
       ))}
     </div>
     
-    <!-- Botón de más información -->
+    <!-- Botón Agendar Cita -->
     <div class="w-full pt-10 xl:pt-[5.21rem]">
-      <a href="/servicios" class="group relative inline-flex items-center overflow-hidden font-bold text-[20px] font-medium uppercase dynamic-text transition-all duration-300 ease-in-out xl:text-[1.46rem] hover:text-[#0043FF]">
-        {t('services.moreButton') || 'Más Acerca de Nuestros Servicios'}
-        <svg width="24" height="24" class="ml-2 transition-all duration-300 ease-in-out group-hover:fill-[#0043FF] group-hover:md:ml-4" data-icon="arrow">
+      <a href="/agendar-cita" class="group inline-flex items-center bg-[#FFEA1F] hover:bg-[#FFE500] text-[#030B46] font-bold text-[16px] font-medium uppercase px-6 py-3 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 xl:text-[1.14rem]">
+        AGENDAR CITA
+        <svg width="20" height="20" class="ml-2 fill-[#030B46] transition-all duration-300 ease-in-out group-hover:md:ml-3" data-icon="arrow">
           <g>
             <path fill-rule="evenodd" clip-rule="evenodd" d="M18.8457 12L8.85393 1.63591L10.4311 0L22 12L10.4311 24L8.85393 22.3641L18.8457 12Z"></path>
             <path fill-rule="evenodd" clip-rule="evenodd" d="M0 10.8431H20.4235V13.1566H0V10.8431Z"></path>
           </g>
         </svg>
-        <div class="absolute bottom-0 left-0 h-[2px] w-full bg-[#0043FF] transition-all duration-500 ease-in-out transform scale-x-0 group-hover:scale-x-100"></div>
       </a>
     </div>
     </div>

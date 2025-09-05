@@ -43,44 +43,177 @@ const proyectos = [
     }
   },
   {
-    id: 'carnes-santacruz',
-    nombre: t('projects.items.1.name') || 'Carnes Santacruz',
-    descripcion: t('projects.items.1.description') || 'E-commerce premium que conecta tradición con tecnología moderna.',
-    imagen: '/proyecto-carnes.jpg',
+    id: 'levelup',
+    nombre: 'LevelUp',
+    descripcion: 'Marketplace premium de productos THCA donde innovación y calidad se encuentran.',
+    imagen: '/levelupshop.jpeg',
+    link: '/proyectos/levelup',
+    servicios: ['Branding', 'Website', 'E-commerce', 'UI/UX'],
+    detalles: {
+      descripcionCompleta: 'LevelUp es el marketplace líder de productos THCA para negocios y consumidores. Una plataforma revolucionaria que combina diseño de vanguardia con funcionalidad avanzada, ofreciendo una experiencia de compra sin precedentes en la industria del cannabis. Con una interfaz intuitiva y un sistema de categorización inteligente, LevelUp ha redefinido los estándares del comercio digital en este sector.',
+      tecnologias: [
+        'Plataforma web responsive',
+        'Sistema de gestión de inventario',
+        'Pasarela de pagos segura',
+        'Panel de administración avanzado',
+        'Sistema de reseñas y calificaciones',
+        'API de integración con proveedores'
+      ],
+      caracteristicas: [
+        'Catálogo interactivo con filtros avanzados',
+        'Sistema de verificación de edad integrado',
+        'Carrito de compras inteligente',
+        'Programa de fidelidad y recompensas',
+        'Búsqueda por geolocalización',
+        'Chat en vivo con expertos',
+        'Sistema de tracking de pedidos',
+        'Reseñas verificadas de productos',
+        'Recomendaciones personalizadas',
+        'Integración con sistemas de envío'
+      ],
+      rol: 'Diseño y Desarrollo Completo',
+      solucion: 'E-commerce / Marketplace',
+      creditos: 'E-me Growth Agency',
+      duracion: '6 meses',
+      website: 'https://levelup-marketplace.com',
+      awards: 'Best Cannabis E-commerce Design 2024',
+      categoria: 'E-commerce / Cannabis Industry'
+    },
+    testimonial: {
+      author: 'Michael Thompson',
+      job: 'LevelUp CEO & Founder',
+      quote: 'E-me transformó completamente nuestra visión de lo que podía ser un marketplace de cannabis. Su enfoque estratégico en la experiencia del usuario y su profundo entendimiento de nuestra industria resultó en una plataforma que no solo superó nuestras expectativas, sino que se convirtió en el estándar de oro del sector. La atención al detalle y la innovación constante del equipo de E-me han sido fundamentales para nuestro éxito.'
+    }
+  },
+  {
+    id: 'amalfi',
+    nombre: 'Amalfi',
+    descripcion: 'Estrategia de redes sociales que transporta los sabores de Italia a cada post.',
+    imagen: '/amalfi.jpg',
+    link: '/proyectos/amalfi',
+    servicios: ['RRSS', 'Branding', 'Content Creation', 'Photography'],
+    detalles: {
+      descripcionCompleta: 'Amalfi es un proyecto gastronómico que combina la auténtica tradición italiana con una presencia digital sofisticada. Desarrollamos una estrategia integral de redes sociales que captura la esencia de la costa amalfitana, creando contenido visual que despierta los sentidos y conecta emocionalmente con los amantes de la gastronomía italiana. Cada publicación es una ventana a la cultura, sabores y experiencias únicas que ofrece Amalfi.',
+      tecnologias: [
+        'Estrategia de contenido multiplataforma',
+        'Fotografía gastronómica profesional',
+        'Video content para Instagram y TikTok',
+        'Community management avanzado',
+        'Analytics y métricas de engagement',
+        'Campañas publicitarias dirigidas'
+      ],
+      caracteristicas: [
+        'Identidad visual cohesiva en todas las plataformas',
+        'Contenido gastronómico de alta calidad',
+        'Storytelling auténtico de la cultura italiana',
+        'Campañas estacionales temáticas',
+        'Colaboraciones con influencers gastronómicos',
+        'Live sessions de cocina italiana',
+        'User-generated content estratégico',
+        'Promociones y eventos exclusivos',
+        'Engagement premium con la comunidad',
+        'Análisis de tendencias gastronómicas'
+      ],
+      rol: 'Estrategia Digital y Creación de Contenido',
+      solucion: 'Social Media Strategy / Content Marketing',
+      creditos: 'E-me Growth Agency',
+      duracion: '12 meses',
+      website: 'https://amalfi-restaurant.com',
+      awards: 'Best Food Content Strategy 2024',
+      categoria: 'Social Media / F&B Industry'
+    },
+    testimonial: {
+      author: 'Sofia Marini',
+      job: 'Amalfi Restaurant Owner',
+      quote: 'E-me logró capturar perfectamente la esencia de nuestra tradición familiar italiana y transformarla en una presencia digital extraordinaria. Su comprensión profunda de nuestra cultura gastronómica y su habilidad para crear contenido que realmente conecta con nuestros clientes ha sido impresionante. Gracias a su estrategia, hemos triplicado nuestro engagement y creado una comunidad fiel que celebra la auténtica cocina italiana con nosotros.'
+    }
+  },
+  {
+    id: 'quirylaser',
+    nombre: 'Quirulaser',
+    descripcion: 'Desarrollo personalizado que revoluciona la gestión de citas médicas especializadas.',
+    imagen: '/quirulaser.jpeg',
+    link: '/proyectos/quirylaser',
+    servicios: ['Desarrollo Personalizado', 'UI/UX', 'Backend', 'Mobile App'],
+    detalles: {
+      descripcionCompleta: 'Quirulaser es una solución tecnológica integral desarrollada específicamente para clínicas especializadas en tratamientos láser y dermatología estética. Nuestra plataforma combina un sistema de gestión robusto con una experiencia de usuario excepcional, permitiendo a los profesionales médicos optimizar sus procesos de agenda, historiales clínicos y seguimiento de pacientes. El sistema incluye funcionalidades avanzadas de analytics, reportes personalizados y gestión financiera especializada para el sector salud.',
+      tecnologias: [
+        'Aplicación web responsive full-stack',
+        'API REST personalizada con Node.js',
+        'Base de datos PostgreSQL optimizada',
+        'Sistema de autenticación y roles',
+        'Dashboard administrativo avanzado',
+        'Integración con sistemas de pago'
+      ],
+      caracteristicas: [
+        'Calendario de citas inteligente con disponibilidad real',
+        'Gestión completa de historiales médicos digitales',
+        'Sistema de recordatorios automáticos SMS/Email',
+        'Dashboard de métricas y analytics en tiempo real',
+        'Módulo de facturación y control financiero',
+        'Portal del paciente con acceso móvil',
+        'Gestión de inventario de equipos y productos',
+        'Sistema de backup automático y seguridad HIPAA',
+        'Reportes personalizados y exportación de datos',
+        'Integración con equipos médicos especializados'
+      ],
+      rol: 'Desarrollo Full-Stack Personalizado',
+      solucion: 'Custom Software / Healthcare Management',
+      creditos: 'E-me Growth Agency',
+      duracion: '10 meses',
+      website: 'https://quirylaser-system.com',
+      awards: 'Best Healthcare Software Solution 2024',
+      categoria: 'Custom Development / Healthcare',
+      imagenAdicional: '/quirulaser2.jpeg'
+    },
+    testimonial: {
+      author: 'Dr. Carlos Mendoza',
+      job: 'Quirulaser Medical Director',
+      quote: 'E-me desarrolló exactamente lo que necesitábamos para modernizar nuestra clínica. Su comprensión profunda de nuestros procesos médicos y su capacidad técnica excepcional resultaron en una plataforma que no solo simplificó nuestras operaciones diarias, sino que mejoró significativamente la experiencia de nuestros pacientes. El sistema es intuitivo, robusto y ha aumentado nuestra eficiencia operativa en un 40%. Un trabajo verdaderamente profesional.'
+    }
+  },
+  {
+    id: 'carnessantacruz',
+    nombre: 'Carnes Santa Cruz',
+    descripcion: 'E-commerce premium que conecta tradición cárnica con tecnología moderna.',
+    imagen: '/santacruz.webp',
     link: '/proyectos/carnes-santacruz',
-    servicios: ['E-commerce', 'Web Design', 'Marketing Digital']
-  },
-  {
-    id: 'sandra',
-    nombre: t('projects.items.2.name') || 'Sandra',
-    descripcion: t('projects.items.2.description') || 'Identidad digital que eleva servicios profesionales al siguiente nivel.',
-    imagen: '/proyecto-sandra.jpg',
-    link: '/proyectos/sandra',
-    servicios: ['Branding', 'Web Design', 'UI/UX']
-  },
-  {
-    id: 'eme-experience',
-    nombre: t('projects.items.3.name') || 'E-me Experience System',
-    descripcion: t('projects.items.3.description') || 'Sistema integral donde cada proceso empresarial cobra nueva vida.',
-    imagen: '/proyecto-eme-system.jpg',
-    link: '/proyectos/eme-experience',
-    servicios: ['UI/UX', 'Desarrollo', 'Web Design']
-  },
-  {
-    id: 'promigas',
-    nombre: t('projects.items.4.name') || 'Promigas App',
-    descripcion: t('projects.items.4.description') || 'App móvil que transforma la gestión de servicios de gas natural.',
-    imagen: '/proyecto-promigas.jpg',
-    link: '/proyectos/promigas',
-    servicios: ['Mobile App', 'UI/UX', 'Desarrollo']
-  },
-  {
-    id: 'yoyoso',
-    nombre: t('projects.items.5.name') || 'Yoyoso',
-    descripcion: t('projects.items.5.description') || 'Plataforma internacional donde el comercio global se vuelve personal.',
-    imagen: '/proyecto-yoyoso.jpg',
-    link: '/proyectos/yoyoso',
-    servicios: ['E-commerce', 'Branding', 'UI/UX']
+    servicios: ['E-commerce', 'Web Design', 'Branding', 'Marketing Digital'],
+    detalles: {
+      descripcionCompleta: 'Carnes Santa Cruz es un e-commerce especializado que combina décadas de tradición familiar en el sector cárnico con una plataforma digital de vanguardia. Desarrollamos una experiencia de compra online que mantiene la calidad y confianza que caracteriza a esta empresa familiar, mientras incorpora funcionalidades modernas de comercio electrónico. La plataforma permite a los clientes explorar una amplia gama de cortes premium, realizar pedidos personalizados y acceder a contenido educativo sobre preparación y maridajes.',
+      tecnologias: [
+        'Plataforma e-commerce responsive',
+        'Sistema de gestión de inventario en tiempo real',
+        'Integración con pasarelas de pago seguras',
+        'Dashboard administrativo completo',
+        'Sistema de delivery y logística',
+        'CRM integrado para gestión de clientes'
+      ],
+      caracteristicas: [
+        'Catálogo interactivo con cortes premium organizados',
+        'Sistema de pedidos personalizados y por peso',
+        'Calculadora de porciones según número de comensales',
+        'Programa de fidelidad y descuentos por volumen',
+        'Blog gastronómico con recetas y técnicas de cocción',
+        'Sistema de suscripciones mensuales',
+        'Tracking en tiempo real de pedidos y entregas',
+        'Reseñas y calificaciones verificadas de productos',
+        'Integración con redes sociales para contenido gastronómico',
+        'Notificaciones de disponibilidad de cortes especiales'
+      ],
+      rol: 'E-commerce Development & Digital Strategy',
+      solucion: 'E-commerce Platform / Food Industry',
+      creditos: 'E-me Growth Agency',
+      duracion: '7 meses',
+      website: 'https://carnessantacruz.com',
+      awards: 'Best Food E-commerce Platform 2024',
+      categoria: 'E-commerce / Food Industry'
+    },
+    testimonial: {
+      author: 'María Elena Santa Cruz',
+      job: 'Carnes Santa Cruz CEO',
+      quote: 'E-me logró digitalizar nuestra tradición familiar de más de 30 años sin perder la esencia que nos caracteriza. Su entendimiento del sector cárnico y su visión tecnológica crearon una plataforma que no solo facilita las ventas online, sino que educa a nuestros clientes sobre la calidad de nuestros productos. Hemos triplicado nuestro alcance y mantenido la confianza de nuestros clientes tradicionales mientras atraemos nuevas generaciones.'
+    }
   }
 ];
 ---
@@ -102,9 +235,9 @@ const proyectos = [
           </>
         ) : (
           <>
-            <span class="opacity-100">Proyectos</span>
+            <span class="opacity-100">Un sneak peak de</span>
             <br>
-            <span class="opacity-100">Seleccionados</span>
+            <span class="opacity-100">nuestros proyectos...</span>
           </>
         )}
       </h2>
@@ -131,11 +264,11 @@ const proyectos = [
                           <div class="w-full rounded-3xl overflow-hidden">
                             <div class="aspect-square h-full w-full overflow-hidden rounded-3xl">
                               {/* Condicional para mostrar imagen real o placeholder */}
-                              {proyecto.id === 'apparta' && proyecto.imagen ? (
+                              {(proyecto.id === 'apparta' || proyecto.id === 'levelup' || proyecto.id === 'amalfi' || proyecto.id === 'quirylaser' || proyecto.id === 'carnessantacruz') && proyecto.imagen ? (
                                 <img 
                                   src={proyecto.imagen} 
                                   alt={proyecto.nombre}
-                                  class="w-full h-full object-cover rounded-3xl"
+                                  class={`w-full h-full rounded-3xl ${proyecto.id === 'quirylaser' ? 'object-cover object-left-top' : 'object-cover'}`}
                                 />
                               ) : (
                                 <!-- Placeholder para imagen con gradiente -->
@@ -198,8 +331,8 @@ const proyectos = [
                     <div class="flex flex-wrap gap-3 pt-4 xl:pt-3">
                       {proyecto.servicios.map((servicio) => (
                         <div class="inline-block overflow-hidden opacity-100 transform-none">
-                          <div class="bg-white/5 px-4 py-2 text-sm font-normal text-white/80 rounded-lg hover:bg-white/10 transition-all duration-200">
-                            <span class="inline-block opacity-100 transform-none">{servicio}</span>
+                          <div class="project-tag px-4 py-2 text-sm font-normal rounded-lg transition-all duration-300">
+                            <span class="inline-block opacity-100 transform-none dynamic-text">{servicio}</span>
                           </div>
                         </div>
                       ))}
@@ -448,6 +581,17 @@ const proyectos = [
             </div>
           </section>
 
+          <!-- Additional Image for QuiryLaser - Dashboard View -->
+          <section id="additionalImageContainer" data-slice-type="project_gallery" data-slice-variation="default" class="s-projectgallery mb-8 px-8" style="display: none;">
+            <div class="bg-gradient-to-br from-[#1e3a8a] to-[#3730a3] p-8 rounded-2xl">
+              <div class="s-projectgallery__item">
+                <div class="c-image-simple">
+                  <img id="additionalImage" src="/quirulaser2.jpeg" alt="Dashboard Interface" class="w-full h-auto object-cover rounded-xl shadow-lg">
+                </div>
+              </div>
+            </div>
+          </section>
+
           <!-- Client Testimonial Section -->
           <section data-slice-type="project_temoignage" data-slice-variation="default" class="s-projecttemoignage text-white relative overflow-hidden" style="background-color: #0033C4;">
             <div class="flex flex-col lg:flex-row min-h-[400px]">
@@ -566,6 +710,12 @@ const proyectos = [
     if (modalHeroImage) {
       modalHeroImage.src = project.imagen;
       modalHeroImage.alt = project.nombre;
+      // Ajustar posición de imagen para Quirulaser
+      if (project.id === 'quirylaser') {
+        modalHeroImage.className = "w-full h-96 lg:h-[500px] object-cover object-left-top";
+      } else {
+        modalHeroImage.className = "w-full h-96 lg:h-[500px] object-cover";
+      }
     }
     if (modalRole) modalRole.textContent = project.rol || 'UX-UI / 3D / Development';
     if (modalAwards) modalAwards.textContent = project.awards || 'SOTD AWWWARDS - FWA - CSS DESIGN - GSAP';
@@ -590,6 +740,21 @@ const proyectos = [
         modalTecnologias.textContent = project.tecnologias.join(' / ');
       } else {
         modalTecnologias.textContent = 'Storyblok / Netlify / Spline';
+      }
+    }
+    
+    // Handle additional image for QuiryLaser
+    const additionalImageContainer = document.getElementById('additionalImageContainer');
+    if (additionalImageContainer) {
+      if (project.id === 'quirylaser' && project.detalles?.imagenAdicional) {
+        additionalImageContainer.style.display = 'block';
+        const additionalImage = document.getElementById('additionalImage');
+        if (additionalImage) {
+          additionalImage.src = project.detalles.imagenAdicional;
+          additionalImage.alt = project.nombre + ' - Dashboard';
+        }
+      } else {
+        additionalImageContainer.style.display = 'none';
       }
     }
     
@@ -686,6 +851,49 @@ const proyectos = [
   .c-a-minitag:hover {
     background: rgba(0, 0, 0, 0.1);
     transform: translateY(-1px);
+  }
+
+  /* Estilos dinámicos para los tags de proyecto */
+  .project-tag {
+    backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+  }
+
+  /* Estado por defecto: texto negro, fondo blanco */
+  .project-tag {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  .project-tag:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+  }
+
+  /* Estado azul: texto blanco, fondo azul */
+  body[data-color="blue"] .project-tag {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  body[data-color="blue"] .project-tag:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Estado azul profundo: texto blanco, fondo azul profundo */
+  body[data-color="blue-deep"] .project-tag {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  body[data-color="blue-deep"] .project-tag:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Estado gris: texto negro, fondo gris */
+  body[data-color="gray"] .project-tag {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  body[data-color="gray"] .project-tag:hover {
+    background: rgba(0, 0, 0, 0.1);
   }
 
   .s-projectheader__image {

@@ -122,15 +122,15 @@ const t = useTranslations(lang);
 		<!-- Efecto de luz central sutil -->
 		<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-[#0043FF] to-[#0033C4] rounded-full mix-blend-screen filter blur-2xl opacity-3 z-10"></div>
 		
-		<div class="container-custom relative z-20 flex items-center h-full max-w-7xl mx-auto px-8">
-			<!-- Columna izquierda: Contenido principal (65%) -->
-			<div class="w-[65%] text-left pr-12">
+		<div class="relative z-20 flex items-center h-full w-full px-0">
+			<!-- Columna izquierda: Contenido principal (70%) -->
+			<div class="w-[70%] text-left pl-[40px]">
 
 			<!-- Título principal -->
-			<h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-none -mt-80">
-				{t('hero.title') || 'Crecemos marcas con estrategia'}
-				<span class="text-white">
-					{t('hero.titleHighlight') || 'y tecnología.'}
+			<h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-none -mt-80 uppercase">
+				{t('hero.title') || 'CRECEMOS MARCAS CON'}
+			</br><span class="text-white">
+					{t('hero.titleHighlight') || ' ESTRATEGIA Y TECNOLOGÍA'}
 				</span>
 			</h1>
 
@@ -145,10 +145,7 @@ const t = useTranslations(lang);
 		<!-- Scroll Indicator Premium -->
 		<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 cursor-pointer group" onclick="document.getElementById('contadores').scrollIntoView({behavior: 'smooth'})">
 			<div class="flex flex-col items-center space-y-3">
-				<!-- Texto sutil -->
-				<span class="text-white/40 text-xs uppercase tracking-widest font-light group-hover:text-white/60 transition-colors duration-300">
-					explorar más
-				</span>
+				
 				
 				<!-- Contenedor del scroll indicator -->
 				<div class="relative w-8 h-16 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 group-hover:border-white/40 transition-all duration-300 flex items-start justify-center">
@@ -257,8 +254,8 @@ const t = useTranslations(lang);
 			const dynamicTexts = document.querySelectorAll('.dynamic-text:not(footer .dynamic-text):not(footer *)');
 			console.log('Elementos encontrados:', dynamicTexts.length);
 			
-			if (scrollPercent <= 12) {
-				// Estado 1: texto negro, fondo blanco (0% - 12%)
+			if (scrollPercent <= 8) {
+				// Estado 1: texto negro, fondo blanco (0% - 8%)
 				document.body.removeAttribute('data-color');
 				document.body.removeAttribute('data-header');
 				document.body.style.background = '';
@@ -266,9 +263,9 @@ const t = useTranslations(lang);
 				dynamicTexts.forEach(el => {
 					(el as HTMLElement).style.color = '#000000'; // Texto negro
 				});
-				console.log('Aplicado: NEGRO sobre BLANCO (0%-12%)');
+				console.log('Aplicado: NEGRO sobre BLANCO (0%-8%)');
 			} else if (scrollPercent <= 20) {
-				// Estado 2: texto blanco, fondo azul #0043FF (12% - 20%)
+				// Estado 2: texto blanco, fondo azul #0043FF (8% - 20%)
 				document.body.setAttribute('data-color', 'blue');
 				document.body.setAttribute('data-header', 'white');
 				document.body.style.background = '';
@@ -276,7 +273,7 @@ const t = useTranslations(lang);
 				dynamicTexts.forEach(el => {
 					(el as HTMLElement).style.color = '#ffffff'; // Texto blanco
 				});
-				console.log('Aplicado: BLANCO sobre AZUL #0043FF (12%-20%)');
+				console.log('Aplicado: BLANCO sobre AZUL #0043FF (8%-20%)');
 			} else if (scrollPercent <= 40) {
 				// Estado 3: texto blanco, fondo azul profundo #030B46 (20% - 40%)
 				document.body.setAttribute('data-color', 'blue-deep');
