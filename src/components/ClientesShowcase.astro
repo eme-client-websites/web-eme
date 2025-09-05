@@ -104,7 +104,7 @@ const clientesGroup3 = clientes.slice(28);
     <!-- Primera fila - Movimiento hacia la derecha -->
     <div class="clients-marquee mb-8">
       <div class="clients-track clients-track-right">
-        {[...clientesGroup1, ...clientesGroup1, ...clientesGroup1, ...clientesGroup1].map((cliente) => (
+        {[...clientesGroup1, ...clientesGroup1, ...clientesGroup1].map((cliente) => (
           <div class="client-logo-wrapper">
             <div class="client-logo-container">
               <img 
@@ -122,7 +122,7 @@ const clientesGroup3 = clientes.slice(28);
     <!-- Segunda fila - Movimiento hacia la izquierda -->
     <div class="clients-marquee mb-8">
       <div class="clients-track clients-track-left">
-        {[...clientesGroup2, ...clientesGroup2, ...clientesGroup2, ...clientesGroup2].map((cliente) => (
+        {[...clientesGroup2, ...clientesGroup2, ...clientesGroup2].map((cliente) => (
           <div class="client-logo-wrapper">
             <div class="client-logo-container">
               <img 
@@ -140,7 +140,7 @@ const clientesGroup3 = clientes.slice(28);
     <!-- Tercera fila - Movimiento hacia la derecha (más lento) -->
     <div class="clients-marquee">
       <div class="clients-track clients-track-right-slow">
-        {[...clientesGroup3, ...clientesGroup3, ...clientesGroup3, ...clientesGroup3, ...clientesGroup3].map((cliente) => (
+        {[...clientesGroup3, ...clientesGroup3, ...clientesGroup3].map((cliente) => (
           <div class="client-logo-wrapper">
             <div class="client-logo-container">
               <img 
@@ -181,28 +181,28 @@ const clientesGroup3 = clientes.slice(28);
     min-height: 80px;
   }
   
-  /* Animaciones direccionales - Más suaves y lentas */
+  /* Animaciones direccionales - Velocidad optimizada */
   .clients-track-right {
-    animation: marquee-right 200s linear infinite;
+    animation: marquee-right 60s linear infinite;
   }
   
   .clients-track-left {
-    animation: marquee-left 180s linear infinite;
+    animation: marquee-left 50s linear infinite;
   }
   
   .clients-track-right-slow {
-    animation: marquee-right 250s linear infinite;
+    animation: marquee-right 80s linear infinite;
   }
   
-  /* Keyframes para animaciones */
+  /* Keyframes para animaciones - Movimiento infinito sin espacios */
   @keyframes marquee-right {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(0%); }
+    0% { transform: translateX(-66.666%); }
+    100% { transform: translateX(-33.333%); }
   }
   
   @keyframes marquee-left {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-100%); }
+    0% { transform: translateX(-33.333%); }
+    100% { transform: translateX(-66.666%); }
   }
   
   /* Wrapper del logo */
@@ -294,15 +294,15 @@ const clientesGroup3 = clientes.slice(28);
     }
     
     .clients-track-right {
-      animation-duration: 140s;
+      animation-duration: 45s;
     }
     
     .clients-track-left {
-      animation-duration: 120s;
+      animation-duration: 40s;
     }
     
     .clients-track-right-slow {
-      animation-duration: 180s;
+      animation-duration: 60s;
     }
   }
   

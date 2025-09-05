@@ -279,26 +279,26 @@ const t = useTranslations(lang);
 					el.style.color = '#ffffff'; // Texto blanco
 				});
 				console.log('Aplicado: BLANCO sobre AZUL PROFUNDO #030B46 (20%-40%)');
-			} else if (scrollPercent <= 70) {
-				// Estado 4: texto negro, fondo gris niebla #F1F1F1 (40% - 70%)
-				document.body.setAttribute('data-color', 'gray');
-				document.body.removeAttribute('data-header');
-				document.body.style.background = '';
-				document.body.style.backgroundColor = '#F1F1F1'; // FONDO GRIS NIEBLA #F1F1F1
-				dynamicTexts.forEach(el => {
-					el.style.color = '#000000'; // Texto negro
-				});
-				console.log('Aplicado: NEGRO sobre GRIS NIEBLA #F1F1F1 (40%-70%)');
-			} else {
-				// Estado 5: texto blanco, fondo azul profundo #030B46 (70% - 100%)
-				document.body.setAttribute('data-color', 'blue-deep');
-				document.body.setAttribute('data-header', 'white');
-				document.body.style.background = '';
-				document.body.style.backgroundColor = '#030B46'; // FONDO AZUL PROFUNDO #030B46
-				dynamicTexts.forEach(el => {
-					el.style.color = '#ffffff'; // Texto blanco
-				});
-				console.log('Aplicado: BLANCO sobre AZUL PROFUNDO #030B46 (70%-100%)');
+			           } else if (scrollPercent <= 75) {
+               // Estado 4: texto negro, fondo gris niebla #F1F1F1 (40% - 75%)
+               document.body.setAttribute('data-color', 'gray');
+               document.body.removeAttribute('data-header');
+               document.body.style.background = '';
+               document.body.style.backgroundColor = '#F1F1F1'; // FONDO GRIS NIEBLA #F1F1F1
+               dynamicTexts.forEach(el => {
+                   el.style.color = '#000000'; // Texto negro
+               });
+               console.log('Aplicado: NEGRO sobre GRIS NIEBLA #F1F1F1 (40%-75%)');
+           } else {
+               // Estado 5: texto blanco, fondo azul profundo #030B46 (75% - 100%)
+               document.body.setAttribute('data-color', 'blue-deep');
+               document.body.setAttribute('data-header', 'white');
+               document.body.style.background = '';
+               document.body.style.backgroundColor = '#030B46'; // FONDO AZUL PROFUNDO #030B46
+               dynamicTexts.forEach(el => {
+                   el.style.color = '#ffffff'; // Texto blanco
+               });
+               console.log('Aplicado: BLANCO sobre AZUL PROFUNDO #030B46 (75%-100%)');
 			}
 			
 			// Forzar footer blanco después de cada cambio
