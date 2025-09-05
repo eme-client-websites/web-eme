@@ -179,5 +179,16 @@
     "submit": "Submit",
     "next": "Next",
     "previous": "Previous"
+  },
+  "partners": {
+    "badge": "Trusted Technology Partners",
+    "title": "Powered by",
+    "titleHighlight": "industry leaders",
+    "subtitle": "We collaborate with the most innovative technology companies to deliver cutting-edge solutions that drive your business forward.",
+    "cta": {
+      "title": "Ready to leverage these partnerships?",
+      "subtitle": "Let's discuss how our technology partnerships can accelerate your project.",
+      "button": "Start Conversation"
+    }
   }
 }

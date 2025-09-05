@@ -1,0 +1,185 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Especialidades organizadas en filas como la imagen
+const fila1 = ['Marketers', 'UI/UX Designers', 'Brand Experience experts'];
+const fila2 = ['Web Developers', 'Business Strategists', 'Code Architects'];
+const fila3 = ['Productores audiovisuales', 'Traffickers', 'Content creators'];
+---
+
+<section class="py-20 lg:py-32 relative overflow-hidden" style="background: #030B46;">
+  <!-- Efectos de luz de fondo -->
+  <div class="absolute top-0 left-1/4 w-96 h-96 bg-[#0043FF] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
+  <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-[#0033C4] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
+
+  <!-- Título principal fijo -->
+  <div class="container-custom relative z-10 mb-16">
+    <div class="text-center">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight max-w-5xl mx-auto">
+        {lang === 'en' ? (
+          'Experts in business, digital growth, branding and AI.'
+        ) : (
+          'Expertos en negocios, crecimiento digital, branding y AI.'
+        )}
+      </h2>
+    </div>
+  </div>
+
+  <!-- Showcase con animación inicial y luego estático -->
+  <div class="relative experts-container">
+    
+    <!-- Primera fila -->
+    <div class="experts-row mb-8">
+      <div class="experts-track">
+        {fila1.map((especialidad) => (
+          <div class="expert-item-wrapper">
+            <div class="expert-item">
+              <span class="expert-text">{especialidad}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Segunda fila -->
+    <div class="experts-row mb-8">
+      <div class="experts-track">
+        {fila2.map((especialidad) => (
+          <div class="expert-item-wrapper">
+            <div class={`expert-item ${especialidad === 'Business Strategists' ? 'expert-highlighted' : ''}`}>
+              <span class="expert-text">{especialidad}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Tercera fila -->
+    <div class="experts-row">
+      <div class="experts-track">
+        {fila3.map((especialidad) => (
+          <div class="expert-item-wrapper">
+            <div class="expert-item">
+              <span class="expert-text">{especialidad}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* Contenedor principal */
+  .experts-container {
+    overflow: hidden;
+    position: relative;
+  }
+  
+  /* Fila de expertos */
+  .experts-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  /* Track simple - sin animaciones complejas */
+  .experts-track {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
+  }
+  
+  /* Wrapper del item */
+  .expert-item-wrapper {
+    flex: 0 0 auto;
+    padding: 0 0.5rem;
+  }
+  
+  /* Contenedor del item - diseño simple como la imagen */
+  .expert-item {
+    position: relative;
+    padding: 16px 32px;
+    background: transparent;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 60px;
+    flex-shrink: 0;
+  }
+  
+  /* Business Strategists resaltado como en la imagen */
+  .expert-highlighted {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+  }
+  
+  /* Texto principal */
+  .expert-text {
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+    white-space: nowrap;
+    transition: all 0.4s ease;
+  }
+  
+  /* Texto del item resaltado */
+  .expert-highlighted .expert-text {
+    color: #030B46;
+    font-weight: 600;
+  }
+  
+  /* Efecto hover solo para los no resaltados */
+  .expert-item:not(.expert-highlighted):hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+  }
+  
+  .expert-item:not(.expert-highlighted):hover .expert-text {
+    color: white;
+    font-weight: 600;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .expert-text {
+      font-size: 16px;
+    }
+    
+    .experts-track {
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .expert-item {
+      padding: 12px 24px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .expert-text {
+      font-size: 14px;
+    }
+    
+    .experts-track {
+      gap: 1rem;
+    }
+    
+    .expert-item {
+      padding: 10px 20px;
+    }
+  }
+</style>

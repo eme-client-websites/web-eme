@@ -8,6 +8,8 @@ import Equipo from '../../components/Equipo.astro';
 import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
 import Footer from '../../components/Footer.astro';
 import ClientesShowcase from '../../components/ClientesShowcase.astro';
+import ExpertosShowcase from '../../components/ExpertosShowcase.astro';
+import PartnersShowcase from '../../components/PartnersShowcase.astro';
 import MenuNavegacion from '../../components/MenuNavegacion.astro';
 import MenuScrollDesktop from '../../components/MenuScrollDesktop.astro';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
@@ -123,6 +125,12 @@ const t = useTranslations(lang);
 	<div id="proyectos">
 		<Proyectos />
 	</div>
+
+	<!-- Sección de Partners -->
+	<PartnersShowcase />
+
+	<!-- Sección de Expertos -->
+	<ExpertosShowcase />
 
 	<!-- Sección de Equipo -->
 	<div id="equipo">

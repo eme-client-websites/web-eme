@@ -8,6 +8,8 @@ import Equipo from '../components/Equipo.astro';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import Footer from '../components/Footer.astro';
 import ClientesShowcase from '../components/ClientesShowcase.astro';
+import ExpertosShowcase from '../components/ExpertosShowcase.astro';
+import PartnersShowcase from '../components/PartnersShowcase.astro';
 import MenuNavegacion from '../components/MenuNavegacion.astro';
 import MenuScrollDesktop from '../components/MenuScrollDesktop.astro';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
@@ -203,6 +205,12 @@ const t = useTranslations(lang);
 		<Proyectos />
 	</div>
 
+	<!-- Sección de Partners -->
+	<PartnersShowcase />
+
+	<!-- Sección de Expertos -->
+	<ExpertosShowcase />
+
 	<!-- Sección de Equipo -->
 	<div id="equipo">
 		<Equipo />
@@ -232,8 +240,8 @@ const t = useTranslations(lang);
 				
 				const footerElements = footer.querySelectorAll('*');
 				footerElements.forEach(el => {
-					el.style.color = '#000000';
-					el.style.backgroundColor = 'transparent';
+					(el as HTMLElement).style.color = '#000000';
+					(el as HTMLElement).style.backgroundColor = 'transparent';
 				});
 			}
 		}
@@ -256,7 +264,7 @@ const t = useTranslations(lang);
 				document.body.style.background = '';
 				document.body.style.backgroundColor = '#ffffff'; // FONDO BLANCO
 				dynamicTexts.forEach(el => {
-					el.style.color = '#000000'; // Texto negro
+					(el as HTMLElement).style.color = '#000000'; // Texto negro
 				});
 				console.log('Aplicado: NEGRO sobre BLANCO (0%-12%)');
 			} else if (scrollPercent <= 20) {
@@ -266,7 +274,7 @@ const t = useTranslations(lang);
 				document.body.style.background = '';
 				document.body.style.backgroundColor = '#0043FF'; // FONDO AZUL #0043FF
 				dynamicTexts.forEach(el => {
-					el.style.color = '#ffffff'; // Texto blanco
+					(el as HTMLElement).style.color = '#ffffff'; // Texto blanco
 				});
 				console.log('Aplicado: BLANCO sobre AZUL #0043FF (12%-20%)');
 			} else if (scrollPercent <= 40) {
@@ -276,7 +284,7 @@ const t = useTranslations(lang);
 				document.body.style.background = '';
 				document.body.style.backgroundColor = '#030B46'; // FONDO AZUL PROFUNDO #030B46
 				dynamicTexts.forEach(el => {
-					el.style.color = '#ffffff'; // Texto blanco
+					(el as HTMLElement).style.color = '#ffffff'; // Texto blanco
 				});
 				console.log('Aplicado: BLANCO sobre AZUL PROFUNDO #030B46 (20%-40%)');
 			           } else if (scrollPercent <= 75) {
@@ -286,7 +294,7 @@ const t = useTranslations(lang);
                document.body.style.background = '';
                document.body.style.backgroundColor = '#F1F1F1'; // FONDO GRIS NIEBLA #F1F1F1
                dynamicTexts.forEach(el => {
-                   el.style.color = '#000000'; // Texto negro
+                   (el as HTMLElement).style.color = '#000000'; // Texto negro
                });
                console.log('Aplicado: NEGRO sobre GRIS NIEBLA #F1F1F1 (40%-75%)');
            } else {
@@ -296,7 +304,7 @@ const t = useTranslations(lang);
                document.body.style.background = '';
                document.body.style.backgroundColor = '#030B46'; // FONDO AZUL PROFUNDO #030B46
                dynamicTexts.forEach(el => {
-                   el.style.color = '#ffffff'; // Texto blanco
+                   (el as HTMLElement).style.color = '#ffffff'; // Texto blanco
                });
                console.log('Aplicado: BLANCO sobre AZUL PROFUNDO #030B46 (75%-100%)');
 			}
