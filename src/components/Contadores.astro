@@ -25,14 +25,14 @@ const contadores = [
 ---
 
 <!-- Sección de Contadores Animados -->
-<section class="pb-[160px] xl:pb-[8.33rem] bg-white relative overflow-hidden" data-color="#FFFFFF" data-active="false">
+<section class="pb-[160px] xl:pb-[8.33rem] relative overflow-hidden" data-color="#FFFFFF" data-active="true">
   
   <div class="container-custom relative z-10">
     <!-- Título de la sección -->
     <div class="pt-20 xl:pt-[8rem]">
       <div class="flex flex-wrap justify-between xl:flex-nowrap xl:gap-x-[5rem]">
         <div class="w-full xl:w-auto">
-          <h2 class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold flex flex-wrap items-start gap-x-3 xl:gap-x-[2.6rem] text-black leading-tight">
+          <h2 class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold flex flex-wrap items-start gap-x-3 xl:gap-x-[2.6rem] dynamic-text leading-tight transition-colors duration-300">
             {lang === 'en' ? (
               <>
                 <span>Numbers</span>
@@ -46,14 +46,14 @@ const contadores = [
                 <span>Números</span>
                 <span>que no</span>
                 <span>solo miden—</span>
-                <span>también</span>
-                <span>inspiran</span>
+                <span>nos</span>
+                <span>respaldan</span>
               </>
             )}
           </h2>
         </div>
         <div class="w-full pt-8 xl:w-auto xl:pt-[2.08rem]">
-          <p class="text-[16px] font-normal leading-[1.45em] xl:text-[1.14rem] text-gray-600">
+          <p class="text-[16px] font-normal leading-[1.45em] xl:text-[1.14rem] dynamic-text opacity-70 transition-colors duration-300">
             {t('counters.subtitle') || 'Cada número cuenta una historia de transformación, crecimiento y éxito compartido.'}
           </p>
         </div>
@@ -73,21 +73,21 @@ const contadores = [
             <div class="mb-8">
               <div class="flex items-baseline justify-center">
                 <span 
-                  class="contador-numero text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-black font-mono leading-none"
+                  class="contador-numero text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold dynamic-text font-mono leading-none transition-colors duration-300"
                   data-target={contador.numeroContador}
                 >
                   0
                 </span>
-                <span class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black">+</span>
+                <span class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold dynamic-text transition-colors duration-300">+</span>
               </div>
             </div>
             
             <!-- Título y subtítulo -->
             <div>
-              <h3 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-black relative leading-tight mb-2">
+              <h3 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold dynamic-text relative leading-tight mb-2 transition-colors duration-300">
                 {contador.titulo}
               </h3>
-              <p class="text-lg md:text-xl lg:text-2xl xl:text-3xl font-normal text-gray-600">
+              <p class="text-lg md:text-xl lg:text-2xl xl:text-3xl font-normal dynamic-text opacity-70 transition-colors duration-300">
                 {contador.subtitulo}
               </p>
             </div>

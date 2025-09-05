@@ -86,14 +86,14 @@ const proyectos = [
 ---
 
 <!-- Título de la sección - Estructura exacta de Designatives -->
-<section class="xl:pt-32 relative overflow-hidden" data-active="true" data-color="#FFFFFF" style="background: #030B46;">
+<section class="xl:pt-32 relative overflow-hidden" style="background: transparent;" data-active="true" data-color="#FFFFFF">
   <!-- Efectos de luz de fondo -->
   <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#0043FF] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
   <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#0033C4] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
 
   <div class="container-custom relative z-10">
     <div class="w-1/2">
-      <h2 class="text-5xl lg:text-7xl font-bold text-white leading-tight tracking-tight max-w-lg">
+      <h2 class="text-5xl lg:text-7xl font-bold dynamic-text leading-tight tracking-tight max-w-lg transition-colors duration-300">
         {lang === 'en' ? (
           <>
             <span class="opacity-100">Selected</span>
@@ -113,7 +113,7 @@ const proyectos = [
 </section>
 
 <!-- Grid de proyectos - Estructura exacta de Designatives -->
-<section data-active="false" data-color="#FFFFFF" class="pb-20 lg:pt-52 xl:pb-40 xl:pt-20" style="background: #030B46;">
+<section data-active="false" data-color="#FFFFFF" class="pb-20 lg:pt-52 xl:pb-40 xl:pt-20" style="background: transparent;">
   <div class="container-custom">
     <div class="grid grid-cols-1 gap-10 lg:gap-20 xl:gap-12">
       <div class="space-y-10 lg:space-y-0 mt-10 lg:mt-[-20rem]">
@@ -183,7 +183,7 @@ const proyectos = [
                 
                 <div class="bottom-0 pt-8 lg:absolute lg:translate-y-full lg:pt-6">
                   <button class="w-full text-left" onclick={`openProjectModal('${proyecto.id}')`}>
-                    <h2 class="flex flex-wrap gap-x-2 xl:gap-x-2 text-4xl xl:text-5xl font-bold text-white">
+                    <h2 class="flex flex-wrap gap-x-2 xl:gap-x-2 text-4xl xl:text-5xl font-bold dynamic-text transition-colors duration-300">
                       {proyecto.nombre.split(' ').map((palabra: string, i: number) => (
                         <div class="inline-flex w-auto opacity-100 transform-none">
                           {palabra}
@@ -191,7 +191,7 @@ const proyectos = [
                       ))}
                     </h2>
                     <span class="sr-only">Ver detalles sobre {proyecto.nombre}</span>
-                    <p class="pt-2 text-gray-300 xl:pt-2 opacity-100 transform-none text-lg">
+                    <p class="pt-2 dynamic-text opacity-70 xl:pt-2 opacity-100 transform-none text-lg transition-colors duration-300">
                       {proyecto.descripcion}
                     </p>
                     

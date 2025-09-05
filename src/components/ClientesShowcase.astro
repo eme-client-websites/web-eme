@@ -57,7 +57,7 @@ const clientesGroup2 = clientes.slice(14, 28);
 const clientesGroup3 = clientes.slice(28);
 ---
 
-<section class="py-20 lg:py-32 relative overflow-hidden" style="background: #030B46;">
+<section class="py-20 lg:py-32 relative overflow-hidden" style="background: transparent;">
   <!-- Efectos de luz de fondo -->
   <div class="absolute top-0 left-1/4 w-96 h-96 bg-[#0043FF] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
   <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-[#0033C4] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
@@ -71,7 +71,7 @@ const clientesGroup3 = clientes.slice(28);
         </span>
       </div>
       
-      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold dynamic-text mb-6 leading-tight transition-colors duration-300">
         {lang === 'en' ? (
           <>
             <span class="block">Brands that</span>
@@ -89,7 +89,7 @@ const clientesGroup3 = clientes.slice(28);
         )}
       </h2>
       
-      <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+      <p class="text-lg dynamic-text opacity-70 max-w-2xl mx-auto transition-colors duration-300">
         {lang === 'en' 
           ? 'Over 40+ leading companies have chosen E-ME Growth Agency to transform their digital presence and accelerate their growth.'
           : 'Más de 40+ empresas líderes han elegido E-ME Growth Agency para transformar su presencia digital y acelerar su crecimiento.'

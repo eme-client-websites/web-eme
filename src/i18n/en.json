@@ -20,53 +20,58 @@
     "items": [
       {
         "number": "01",
-        "title": "Strategy Development",
-        "description": "More than just a plan—this transforms your vision into measurable results."
+        "title": "Growth Strategy",
+        "description": "Let's rethink processes and grow your business."
       },
       {
         "number": "02", 
         "title": "AchieveApex",
-        "description": "Platform that doesn't just manage—it powers your business growth."
+        "description": "Automate, serve and sell 24/7."
       },
       {
         "number": "03",
-        "title": "Lead Nurturing for Business",
-        "description": "Sequences that don't just contact—they convert prospects into customers."
+        "title": "Lead Nurturing",
+        "description": "Get the most out of your database."
       },
       {
         "number": "04",
         "title": "Custom Development",
-        "description": "Software that doesn't just work—it adapts to your specific business."
+        "description": "We build custom software."
       },
       {
         "number": "05",
         "title": "AI Landing Pages",
-        "description": "Pages that don't just look good—they optimize to convert visitors."
+        "description": "Websites with commercial strategy."
       },
       {
         "number": "06",
         "title": "Local SEO and GEO with AI",
-        "description": "Positioning that doesn't just appear—it connects with local customers."
+        "description": "Become visible in Google searches."
       },
       {
         "number": "07",
-        "title": "Ads Management",
-        "description": "Campaigns that don't just spend—they maximize every dollar invested."
+        "title": "AI Content",
+        "description": "Content that sells."
       },
       {
         "number": "08",
-        "title": "AI Content",
-        "description": "Content that doesn't just fill—it connects and builds your brand."
+        "title": "Ads Management",
+        "description": "Ads with purpose and results."
       },
       {
         "number": "09",
         "title": "Branding",
-        "description": "More than just a logo—this is the face and voice of your brand."
+        "description": "Let's create your brand identity."
       },
       {
         "number": "10",
         "title": "Consulting",
-        "description": "Advice that doesn't just counsel—it accelerates your business growth."
+        "description": "We guide you step by step."
+      },
+      {
+        "number": "11",
+        "title": "Brand Experience",
+        "description": "We design how your customer experiences your brand."
       }
     ],
     "moreButton": "More About Our Services"

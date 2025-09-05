@@ -8,58 +8,63 @@ const t = useTranslations(lang);
 const servicios = [
   {
     numero: "01",
-    titulo: t('services.items.0.title') || "Desarrollo de estrategia",
-    descripcion: t('services.items.0.description') || "Más que solo un plan—esto transforma tu visión en resultados medibles."
+    titulo: t('services.items.0.title') || "Estrategia de Crecimiento",
+    descripcion: t('services.items.0.description') || "Replanteemos procesos y hagamos crecer tu empresa."
   },
   {
     numero: "02", 
     titulo: t('services.items.1.title') || "AchieveApex",
-    descripcion: t('services.items.1.description') || "Plataforma que no solo gestiona—potencia tu crecimiento empresarial."
+    descripcion: t('services.items.1.description') || "Automatiza, atiende y vende 24/7."
   },
   {
     numero: "03",
-    titulo: t('services.items.2.title') || "Lead Nurturing para negocios",
-    descripcion: t('services.items.2.description') || "Secuencias que no solo contactan—convierten prospectos en clientes."
+    titulo: t('services.items.2.title') || "Lead Nurturing",
+    descripcion: t('services.items.2.description') || "Sácale el máximo provecho a tu base de datos."
   },
   {
     numero: "04",
     titulo: t('services.items.3.title') || "Desarrollo Personalizado",
-    descripcion: t('services.items.3.description') || "Software que no solo funciona—se adapta a tu negocio específico."
+    descripcion: t('services.items.3.description') || "Construimos software a la medida."
   },
   {
     numero: "05",
     titulo: t('services.items.4.title') || "Landing Pages con AI",
-    descripcion: t('services.items.4.description') || "Páginas que no solo se ven bien—optimizan para convertir visitantes."
+    descripcion: t('services.items.4.description') || "Páginas web con estrategia comercial."
   },
   {
     numero: "06",
     titulo: t('services.items.5.title') || "SEO Local y GEO con AI",
-    descripcion: t('services.items.5.description') || "Posicionamiento que no solo aparece—conecta con clientes locales."
+    descripcion: t('services.items.5.description') || "Vuélvete visible en las búsquedas en Google."
   },
   {
     numero: "07",
-    titulo: t('services.items.6.title') || "Ads Management",
-    descripcion: t('services.items.6.description') || "Campañas que no solo gastan—maximizan cada peso invertido."
+    titulo: t('services.items.6.title') || "AI Content",
+    descripcion: t('services.items.6.description') || "Contenido que vende."
   },
   {
     numero: "08",
-    titulo: t('services.items.7.title') || "AI Content",
-    descripcion: t('services.items.7.description') || "Contenido que no solo llena—conecta y construye tu marca."
+    titulo: t('services.items.7.title') || "Ads Management",
+    descripcion: t('services.items.7.description') || "Anuncios con propósito y resultados."
   },
   {
     numero: "09",
     titulo: t('services.items.8.title') || "Branding",
-    descripcion: t('services.items.8.description') || "Más que solo un logo—esto es la cara y voz de tu marca."
+    descripcion: t('services.items.8.description') || "Creemos la identidad de tu marca."
   },
   {
     numero: "10",
     titulo: t('services.items.9.title') || "Consultoría",
-    descripcion: t('services.items.9.description') || "Asesoramiento que no solo aconseja—acelera tu crecimiento empresarial."
+    descripcion: t('services.items.9.description') || "Te guiamos paso a paso."
+  },
+  {
+    numero: "11",
+    titulo: t('services.items.10.title') || "Experiencia de Marca",
+    descripcion: t('services.items.10.description') || "Diseñamos cómo tu cliente vive tu marca."
   }
 ];
 ---
 
-<section class="pb-[160px] xl:pb-[8.33rem] relative overflow-hidden" data-color="#000000" data-active="false" style="background: #030B46;">
+<section class="pb-[160px] xl:pb-[8.33rem] relative overflow-hidden" style="background: transparent;" data-color="#000000" data-active="false">
   <!-- Efectos de luz sutiles y más reducidos -->
   <div class="absolute top-0 left-1/4 w-64 h-64 bg-[#0043FF] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
   <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-[#0033C4] rounded-full mix-blend-screen filter blur-3xl opacity-5"></div>
@@ -69,7 +74,7 @@ const servicios = [
     <div class="pt-20 xl:pt-[8rem]">
               <div class="flex flex-wrap justify-between xl:flex-nowrap xl:gap-x-[5rem]">
         <div class="w-full xl:w-auto">
-                     <h2 class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold flex flex-wrap items-start gap-x-3 xl:gap-x-[2.6rem] text-white leading-tight">
+                     <h2 class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold flex flex-wrap items-start gap-x-3 xl:gap-x-[2.6rem] dynamic-text leading-tight transition-colors duration-300">
             {lang === 'en' ? (
               <>
                 <span>Solutions</span>
@@ -89,7 +94,7 @@ const servicios = [
           </h2>
         </div>
         <div class="w-full pt-8 xl:w-auto xl:pt-[2.08rem]">
-          <p class="text-[16px] font-normal leading-[1.45em] xl:text-[1.14rem] text-gray-300">
+          <p class="text-[16px] font-normal leading-[1.45em] xl:text-[1.14rem] dynamic-text opacity-70 transition-colors duration-300">
             {t('services.subtitle') || 'Creemos que las marcas deberían hacer más que solo aparecer—deberían hacer una entrada.'}
           </p>
         </div>
@@ -104,12 +109,12 @@ const servicios = [
 
             <div class="flex w-full items-start gap-x-8 flex-col lg:flex-row">
               <div class="w-full lg:w-[70%]">
-                <h2 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white relative leading-tight">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold dynamic-text relative leading-tight transition-colors duration-300">
                   {servicio.titulo}
                 </h2>
               </div>
               <div class="w-full lg:w-[30%] mt-4 lg:mt-0">
-                <p class="font-sans text-[16px] font-normal leading-[1.45em] xl:text-[1.14rem] text-gray-300">
+                <p class="font-sans text-[16px] font-normal leading-[1.45em] xl:text-[1.14rem] dynamic-text opacity-70 transition-colors duration-300">
                   {servicio.descripcion}
                 </p>
               </div>
@@ -125,7 +130,7 @@ const servicios = [
     
     <!-- Botón de más información -->
     <div class="w-full pt-10 xl:pt-[5.21rem]">
-      <a href="/servicios" class="group relative inline-flex items-center overflow-hidden font-bold text-[20px] font-medium uppercase text-white transition-all duration-300 ease-in-out xl:text-[1.46rem] hover:text-[#0043FF]">
+      <a href="/servicios" class="group relative inline-flex items-center overflow-hidden font-bold text-[20px] font-medium uppercase dynamic-text transition-all duration-300 ease-in-out xl:text-[1.46rem] hover:text-[#0043FF]">
         {t('services.moreButton') || 'Más Acerca de Nuestros Servicios'}
         <svg width="24" height="24" class="ml-2 transition-all duration-300 ease-in-out group-hover:fill-[#0043FF] group-hover:md:ml-4" data-icon="arrow">
           <g>
