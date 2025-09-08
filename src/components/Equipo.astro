@@ -263,60 +263,93 @@ const equipo = [
 </style>
 
 <script>
-  // Funcionalidad interactiva del equipo
+  // Funcionalidad interactiva del equipo con scroll
   function initTeamInteraction() {
     const teamCards = document.querySelectorAll('.team-member-card');
     const teamImages = document.querySelectorAll('.team-member-image');
-    const colorBar = document.querySelector('.team-color-bar');
-    
-    teamCards.forEach((card) => {
-      card.addEventListener('click', () => {
-        const memberId = card.getAttribute('data-member-id');
-        
-        // Remover clase active de todas las tarjetas
-        teamCards.forEach(c => {
-          c.classList.remove('active');
-          const content = c.querySelector('.team-member-content');
-          if (content) {
-            content.classList.remove('expanded');
-            content.classList.add('collapsed');
-          }
-        });
-        
-        // Ocultar todas las imágenes
-        teamImages.forEach(img => {
-          img.classList.remove('opacity-100');
-          img.classList.add('opacity-0');
-        });
-        
-        // Activar la tarjeta clickeada
-        card.classList.add('active');
-        const activeContent = card.querySelector('.team-member-content');
+    let currentMember = 0; // 0 = Daniel, 1 = Marcela
+    let isScrolling = false;
+
+    // Función para activar un miembro específico
+    function activateMember(index: number) {
+      if (currentMember === index) return;
+      
+      currentMember = index;
+      
+      // Remover clase active de todas las tarjetas
+      teamCards.forEach(c => {
+        c.classList.remove('active');
+        const content = c.querySelector('.team-member-content');
+        if (content) {
+          content.classList.remove('expanded');
+          content.classList.add('collapsed');
+        }
+      });
+      
+      // Ocultar todas las imágenes
+      teamImages.forEach(img => {
+        img.classList.remove('opacity-100');
+        img.classList.add('opacity-0');
+      });
+      
+      // Activar la tarjeta correspondiente
+      const activeCard = teamCards[index];
+      if (activeCard) {
+        activeCard.classList.add('active');
+        const activeContent = activeCard.querySelector('.team-member-content');
         if (activeContent) {
           activeContent.classList.remove('collapsed');
           activeContent.classList.add('expanded');
         }
-        
-        // El patrón SVG ya no cambia, se mantiene igual para ambos
-        // if (colorBar) {
-        //   colorBar.className = `team-color-bar absolute top-0 right-1/4 bottom-32 left-1/3 rounded-xl transition-colors duration-500 z-10 ${memberId}`;
-        // }
-        
-        // Mostrar la imagen correspondiente
-        const activeImage = document.querySelector(`.team-member-image[data-member-id="${memberId}"]`);
-        if (activeImage) {
-          setTimeout(() => {
-            activeImage.classList.remove('opacity-0');
-            activeImage.classList.add('opacity-100');
-          }, 150); // Pequeño delay para una transición más suave
+      }
+      
+      // Mostrar la imagen correspondiente
+      const activeImage = teamImages[index];
+      if (activeImage) {
+        setTimeout(() => {
+          activeImage.classList.remove('opacity-0');
+          activeImage.classList.add('opacity-100');
+        }, 150);
+      }
+    }
+
+    // Configurar Intersection Observer para cada tarjeta
+    const observerOptions = {
+      root: null,
+      rootMargin: '-40% 0px -40% 0px', // Se activa cuando está en el 40% central del viewport
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !isScrolling) {
+          const card = entry.target;
+          const index = Array.from(teamCards).indexOf(card);
+          if (index !== -1) {
+            activateMember(index);
+          }
         }
+      });
+    }, observerOptions);
+
+    // Observar cada tarjeta
+    teamCards.forEach(card => {
+      observer.observe(card);
+    });
+
+    // Mantener funcionalidad de click como respaldo
+    teamCards.forEach((card, index) => {
+      card.addEventListener('click', () => {
+        isScrolling = true;
+        activateMember(index);
+        setTimeout(() => {
+          isScrolling = false;
+        }, 500);
       });
     });
 
     // Inicializar con Daniel activo
-    if (colorBar) {
-      colorBar.classList.add('daniel');
-    }
+    activateMember(0);
   }
 
   // Inicializar cuando el DOM esté listo
