@@ -20,16 +20,26 @@ function getOtherLangUrl() {
 const otherLangUrl = getOtherLangUrl();
 ---
 
-<!-- Switch flotante en esquina inferior derecha -->
-<div class="fixed bottom-6 right-6 z-50">
-  <div class="flex items-center bg-black/20 backdrop-blur-md border border-white/10 rounded-full px-3 py-2 shadow-lg">
-    <span class="text-white text-sm font-medium uppercase tracking-wide">{currentLang}</span>
-    <span class="text-white/30 mx-2">|</span>
+<!-- Switch flotante centrado en la parte inferior -->
+<div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+  <div class="flex items-center bg-black/20 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 shadow-lg">
+    <!-- Idioma actual -->
+    <div class="flex items-center">
+      <span class="text-white font-medium text-sm">
+        {currentLang === 'es' ? 'ESP' : 'ENG'}
+      </span>
+    </div>
+    
+    <span class="text-white/30 mx-3">|</span>
+    
+    <!-- Idioma alternativo -->
     <a 
       href={otherLangUrl}
-      class="text-white/60 hover:text-white transition-all duration-300 text-sm font-medium uppercase tracking-wide hover:scale-105"
+      class="hover:scale-110 transition-all duration-300 opacity-60 hover:opacity-100"
     >
-      {otherLang}
+      <span class="text-white font-medium text-sm">
+        {otherLang === 'es' ? 'ESP' : 'ENG'}
+      </span>
     </a>
   </div>
 </div>

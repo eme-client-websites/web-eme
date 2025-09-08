@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import MobileHeader from '../../components/MobileHeader.astro';
 import Servicios from '../../components/Servicios.astro';
 import Contadores from '../../components/Contadores.astro';
 import Proyectos from '../../components/Proyectos.astro';
@@ -8,7 +9,6 @@ import Equipo from '../../components/Equipo.astro';
 import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
 import Footer from '../../components/Footer.astro';
 import ClientesShowcase from '../../components/ClientesShowcase.astro';
-import ExpertosShowcase from '../../components/ExpertosShowcase.astro';
 import PartnersShowcase from '../../components/PartnersShowcase.astro';
 import MenuNavegacion from '../../components/MenuNavegacion.astro';
 import MenuScrollDesktop from '../../components/MenuScrollDesktop.astro';
@@ -19,6 +19,87 @@ const t = useTranslations(lang);
 ---
 
 <Layout title="My Project Web - Astro + React + Tailwind">
+	<!-- Header móvil -->
+	<MobileHeader />
+	
+	<!-- Estilos CSS para la transición de colores -->
+	<style>
+		/* Variables CSS por defecto - Estado inicial */
+		:root {
+			--text-color: #000000;
+		}
+
+		body {
+			min-height: calc(-90px + 100vh);
+			cursor: auto;
+		}
+
+		/* Estado azul */
+		body[data-color="blue"] {
+			--text-color: #ffffff;
+		}
+
+		/* Estado azul profundo */
+		body[data-color="blue-deep"] {
+			--text-color: #ffffff;
+		}
+
+		/* Estado gris */
+		body[data-color="gray"] {
+			--text-color: #000000;
+		}
+
+		.transition-colors {
+			transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+			transition-timing-function: cubic-bezier(.4,0,.2,1);
+			transition-duration: .15s;
+		}
+
+		.ease-in-out {
+			transition-timing-function: cubic-bezier(.4,0,.2,1);
+		}
+
+		.duration-300 {
+			transition-duration: .3s;
+		}
+
+		/* Clase dinámica para texto */
+		.dynamic-text {
+			color: var(--text-color) !important;
+			transition-property: color;
+			transition-timing-function: cubic-bezier(.4,0,.2,1);
+			transition-duration: .3s;
+		}
+
+		/* Footer siempre blanco - forzado */
+		footer {
+			background-color: #ffffff !important;
+			background: #ffffff !important;
+			color: #000000 !important;
+		}
+
+		footer .dynamic-text,
+		footer .dynamic-text *,
+		footer *,
+		footer a,
+		footer span,
+		footer p,
+		footer h1,
+		footer h2,
+		footer h3,
+		footer h4,
+		footer h5,
+		footer h6,
+		footer div {
+			color: #000000 !important;
+			background-color: transparent !important;
+		}
+
+		footer svg {
+			color: #000000 !important;
+			fill: #000000 !important;
+		}
+	</style>
 	<!-- Navegación -->
 	<nav class="absolute top-0 w-full bg-transparent z-20">
 		<div class="container-custom">
@@ -45,12 +126,12 @@ const t = useTranslations(lang);
 		
 		<div class="relative z-20 flex items-center h-full w-full px-0">
 			<!-- Columna izquierda: Contenido principal (70%) -->
-			<div class="w-[70%] text-left pl-[40px]">
+			<div class="w-full md:w-[70%] text-left px-4 md:pl-[40px] md:pr-0">
 
 			<!-- Título principal -->
-			<h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-none -mt-80 uppercase">
+			<h1 class="text-4xl md:text-7xl font-bold text-white mb-6 leading-none -mt-80 uppercase text-left">
 				{t('hero.title') || 'THE WEB FRAMEWORK FOR'}
-				<span class="text-white">
+			</br><span class="text-white">
 					{t('hero.titleHighlight') || 'MODERN SITES'}
 				</span>
 			</h1>
@@ -58,7 +139,7 @@ const t = useTranslations(lang);
 			</div>
 			
 			<!-- Columna derecha: Menú de navegación (35%) -->
-			<div class="w-[35%] hidden xl:flex flex-col justify-start items-end pr-8 pt-16">
+			<div class="w-[35%] hidden xl:flex flex-col justify-center items-end pr-8 mt-16">
 				<MenuNavegacion />
 			</div>
 		</div>
@@ -66,10 +147,7 @@ const t = useTranslations(lang);
 		<!-- Scroll Indicator Premium -->
 		<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 cursor-pointer group" onclick="document.getElementById('contadores').scrollIntoView({behavior: 'smooth'})">
 			<div class="flex flex-col items-center space-y-3">
-				<!-- Texto sutil -->
-				<span class="text-white/40 text-xs uppercase tracking-widest font-light group-hover:text-white/60 transition-colors duration-300">
-					explore more
-				</span>
+				
 				
 				<!-- Contenedor del scroll indicator -->
 				<div class="relative w-8 h-16 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 group-hover:border-white/40 transition-all duration-300 flex items-start justify-center">
@@ -129,8 +207,6 @@ const t = useTranslations(lang);
 	<!-- Sección de Partners -->
 	<PartnersShowcase />
 
-	<!-- Sección de Expertos -->
-	<ExpertosShowcase />
 
 	<!-- Sección de Equipo -->
 	<div id="equipo">
@@ -148,4 +224,97 @@ const t = useTranslations(lang);
 
 	<!-- Menú Desktop para Scroll -->
 	<MenuScrollDesktop />
+
+	<!-- Script para manejar la transición de colores basada en scroll -->
+	<script>
+		function forceFooterWhite() {
+			// Forzar footer blanco siempre
+			const footer = document.querySelector('footer');
+			if (footer) {
+				footer.style.backgroundColor = '#ffffff';
+				footer.style.background = '#ffffff';
+				footer.style.color = '#000000';
+				
+				const footerElements = footer.querySelectorAll('*');
+				footerElements.forEach(el => {
+					(el as HTMLElement).style.color = '#000000';
+					(el as HTMLElement).style.backgroundColor = 'transparent';
+				});
+			}
+		}
+
+		function updateColors() {
+			const scrollY = window.scrollY;
+			const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+			const scrollPercent = (scrollY / documentHeight) * 100;
+			
+			console.log('ScrollY:', scrollY, 'Scroll %:', scrollPercent.toFixed(1));
+			
+			// Test directo con elementos (excluyendo footer)
+			const dynamicTexts = document.querySelectorAll('.dynamic-text:not(footer .dynamic-text):not(footer *)');
+			console.log('Elementos encontrados:', dynamicTexts.length);
+			
+			if (scrollPercent <= 8) {
+				// Estado 1: texto negro, fondo blanco (0% - 8%)
+				document.body.removeAttribute('data-color');
+				document.body.removeAttribute('data-header');
+				document.body.style.background = '';
+				document.body.style.backgroundColor = '#ffffff'; // FONDO BLANCO
+				dynamicTexts.forEach(el => {
+					(el as HTMLElement).style.color = '#000000'; // Texto negro
+				});
+				console.log('Aplicado: NEGRO sobre BLANCO (0%-8%)');
+			} else if (scrollPercent <= 20) {
+				// Estado 2: texto blanco, fondo azul #0043FF (8% - 20%)
+				document.body.setAttribute('data-color', 'blue');
+				document.body.setAttribute('data-header', 'white');
+				document.body.style.background = '';
+				document.body.style.backgroundColor = '#0043FF'; // FONDO AZUL #0043FF
+				dynamicTexts.forEach(el => {
+					(el as HTMLElement).style.color = '#ffffff'; // Texto blanco
+				});
+				console.log('Aplicado: BLANCO sobre AZUL #0043FF (8%-20%)');
+			} else if (scrollPercent <= 40) {
+				// Estado 3: texto blanco, fondo azul profundo #030B46 (20% - 40%)
+				document.body.setAttribute('data-color', 'blue-deep');
+				document.body.setAttribute('data-header', 'white');
+				document.body.style.background = '';
+				document.body.style.backgroundColor = '#030B46'; // FONDO AZUL PROFUNDO #030B46
+				dynamicTexts.forEach(el => {
+					(el as HTMLElement).style.color = '#ffffff'; // Texto blanco
+				});
+				console.log('Aplicado: BLANCO sobre AZUL PROFUNDO #030B46 (20%-40%)');
+			           } else if (scrollPercent <= 75) {
+               // Estado 4: texto negro, fondo gris niebla #F1F1F1 (40% - 75%)
+               document.body.setAttribute('data-color', 'gray');
+               document.body.removeAttribute('data-header');
+               document.body.style.background = '';
+               document.body.style.backgroundColor = '#F1F1F1'; // FONDO GRIS NIEBLA #F1F1F1
+               dynamicTexts.forEach(el => {
+                   (el as HTMLElement).style.color = '#000000'; // Texto negro
+               });
+               console.log('Aplicado: NEGRO sobre GRIS NIEBLA #F1F1F1 (40%-75%)');
+           } else {
+               // Estado 5: texto blanco, fondo azul profundo #030B46 (75% - 100%)
+               document.body.setAttribute('data-color', 'blue-deep');
+               document.body.setAttribute('data-header', 'white');
+               document.body.style.background = '';
+               document.body.style.backgroundColor = '#030B46'; // FONDO AZUL PROFUNDO #030B46
+               dynamicTexts.forEach(el => {
+                   (el as HTMLElement).style.color = '#ffffff'; // Texto blanco
+               });
+               console.log('Aplicado: BLANCO sobre AZUL PROFUNDO #030B46 (75%-100%)');
+			}
+			
+			// Forzar footer blanco después de cada cambio
+			forceFooterWhite();
+		}
+
+		// Ejecutar cuando el DOM esté listo
+		document.addEventListener('DOMContentLoaded', function() {
+			console.log('DOM cargado');
+			window.addEventListener('scroll', updateColors);
+			updateColors(); // Ejecutar una vez al cargar
+		});
+	</script>
 </Layout>

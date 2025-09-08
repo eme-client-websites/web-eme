@@ -62,7 +62,9 @@ const partners = [
           <img 
             src={partner.logo} 
             alt={`${partner.name} Logo`}
-            class="max-w-full max-h-16 object-contain transition-all duration-300 opacity-90 hover:opacity-100"
+            class={`max-w-full object-contain transition-all duration-300 opacity-90 hover:opacity-100 ${
+              partner.name === 'Scrum Alliance' ? 'max-h-20' : 'max-h-16'
+            }`}
             loading="lazy"
           />
         </div>
