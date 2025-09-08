@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import MobileHeader from '../components/MobileHeader.astro';
 import Servicios from '../components/Servicios.astro';
 import Contadores from '../components/Contadores.astro';
 import Proyectos from '../components/Proyectos.astro';
@@ -19,6 +20,9 @@ const t = useTranslations(lang);
 ---
 
 <Layout title="Mi Proyecto Web - Astro + React + Tailwind">
+	<!-- Header móvil -->
+	<MobileHeader />
+	
 	<!-- Estilos CSS para la transición de colores -->
 	<style>
 		/* Variables CSS por defecto - Estado inicial */
@@ -124,10 +128,10 @@ const t = useTranslations(lang);
 		
 		<div class="relative z-20 flex items-center h-full w-full px-0">
 			<!-- Columna izquierda: Contenido principal (70%) -->
-			<div class="w-[70%] text-left pl-[40px]">
+			<div class="w-full md:w-[70%] text-left px-4 md:pl-[40px] md:pr-0">
 
 			<!-- Título principal -->
-			<h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-none -mt-80 uppercase">
+			<h1 class="text-4xl md:text-7xl font-bold text-white mb-6 leading-none -mt-80 uppercase text-left">
 				{t('hero.title') || 'CRECEMOS MARCAS CON'}
 			</br><span class="text-white">
 					{t('hero.titleHighlight') || ' ESTRATEGIA Y TECNOLOGÍA'}
@@ -137,7 +141,7 @@ const t = useTranslations(lang);
 			</div>
 			
 			<!-- Columna derecha: Menú de navegación (35%) -->
-			<div class="w-[35%] hidden xl:flex flex-col justify-start items-end pr-8 pt-16">
+			<div class="w-[35%] hidden xl:flex flex-col justify-center items-end pr-8 mt-16">
 				<MenuNavegacion />
 			</div>
 		</div>

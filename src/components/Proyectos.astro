@@ -332,7 +332,7 @@ const proyectos = [
                       {proyecto.servicios.map((servicio) => (
                         <div class="inline-block overflow-hidden opacity-100 transform-none">
                           <div class="project-tag px-4 py-2 text-sm font-normal rounded-lg transition-all duration-300">
-                            <span class="inline-block opacity-100 transform-none dynamic-text">{servicio}</span>
+                            <span class="inline-block opacity-100 transform-none" style="color: white !important;">{servicio}</span>
                           </div>
                         </div>
                       ))}
@@ -859,41 +859,32 @@ const proyectos = [
     transition: all 0.3s ease;
   }
 
-  /* Estado por defecto: texto negro, fondo blanco */
+  /* Estado por defecto: texto blanco, fondo azul #0043FF - FORZADO */
   .project-tag {
-    background: rgba(0, 0, 0, 0.05);
+    background: #0043FF !important;
+    color: white !important;
   }
 
   .project-tag:hover {
-    background: rgba(0, 0, 0, 0.1);
+    background: #0033C4 !important;
     transform: translateY(-1px);
   }
 
-  /* Estado azul: texto blanco, fondo azul */
-  body[data-color="blue"] .project-tag {
-    background: rgba(255, 255, 255, 0.1);
+  /* Sobrescribir TODOS los estados dinámicos para mantener consistencia */
+  body[data-color="blue"] .project-tag,
+  body[data-color="blue-deep"] .project-tag,
+  body[data-color="gray"] .project-tag,
+  body .project-tag {
+    background: #0043FF !important;
+    color: white !important;
   }
 
-  body[data-color="blue"] .project-tag:hover {
-    background: rgba(255, 255, 255, 0.2);
-  }
-
-  /* Estado azul profundo: texto blanco, fondo azul profundo */
-  body[data-color="blue-deep"] .project-tag {
-    background: rgba(255, 255, 255, 0.1);
-  }
-
-  body[data-color="blue-deep"] .project-tag:hover {
-    background: rgba(255, 255, 255, 0.2);
-  }
-
-  /* Estado gris: texto negro, fondo gris */
-  body[data-color="gray"] .project-tag {
-    background: rgba(0, 0, 0, 0.05);
-  }
-
-  body[data-color="gray"] .project-tag:hover {
-    background: rgba(0, 0, 0, 0.1);
+  body[data-color="blue"] .project-tag:hover,
+  body[data-color="blue-deep"] .project-tag:hover,
+  body[data-color="gray"] .project-tag:hover,
+  body .project-tag:hover {
+    background: #0033C4 !important;
+    color: white !important;
   }
 
   .s-projectheader__image {

@@ -18,9 +18,9 @@ const menuItems = [
   class="hidden xl:flex fixed top-6 right-6 z-[60] w-14 h-14 flex-col items-center justify-center bg-white/10 backdrop-blur-md rounded-full border border-white/20 transition-all duration-300 hover:bg-white/20 opacity-0 invisible"
   aria-label="Toggle menu"
 >
-  <span class="hamburger-line w-7 h-0.5 bg-white transition-all duration-300"></span>
-  <span class="hamburger-line w-7 h-0.5 bg-white transition-all duration-300 mt-1.5"></span>
-  <span class="hamburger-line w-7 h-0.5 bg-white transition-all duration-300 mt-1.5"></span>
+  <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300 transform-gpu"></span>
+  <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300 transform-gpu mt-1"></span>
+  <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300 transform-gpu mt-1"></span>
 </button>
 
 <!-- Menú pantalla completa - Solo desktop -->
@@ -116,12 +116,7 @@ const menuItems = [
     }
   }
   
-  // BUSCAR ESA PINCHE X Y AGREGARLE LA ACCIÓN
-  document.addEventListener('click', function(e) {
-    if (e.target && (e.target as HTMLElement).textContent === '×') {
-      closeMenuNow();
-    }
-  });
+  // La funcionalidad de cerrar ahora está integrada en el botón toggle
   
   document.addEventListener('DOMContentLoaded', () => {
     const heroSection = document.getElementById('inicio');
@@ -226,9 +221,12 @@ const menuItems = [
       menuToggle.classList.remove('bg-white/10', 'border-white/20', 'hover:bg-white/20');
       menuToggle.classList.add('bg-black/10', 'border-black/20', 'hover:bg-black/20');
       
-      hamburgerLines.forEach(line => {
-        (line as HTMLElement).style.backgroundColor = '#0033C4';
-      });
+      // Solo cambiar color de líneas si el menú NO está abierto
+      if (!isMenuOpen) {
+        hamburgerLines.forEach(line => {
+          (line as HTMLElement).style.backgroundColor = '#0033C4';
+        });
+      }
     }
     
     // Cambiar botón a modo claro (para fondos oscuros)
@@ -238,9 +236,12 @@ const menuItems = [
       menuToggle.classList.remove('bg-black/10', 'border-black/20', 'hover:bg-black/20');
       menuToggle.classList.add('bg-white/10', 'border-white/20', 'hover:bg-white/20');
       
-      hamburgerLines.forEach(line => {
-        (line as HTMLElement).style.backgroundColor = '#ffffff';
-      });
+      // Solo cambiar color de líneas si el menú NO está abierto
+      if (!isMenuOpen) {
+        hamburgerLines.forEach(line => {
+          (line as HTMLElement).style.backgroundColor = '#ffffff';
+        });
+      }
     }
     
     function openMenu() {
@@ -248,11 +249,13 @@ const menuItems = [
       fullscreenMenu?.classList.remove('opacity-0', 'invisible');
       document.body.style.overflow = 'hidden';
       
-      // Animar hamburger a X
+      // Animar hamburger a X perfecta y cambiar color para visibilidad
       if (hamburgerLines.length >= 3) {
-        (hamburgerLines[0] as HTMLElement).style.transform = 'rotate(45deg) translate(6px, 6px)';
+        (hamburgerLines[0] as HTMLElement).style.transform = 'rotate(45deg) translate(2px, 6px)';
+        (hamburgerLines[0] as HTMLElement).style.backgroundColor = '#000000'; // Negro sobre fondo blanco
         (hamburgerLines[1] as HTMLElement).style.opacity = '0';
-        (hamburgerLines[2] as HTMLElement).style.transform = 'rotate(-45deg) translate(8px, -8px)';
+        (hamburgerLines[2] as HTMLElement).style.transform = 'rotate(-45deg) translate(2px, -6px)';
+        (hamburgerLines[2] as HTMLElement).style.backgroundColor = '#000000'; // Negro sobre fondo blanco
       }
       
       // Animar elementos del menú
@@ -268,11 +271,13 @@ const menuItems = [
       fullscreenMenu?.classList.add('opacity-0', 'invisible');
       document.body.style.overflow = 'auto';
       
-      // Restaurar hamburger
+      // Restaurar hamburger y color original
       if (hamburgerLines.length >= 3) {
         (hamburgerLines[0] as HTMLElement).style.transform = 'none';
+        (hamburgerLines[0] as HTMLElement).style.backgroundColor = '#ffffff'; // Restaurar blanco
         (hamburgerLines[1] as HTMLElement).style.opacity = '1';
         (hamburgerLines[2] as HTMLElement).style.transform = 'none';
+        (hamburgerLines[2] as HTMLElement).style.backgroundColor = '#ffffff'; // Restaurar blanco
       }
       
       // Quitar animaciones
@@ -282,7 +287,13 @@ const menuItems = [
     }
     
     // Event listeners
-    menuToggle?.addEventListener('click', openMenu);
+    menuToggle?.addEventListener('click', () => {
+      if (isMenuOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
     
     fullscreenMenu?.addEventListener('click', (e) => {
       if (e.target === fullscreenMenu) closeMenu();

@@ -31,8 +31,8 @@ const fila3 = ['Productores audiovisuales', 'Traffickers', 'Content creators'];
   <!-- Showcase con animación inicial y luego estático -->
   <div class="relative experts-container">
     
-    <!-- Primera fila -->
-    <div class="experts-row mb-8">
+    <!-- Primera fila - Entra desde la izquierda -->
+    <div class="experts-row mb-8 slide-from-left">
       <div class="experts-track">
         {fila1.map((especialidad) => (
           <div class="expert-item-wrapper">
@@ -44,8 +44,8 @@ const fila3 = ['Productores audiovisuales', 'Traffickers', 'Content creators'];
       </div>
     </div>
 
-    <!-- Segunda fila -->
-    <div class="experts-row mb-8">
+    <!-- Segunda fila - Entra desde la derecha -->
+    <div class="experts-row mb-8 slide-from-right">
       <div class="experts-track">
         {fila2.map((especialidad) => (
           <div class="expert-item-wrapper">
@@ -57,8 +57,8 @@ const fila3 = ['Productores audiovisuales', 'Traffickers', 'Content creators'];
       </div>
     </div>
 
-    <!-- Tercera fila -->
-    <div class="experts-row">
+    <!-- Tercera fila - Entra desde la izquierda -->
+    <div class="experts-row slide-from-left">
       <div class="experts-track">
         {fila3.map((especialidad) => (
           <div class="expert-item-wrapper">
@@ -78,6 +78,26 @@ const fila3 = ['Productores audiovisuales', 'Traffickers', 'Content creators'];
   .experts-container {
     overflow: hidden;
     position: relative;
+  }
+
+  /* Animaciones de entrada desde los lados */
+  .slide-from-left {
+    transform: translateX(-100px);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .slide-from-right {
+    transform: translateX(100px);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Estado final - elementos visibles y fijos */
+  .slide-from-left.visible,
+  .slide-from-right.visible {
+    transform: translateX(0);
+    opacity: 1;
   }
   
   /* Fila de expertos */
@@ -183,3 +203,51 @@ const fila3 = ['Productores audiovisuales', 'Traffickers', 'Content creators'];
     }
   }
 </style>
+
+<script>
+  // Función para animar las filas de expertos cuando entran en vista
+  function initExpertsAnimation() {
+    // Configurar el Intersection Observer
+    const observerOptions = {
+      threshold: 0.3, // Se activa cuando el 30% del elemento es visible
+      rootMargin: '0px 0px -50px 0px' // Offset para activar un poco antes
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Agregar la clase 'visible' para activar la animación
+          entry.target.classList.add('visible');
+          
+          // Opcional: dejar de observar una vez que se anima
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observar todas las filas con animación
+    const animatedRows = document.querySelectorAll('.slide-from-left, .slide-from-right');
+    
+    // Agregar un pequeño delay progresivo para cada fila
+    animatedRows.forEach((row, index) => {
+      // Delay escalonado: 0ms, 200ms, 400ms
+      const delay = index * 200;
+      
+      // Aplicar el delay como estilo inline
+      (row as HTMLElement).style.transitionDelay = `${delay}ms`;
+      
+      // Comenzar a observar
+      observer.observe(row);
+    });
+  }
+
+  // Inicializar cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', initExpertsAnimation);
+  
+  // También inicializar si el script se carga después del DOM
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initExpertsAnimation);
+  } else {
+    initExpertsAnimation();
+  }
+</script>
