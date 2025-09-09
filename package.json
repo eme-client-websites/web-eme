@@ -29,6 +29,7 @@
     "typescript": "^5.9.2"
   },
   "devDependencies": {
+    "prettier": "^3.6.2",
     "tw-animate-css": "^1.3.8"
   }
 }
