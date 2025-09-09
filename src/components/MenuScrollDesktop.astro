@@ -10,18 +10,64 @@ const menuItems = [
   { href: '#proyectos', text: lang === 'en' ? 'Work' : 'Trabajos' },
   { href: '#contacto', text: lang === 'en' ? 'Contact' : 'Contacto' }
 ];
+
+// Configuración del selector de idioma
+const currentLang = getLangFromUrl(Astro.url);
+const otherLang = currentLang === 'es' ? 'en' : 'es';
+
+// Construir la URL para el otro idioma
+function getOtherLangUrl() {
+  const pathname = Astro.url.pathname;
+  
+  if (currentLang === 'es') {
+    // Si estamos en español, agregar /en al inicio
+    return '/en' + pathname;
+  } else {
+    // Si estamos en inglés, quitar /en del inicio
+    return pathname.replace('/en', '') || '/';
+  }
+}
+
+const otherLangUrl = getOtherLangUrl();
 ---
 
-<!-- Botón hamburguesa - Solo desktop, aparece después del hero -->
-<button 
-  id="desktop-menu-toggle"
-  class="hidden xl:flex fixed top-6 right-6 z-[60] w-14 h-14 flex-col items-center justify-center bg-white/10 backdrop-blur-md rounded-full border border-white/20 transition-all duration-300 hover:bg-white/20 opacity-0 invisible"
-  aria-label="Toggle menu"
->
-  <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300 transform-gpu"></span>
-  <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300 transform-gpu mt-1"></span>
-  <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300 transform-gpu mt-1"></span>
-</button>
+<!-- Selector de idioma y botón hamburguesa - Solo desktop, aparece después del hero -->
+<div class="hidden xl:flex fixed top-6 right-6 z-[60] items-center space-x-3 opacity-0 invisible" id="desktop-header-controls">
+  <!-- Selector de idioma compacto para desktop -->
+  <div class="flex items-center justify-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-3 py-2 h-8 transition-all duration-300 hover:bg-white/20">
+    <!-- Idioma actual -->
+    <div class="flex items-center justify-center w-4 h-4">
+      <span class="text-white font-medium text-xs leading-none text-center">
+        {currentLang === 'es' ? 'ES' : 'EN'}
+      </span>
+    </div>
+    
+    <div class="flex items-center justify-center w-2 h-4">
+      <span class="text-white/40 text-xs leading-none text-center">|</span>
+    </div>
+    
+    <!-- Idioma alternativo -->
+    <a 
+      href={otherLangUrl}
+      class="hover:scale-110 transition-all duration-300 opacity-60 hover:opacity-100 flex items-center justify-center w-4 h-4"
+    >
+      <span class="text-white font-medium text-xs leading-none text-center">
+        {otherLang === 'es' ? 'ES' : 'EN'}
+      </span>
+    </a>
+  </div>
+
+  <!-- Botón hamburguesa -->
+  <button 
+    id="desktop-menu-toggle"
+    class="w-14 h-14 flex flex-col items-center justify-center bg-white/10 backdrop-blur-md rounded-full border border-white/20 transition-all duration-300 hover:bg-white/20"
+    aria-label="Toggle menu"
+  >
+    <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300 transform-gpu"></span>
+    <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300 transform-gpu mt-1"></span>
+    <span class="hamburger-line w-6 h-0.5 bg-white transition-all duration-300 transform-gpu mt-1"></span>
+  </button>
+</div>
 
 <!-- Menú pantalla completa - Solo desktop -->
 <div 
@@ -60,7 +106,7 @@ const menuItems = [
     <!-- Columna derecha: Información de contacto y redes -->
     <div class="flex flex-col justify-center items-end pr-16 space-y-8">
       <!-- Redes sociales -->
-      <div class="menu-item-desktop opacity-0 flex space-x-4" style="animation-delay: 600ms">
+      <div class="menu-item-desktop opacity-0 flex space-x-4" style="animation-delay: 550ms">
         <!-- Instagram -->
         <a href="#" class="w-10 h-10 bg-gray-300 hover:bg-gray-400 rounded-full flex items-center justify-center text-black transition-colors">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -94,7 +140,7 @@ const menuItems = [
       </div>
       
       <!-- Información de contacto -->
-      <div class="menu-item-desktop opacity-0 text-right" style="animation-delay: 700ms">
+      <div class="menu-item-desktop opacity-0 text-right" style="animation-delay: 650ms">
         <div class="text-black text-lg space-y-2">
           <p class="text-sm text-gray-600">(Consultas)</p>
           <p class="font-medium">info@eme-agency.com</p>
@@ -120,6 +166,7 @@ const menuItems = [
   
   document.addEventListener('DOMContentLoaded', () => {
     const heroSection = document.getElementById('inicio');
+    const headerControls = document.getElementById('desktop-header-controls');
     const menuToggle = document.getElementById('desktop-menu-toggle');
     const fullscreenMenu = document.getElementById('desktop-fullscreen-menu');
     const menuClose = document.getElementById('desktop-menu-close');
@@ -139,12 +186,12 @@ const menuItems = [
       
       // Si el hero ya no está visible (o muy poco visible)
       if (heroBottom <= 100) {
-        menuToggle?.classList.remove('opacity-0', 'invisible');
+        headerControls?.classList.remove('opacity-0', 'invisible');
         
         // Detectar color de fondo de la sección actual
         detectBackgroundColor();
       } else {
-        menuToggle?.classList.add('opacity-0', 'invisible');
+        headerControls?.classList.add('opacity-0', 'invisible');
         // Si el menú está abierto y volvemos al hero, cerrarlo
         if (isMenuOpen) {
           closeMenu();
@@ -216,10 +263,28 @@ const menuItems = [
     
     // Cambiar botón a modo oscuro (para fondos claros)
     function setDarkMode() {
-      if (!menuToggle) return;
+      if (!headerControls) return;
       
-      menuToggle.classList.remove('bg-white/10', 'border-white/20', 'hover:bg-white/20');
-      menuToggle.classList.add('bg-black/10', 'border-black/20', 'hover:bg-black/20');
+      // Cambiar estilo del botón hamburguesa
+      menuToggle?.classList.remove('bg-white/10', 'border-white/20', 'hover:bg-white/20');
+      menuToggle?.classList.add('bg-black/10', 'border-black/20', 'hover:bg-black/20');
+      
+      // Cambiar estilo del selector de idioma
+      const languageSelector = headerControls.querySelector('div');
+      languageSelector?.classList.remove('bg-white/10', 'border-white/20', 'hover:bg-white/20');
+      languageSelector?.classList.add('bg-black/10', 'border-black/20', 'hover:bg-black/20');
+      
+      // Cambiar color del texto del selector de idioma
+      const languageSpans = headerControls.querySelectorAll('span');
+      languageSpans.forEach(span => {
+        if (span.textContent?.includes('|')) {
+          (span as HTMLElement).style.color = 'rgba(0, 0, 0, 0.4)';
+        } else {
+          (span as HTMLElement).style.color = '#000000';
+        }
+        (span as HTMLElement).style.lineHeight = '1';
+        (span as HTMLElement).style.textAlign = 'center';
+      });
       
       // Solo cambiar color de líneas si el menú NO está abierto
       if (!isMenuOpen) {
@@ -231,10 +296,28 @@ const menuItems = [
     
     // Cambiar botón a modo claro (para fondos oscuros)
     function setLightMode() {
-      if (!menuToggle) return;
+      if (!headerControls) return;
       
-      menuToggle.classList.remove('bg-black/10', 'border-black/20', 'hover:bg-black/20');
-      menuToggle.classList.add('bg-white/10', 'border-white/20', 'hover:bg-white/20');
+      // Cambiar estilo del botón hamburguesa
+      menuToggle?.classList.remove('bg-black/10', 'border-black/20', 'hover:bg-black/20');
+      menuToggle?.classList.add('bg-white/10', 'border-white/20', 'hover:bg-white/20');
+      
+      // Cambiar estilo del selector de idioma
+      const languageSelector = headerControls.querySelector('div');
+      languageSelector?.classList.remove('bg-black/10', 'border-black/20', 'hover:bg-black/20');
+      languageSelector?.classList.add('bg-white/10', 'border-white/20', 'hover:bg-white/20');
+      
+      // Cambiar color del texto del selector de idioma
+      const languageSpans = headerControls.querySelectorAll('span');
+      languageSpans.forEach(span => {
+        if (span.textContent?.includes('|')) {
+          (span as HTMLElement).style.color = 'rgba(255, 255, 255, 0.4)';
+        } else {
+          (span as HTMLElement).style.color = '#ffffff';
+        }
+        (span as HTMLElement).style.lineHeight = '1';
+        (span as HTMLElement).style.textAlign = 'center';
+      });
       
       // Solo cambiar color de líneas si el menú NO está abierto
       if (!isMenuOpen) {

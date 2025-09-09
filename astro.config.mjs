@@ -9,6 +9,11 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   integrations: [react()],
   
+  server: {
+    host: true,
+    port: 4321
+  },
+  
   i18n: {
     defaultLocale: "es",
     locales: ["es", "en"],

@@ -263,18 +263,22 @@ const equipo = [
 </style>
 
 <script>
-  // Funcionalidad interactiva del equipo con scroll
+  // Funcionalidad interactiva del equipo con scroll, hover y click
   function initTeamInteraction() {
     const teamCards = document.querySelectorAll('.team-member-card');
     const teamImages = document.querySelectorAll('.team-member-image');
     let currentMember = 0; // 0 = Daniel, 1 = Marcela
     let isScrolling = false;
+    let isHovering = false;
+    let originalMember = 0; // Para recordar el miembro activo antes del hover
 
     // Función para activar un miembro específico
-    function activateMember(index: number) {
-      if (currentMember === index) return;
-      
-      currentMember = index;
+    function activateMember(index: number, source = 'default') {
+      // Para scroll, click e init, siempre actualizar el estado permanente
+      if (source === 'scroll' || source === 'click' || source === 'init') {
+        currentMember = index;
+        originalMember = index;
+      }
       
       // Remover clase active de todas las tarjetas
       teamCards.forEach(c => {
@@ -313,6 +317,24 @@ const equipo = [
       }
     }
 
+    // Función para manejar hover en tarjetas
+    function handleCardHover(index: number) {
+      if (!isHovering) {
+        isHovering = true;
+        originalMember = currentMember; // Guardamos el miembro activo actual
+      }
+      activateMember(index, 'hover'); // Activamos temporalmente con hover
+    }
+
+    // Función para manejar cuando se deja de hacer hover
+    function handleCardLeave() {
+      if (isHovering) {
+        isHovering = false;
+        // Volvemos al miembro que estaba activo antes del hover
+        activateMember(originalMember, 'return');
+      }
+    }
+
     // Configurar Intersection Observer para cada tarjeta
     const observerOptions = {
       root: null,
@@ -322,11 +344,11 @@ const equipo = [
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting && !isScrolling) {
+        if (entry.isIntersecting && !isScrolling && !isHovering) {
           const card = entry.target;
           const index = Array.from(teamCards).indexOf(card);
           if (index !== -1) {
-            activateMember(index);
+            activateMember(index, 'scroll');
           }
         }
       });
@@ -337,19 +359,34 @@ const equipo = [
       observer.observe(card);
     });
 
-    // Mantener funcionalidad de click como respaldo
+    // Configurar eventos de hover, click y mouse leave para cada tarjeta
     teamCards.forEach((card, index) => {
+      // Evento hover (mouseenter)
+      card.addEventListener('mouseenter', () => {
+        handleCardHover(index);
+      });
+
+      // Evento click (mantiene funcionalidad existente pero actualiza el estado permanente)
       card.addEventListener('click', () => {
         isScrolling = true;
-        activateMember(index);
+        isHovering = false; // Cancelamos cualquier hover activo
+        activateMember(index, 'click'); // Activamos permanentemente
         setTimeout(() => {
           isScrolling = false;
         }, 500);
       });
     });
 
+    // Configurar evento mouseleave para el contenedor de las tarjetas
+    const teamContainer = document.querySelector('.lg\\:col-span-8');
+    if (teamContainer) {
+      teamContainer.addEventListener('mouseleave', () => {
+        handleCardLeave();
+      });
+    }
+
     // Inicializar con Daniel activo
-    activateMember(0);
+    activateMember(0, 'init');
   }
 
   // Inicializar cuando el DOM esté listo

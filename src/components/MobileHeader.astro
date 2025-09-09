@@ -10,6 +10,25 @@ const menuItems = [
   { href: '#proyectos', text: lang === 'en' ? 'Work' : 'Trabajos' },
   { href: '#contacto', text: lang === 'en' ? 'Contact' : 'Contacto' }
 ];
+
+// Configuración del selector de idioma
+const currentLang = getLangFromUrl(Astro.url);
+const otherLang = currentLang === 'es' ? 'en' : 'es';
+
+// Construir la URL para el otro idioma
+function getOtherLangUrl() {
+  const pathname = Astro.url.pathname;
+  
+  if (currentLang === 'es') {
+    // Si estamos en español, agregar /en al inicio
+    return '/en' + pathname;
+  } else {
+    // Si estamos en inglés, quitar /en del inicio
+    return pathname.replace('/en', '') || '/';
+  }
+}
+
+const otherLangUrl = getOtherLangUrl();
 ---
 
 <!-- Header móvil - Solo visible en dispositivos móviles -->
@@ -23,12 +42,39 @@ const menuItems = [
       </a>
     </div>
 
-    <!-- Botón hamburguesa -->
-    <button class="mobile-hamburger-toggle flex flex-col items-center justify-center w-8 h-8 space-y-1 focus:outline-none" aria-label="Abrir menú">
-      <span class="mobile-hamburger-line w-6 h-0.5 bg-white transition-all duration-300 ease-in-out"></span>
-      <span class="mobile-hamburger-line w-6 h-0.5 bg-white transition-all duration-300 ease-in-out"></span>
-      <span class="mobile-hamburger-line w-6 h-0.5 bg-white transition-all duration-300 ease-in-out"></span>
-    </button>
+    <!-- Selector de idioma y botón hamburguesa -->
+    <div class="flex items-center space-x-3">
+      <!-- Selector de idioma compacto -->
+      <div class="flex items-center justify-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-2 h-8">
+        <!-- Idioma actual -->
+        <div class="flex items-center justify-center w-4 h-4">
+          <span class="text-white font-medium text-xs leading-none text-center">
+            {currentLang === 'es' ? 'ES' : 'EN'}
+          </span>
+        </div>
+        
+        <div class="flex items-center justify-center w-2 h-4">
+          <span class="text-white/40 text-xs leading-none text-center">|</span>
+        </div>
+        
+        <!-- Idioma alternativo -->
+        <a 
+          href={otherLangUrl}
+          class="hover:scale-110 transition-all duration-300 opacity-60 hover:opacity-100 flex items-center justify-center w-4 h-4"
+        >
+          <span class="text-white font-medium text-xs leading-none text-center">
+            {otherLang === 'es' ? 'ES' : 'EN'}
+          </span>
+        </a>
+      </div>
+
+      <!-- Botón hamburguesa -->
+      <button class="mobile-hamburger-toggle flex flex-col items-center justify-center w-8 h-8 space-y-1 focus:outline-none" aria-label="Abrir menú">
+        <span class="mobile-hamburger-line w-6 h-0.5 bg-white transition-all duration-300 ease-in-out"></span>
+        <span class="mobile-hamburger-line w-6 h-0.5 bg-white transition-all duration-300 ease-in-out"></span>
+        <span class="mobile-hamburger-line w-6 h-0.5 bg-white transition-all duration-300 ease-in-out"></span>
+      </button>
+    </div>
 
   </div>
 
