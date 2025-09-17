@@ -1,0 +1,27 @@
+{
+  "hero": {
+    "title": "WE GROW BRANDS WITH",
+    "titleHighlight": "STRATEGY AND TECHNOLOGY"
+  },
+  "nav": {
+    "services": "Services",
+    "projects": "Projects",
+    "team": "Team",
+    "contact": "Contact"
+  },
+  "team": {
+    "subtitle": "Meet the visionaries behind E-me. A strategic duo that combines creativity, technology and data to transform extraordinary ideas.",
+    "members": {
+      "0": {
+        "name": "Daniel Vengoechea",
+        "role": "Co-founder, Growth Marketer & CEO",
+        "description": "He is the mind behind the success of EME, Apex AI, Gettranscribe and Elevvate. He turns challenges into opportunities with strategy, data and AI. Co-founder of Apparta and international speaker, he drives brands with creativity and high-impact technology."
+      },
+      "1": {
+        "name": "Marcela Hinestrosa",
+        "role": "Co-founder, Brand & Business Strategist",
+        "description": "Believes in brands with purpose and strategies that feel. Accompanies companies that want to grow with meaning, building from within: clear vision, solid structure and experiences that truly connect."
+      }
+    }
+  }
+}
