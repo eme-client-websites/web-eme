@@ -31,6 +31,7 @@ const HeroDaniel: React.FC<HeroDanielProps> = ({ locale: _locale = 'es' }) => {
 
           {/* Imagen SOLO en la parte roja */}
           <div className="hero-image-right">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/Daniel V.JPG" alt="Daniel Vengoechea" />
           </div>
 
@@ -65,6 +66,7 @@ const HeroDaniel: React.FC<HeroDanielProps> = ({ locale: _locale = 'es' }) => {
         <div className="hero-marcela-container">
           {/* Imagen a la izquierda */}
           <div className="marcela-image-left">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/Marcela H.png" alt="Marcela Hinestrosa" />
           </div>
 

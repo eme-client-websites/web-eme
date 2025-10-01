@@ -8,9 +8,32 @@ interface ProyectosProps {
   locale: Locale;
 }
 
+interface Proyecto {
+  id: string;
+  nombre: string;
+  descripcion: string;
+  imagen: string;
+  link: string;
+  servicios: string[];
+  detalles: {
+    descripcionCompleta: string;
+    rol: string;
+    solucion: string;
+    creditos: string;
+    duracion: string;
+    website: string;
+    testimonio: {
+      nombre: string;
+      cargo: string;
+      imagen: string;
+      texto: string;
+    };
+  };
+}
+
 export default function Proyectos({ locale }: ProyectosProps) {
   const t = useTranslations(locale);
-  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [selectedProject, setSelectedProject] = useState<Proyecto | null>(null);
   const [modalClosing, setModalClosing] = useState(false);
   const [modalSlideUp, setModalSlideUp] = useState(0); // 0 = normal, 1-100 = porcentaje de subida
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -129,7 +152,7 @@ export default function Proyectos({ locale }: ProyectosProps) {
     }
   ];
 
-  const openProjectModal = (proyecto: any) => {
+  const openProjectModal = (proyecto: Proyecto) => {
     setSelectedProject(proyecto);
     setModalSlideUp(0); // Resetear la animación de subida
   };
@@ -230,7 +253,7 @@ export default function Proyectos({ locale }: ProyectosProps) {
         container.removeEventListener('wheel', handleWheel);
       };
     }
-  }, [selectedProject]);
+  }, [selectedProject, modalSlideUp]);
 
   return (
     <>
