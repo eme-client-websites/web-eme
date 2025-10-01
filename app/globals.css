@@ -135,16 +135,16 @@ body::-webkit-scrollbar {
   transition-duration: .3s;
 }
 
-/* Footer siempre blanco - forzado */
+/* Footer siempre azul profundo - forzado */
 footer {
-  background-color: #ffffff !important;
-  background: #ffffff !important;
-  color: #000000 !important;
+  background-color: #030B46 !important;
+  background: #030B46 !important;
+  color: #ffffff !important;
 }
 
 footer .dynamic-text,
 footer .dynamic-text *,
-footer *,
+footer *:not(.marquee-text),
 footer a,
 footer span,
 footer p,
@@ -155,13 +155,13 @@ footer h4,
 footer h5,
 footer h6,
 footer div {
-  color: #000000 !important;
+  color: #ffffff !important;
   background-color: transparent !important;
 }
 
 footer svg {
-  color: #000000 !important;
-  fill: #000000 !important;
+  color: #ffffff !important;
+  fill: #ffffff !important;
 }
 
 /* Animaciones del scroll indicator */
@@ -846,6 +846,697 @@ nav a:hover span:first-child {
     text-align: center;
     font-size: 1.25rem;
   }
+}
+
+/* Estilos para HeroDaniel Component */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Proteger el componente HeroDaniel del scroll color effect */
+.hero-daniel-fixed-colors {
+  background-color: #e8e8e8 !important;
+  color: #000000 !important;
+}
+
+.hero-daniel-fixed-colors * {
+  color: inherit !important;
+}
+
+.hero-daniel-text {
+  color: #000000 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+.hero-daniel-text.offset {
+  color: #000000 !important;
+}
+
+/* Evitar que el scroll color effect afecte este componente */
+.hero-daniel-fixed-colors .dynamic-text,
+.hero-daniel-fixed-colors *:not(.hero-daniel-text) {
+  color: #000000 !important;
+}
+
+/* HeroDaniel - Recreando exactamente la imagen Oscar Nilsson */
+.hero-daniel-section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fondo gris izquierda - ahora transparente para scroll effect */
+.hero-bg-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: transparent;
+}
+
+/* Fondo rojo derecha - mantiene color para la imagen */
+.hero-bg-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #d85a47;
+}
+
+.hero-daniel-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+/* Título más a la izquierda */
+.hero-main-title {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  text-align: left;
+  z-index: 15;
+  width: 50%;
+  padding: 0 80px;
+  box-sizing: border-box;
+}
+
+.hero-name-line-1 {
+  font-size: clamp(60px, 8vw, 110px);
+  font-weight: 700;
+  line-height: 0.9;
+  color: #000000;
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.hero-name-line-2 {
+  font-size: clamp(60px, 8vw, 110px);
+  font-weight: 700;
+  line-height: 0.9;
+  color: #000000;
+  margin: 0;
+  margin-bottom: 20px;
+  font-family: system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.hero-subtitle {
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 500;
+  line-height: 1.3;
+  color: #333333;
+  margin: 0;
+  margin-bottom: 16px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.hero-description {
+  font-size: clamp(14px, 1.5vw, 16px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: #666666;
+  margin: 0;
+  margin-bottom: 20px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hero-tag {
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: system-ui, -apple-system, sans-serif;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+/* Área de texto de Daniel - se adapta al scroll effect */
+.hero-text-area {
+  transition: all 0.3s ease;
+}
+
+/* Imagen SOLO en la mitad roja */
+.hero-image-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 5;
+}
+
+.hero-image-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Badge abajo izquierda */
+.hero-location-badge {
+  position: absolute;
+  bottom: 60px;
+  left: 60px;
+  display: inline-flex;
+  align-items: center;
+  background-color: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  padding: 14px 22px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 20;
+}
+
+.location-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #10b981;
+  border-radius: 50%;
+  margin-right: 12px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.hero-location-badge span {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1f2937;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Scroll indicator */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 60px;
+  right: 60px;
+  z-index: 20;
+}
+
+.scroll-circle {
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Sección de Marcela Hinestrosa */
+.hero-marcela-section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fondos divididos VERTICALMENTE (inversos a Daniel) */
+.marcela-bg-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #ffffff;
+}
+
+.marcela-bg-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background-color: transparent;
+}
+
+.hero-marcela-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+/* Imagen a la izquierda */
+.marcela-image-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 5;
+}
+
+.marcela-image-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  image-rendering: auto;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Contenido a la derecha */
+.marcela-main-content {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  text-align: left;
+  z-index: 15;
+  width: 50%;
+  padding: 0 80px;
+  box-sizing: border-box;
+}
+
+.marcela-name-line-1 {
+  font-size: clamp(60px, 8vw, 110px);
+  font-weight: 700;
+  line-height: 0.9;
+  color: #000000;
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.marcela-name-line-2 {
+  font-size: clamp(60px, 8vw, 110px);
+  font-weight: 700;
+  line-height: 0.9;
+  color: #000000;
+  margin: 0;
+  margin-bottom: 20px;
+  font-family: system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.marcela-subtitle {
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 500;
+  line-height: 1.3;
+  color: #333333;
+  margin: 0;
+  margin-bottom: 16px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.marcela-description {
+  font-size: clamp(14px, 1.5vw, 16px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: #666666;
+  margin: 0;
+  margin-bottom: 20px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.marcela-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.marcela-tag {
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: system-ui, -apple-system, sans-serif;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+/* Área de texto de Marcela - se adapta al scroll effect */
+.marcela-text-area {
+  transition: all 0.3s ease;
+}
+
+/* Badge abajo derecha */
+.marcela-location-badge {
+  position: absolute;
+  bottom: 60px;
+  right: 60px;
+  display: inline-flex;
+  align-items: center;
+  background-color: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  padding: 14px 22px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 20;
+}
+
+.marcela-location-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #10b981;
+  border-radius: 50%;
+  margin-right: 12px;
+  animation: pulse 2s infinite;
+}
+
+.marcela-location-badge span {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1f2937;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .hero-name-line-1,
+  .hero-name-line-2 {
+    font-size: clamp(80px, 12vw, 150px);
+  }
+  
+  .hero-location-badge {
+    bottom: 40px;
+    left: 40px;
+  }
+  
+  .hero-scroll-indicator {
+    bottom: 40px;
+    right: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-bg-left,
+  .hero-bg-right {
+    width: 100%;
+  }
+  
+  .hero-bg-left {
+    height: 50%;
+  }
+  
+  .hero-bg-right {
+    top: 50%;
+    height: 50%;
+  }
+  
+  .hero-image-right {
+    top: 50%;
+    width: 100%;
+    height: 50%;
+  }
+  
+  .hero-main-title {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: 90%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .hero-name-line-1,
+  .hero-name-line-2 {
+    font-size: clamp(60px, 10vw, 100px);
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(16px, 3vw, 20px);
+    text-align: center;
+  }
+  
+  .hero-description {
+    font-size: clamp(14px, 3vw, 16px);
+    text-align: center;
+  }
+  
+  .hero-tags {
+    justify-content: center;
+  }
+  
+  .hero-tag {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+  
+  .hero-location-badge {
+    bottom: 20px;
+    left: 20px;
+  }
+  
+  .hero-scroll-indicator {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .scroll-circle {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-name-line-1,
+  .hero-name-line-2 {
+    font-size: clamp(40px, 8vw, 70px);
+  }
+}
+
+/* Responsive para Marcela */
+@media (max-width: 1200px) {
+  .marcela-main-content {
+    padding: 0 40px;
+  }
+  
+  .marcela-name-line-1,
+  .marcela-name-line-2 {
+    font-size: clamp(50px, 7vw, 90px);
+  }
+  
+  .marcela-location-badge {
+    bottom: 40px;
+    right: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .marcela-bg-left,
+  .marcela-bg-right {
+    width: 100%;
+  }
+  
+  .marcela-bg-left {
+    height: 50%;
+  }
+  
+  .marcela-bg-right {
+    top: 50%;
+    height: 50%;
+  }
+  
+  .marcela-image-left {
+    width: 100%;
+    height: 50%;
+  }
+  
+  .marcela-main-content {
+    top: 75%;
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+  }
+  
+  .marcela-name-line-1,
+  .marcela-name-line-2 {
+    font-size: clamp(40px, 8vw, 70px);
+  }
+  
+  .marcela-subtitle {
+    font-size: clamp(14px, 3vw, 18px);
+  }
+  
+  .marcela-description {
+    font-size: clamp(13px, 2.5vw, 15px);
+  }
+  
+  .marcela-tags {
+    justify-content: center;
+  }
+  
+  .marcela-tag {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+  
+  .marcela-location-badge {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .marcela-name-line-1,
+  .marcela-name-line-2 {
+    font-size: clamp(30px, 7vw, 50px);
+  }
+}
+
+.hero-title-block {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title-mask {
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.hero-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 0.85;
+  margin: 0;
+  text-transform: uppercase;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-title.offset {
+  padding-left: 2rem;
+  color: #1a1a1a;
+}
+
+.hero-img-wrap {
+  position: relative;
+  z-index: 1;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-animation-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #dc2626;
+  transform: translateX(-100%);
+  transition: transform 0.6s ease-out;
+  z-index: 10;
+}
+
+.scroll-down-circle {
+  position: relative;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.scroll-down-circle:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 4rem;
+  }
+  
+  .hero-grid {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 0;
+  }
+  
+  .hero-title-block {
+    margin-bottom: 3rem;
+  }
+  
+  .hero-img-wrap {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .hero-title.offset {
+    padding-left: 1rem;
+  }
+  
+  .scroll-down-circle {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-title.offset {
+    padding-left: 0.5rem;
+  }
+}
+
+/* Parallax effect for better performance */
+.hero-parallax {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Animation keyframes */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title-block {
+  animation: heroFadeIn 1s ease-out 0.2s both;
+}
+
+.hero-img-wrap {
+  animation: heroFadeIn 1s ease-out 0.4s both;
 }
 
 @theme inline {

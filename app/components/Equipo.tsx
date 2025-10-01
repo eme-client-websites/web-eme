@@ -18,7 +18,7 @@ export default function Equipo({ locale }: EquipoProps) {
       nombre: t('team.members.0.name') || 'Daniel Vengoechea',
       cargo: t('team.members.0.role') || 'Co-fundador, Growth Marketer y CEO',
       descripcion: t('team.members.0.description') || 'Es la mente detrás del éxito de EME, Apex AI, Gettranscribe y Elevvate. Convierte retos en oportunidades con estrategia, datos y AI. Cofundador de Apparta y speaker internacional, impulsa marcas con creatividad y tecnología de alto impacto.',
-      imagen: '/DanielVengoechea.png',
+      imagen: '/Daniel V.JPG',
       especialidades: ['Growth Marketing', 'AI Strategy', 'Business Development']
     },
     {
@@ -26,7 +26,7 @@ export default function Equipo({ locale }: EquipoProps) {
       nombre: t('team.members.1.name') || 'Marcela Hinestrosa',
       cargo: t('team.members.1.role') || 'Co-fundadora, Estratega de Marca y Negocios',
       descripcion: t('team.members.1.description') || 'Cree en marcas con propósito y estrategias que se sienten. Acompaña a empresas que quieren crecer con sentido, construyendo desde adentro: visión clara, estructura sólida y experiencias que conectan de verdad.',
-      imagen: '/MarcelaHinestrosa.png',
+      imagen: '/Marcela H.png',
       especialidades: ['Brand Strategy', 'Business Strategy', 'UX Strategy']
     }
   ];

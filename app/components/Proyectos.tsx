@@ -35,8 +35,8 @@ export default function Proyectos({ locale }: ProyectosProps) {
         testimonio: {
           nombre: 'Pauline Jurado',
           cargo: 'Marketing Director',
-          imagen: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=120&h=120&fit=crop&crop=face',
-          texto: 'A dream team! I\'m thrilled with our collaboration with the E-me studio. The team is as creative as they are great to work with. We tackled a big challenge in record time, all while keeping amazing energy, great communication, and real attentiveness. They nailed it every time. Thank you, team!!'
+          imagen: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&h=120&fit=crop&crop=face',
+          texto: 'Un equipo de ensueño! Estoy emocionada con nuestra colaboración con el estudio E-me. El equipo es tan creativo como excelente para trabajar. Abordamos un gran desafío en tiempo récord, todo mientras manteníamos una energía increíble, gran comunicación y verdadera atención. Lo clavaron en todo momento. ¡Gracias, equipo!'
         }
       }
     },
@@ -55,10 +55,10 @@ export default function Proyectos({ locale }: ProyectosProps) {
         duracion: '6 months',
         website: 'https://levelup-marketplace.com',
         testimonio: {
-          nombre: 'Sarah Chen',
-          cargo: 'CEO & Founder',
-          imagen: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&fit=crop&crop=face',
-          texto: '"E-me Studio transformed our vision into reality. Their expertise in e-commerce development and attention to detail exceeded our expectations. The platform they built has been instrumental in our growth."'
+          nombre: 'Pauline Jurado',
+          cargo: 'Marketing Director',
+          imagen: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&h=120&fit=crop&crop=face',
+          texto: 'Un equipo de ensueño! Estoy emocionada con nuestra colaboración con el estudio E-me. El equipo es tan creativo como excelente para trabajar. Abordamos un gran desafío en tiempo récord, todo mientras manteníamos una energía increíble, gran comunicación y verdadera atención. Lo clavaron en todo momento. ¡Gracias, equipo!'
         }
       }
     },
@@ -75,7 +75,13 @@ export default function Proyectos({ locale }: ProyectosProps) {
         solucion: 'Instagram / TikTok / Adobe Creative Suite',
         creditos: 'In partnership with E-me Studio',
         duracion: '4 months',
-        website: 'https://amalfi-restaurant.com'
+        website: 'https://amalfi-restaurant.com',
+        testimonio: {
+          nombre: 'Pauline Jurado',
+          cargo: 'Marketing Director',
+          imagen: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&h=120&fit=crop&crop=face',
+          texto: 'Un equipo de ensueño! Estoy emocionada con nuestra colaboración con el estudio E-me. El equipo es tan creativo como excelente para trabajar. Abordamos un gran desafío en tiempo récord, todo mientras manteníamos una energía increíble, gran comunicación y verdadera atención. Lo clavaron en todo momento. ¡Gracias, equipo!'
+        }
       }
     },
     {
@@ -91,7 +97,13 @@ export default function Proyectos({ locale }: ProyectosProps) {
         solucion: 'React / Node.js / PostgreSQL / AWS',
         creditos: 'In partnership with E-me Studio',
         duracion: '8 months',
-        website: 'https://quirylaser-system.com'
+        website: 'https://quirylaser-system.com',
+        testimonio: {
+          nombre: 'Pauline Jurado',
+          cargo: 'Marketing Director',
+          imagen: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&h=120&fit=crop&crop=face',
+          texto: 'Un equipo de ensueño! Estoy emocionada con nuestra colaboración con el estudio E-me. El equipo es tan creativo como excelente para trabajar. Abordamos un gran desafío en tiempo récord, todo mientras manteníamos una energía increíble, gran comunicación y verdadera atención. Lo clavaron en todo momento. ¡Gracias, equipo!'
+        }
       }
     },
     {
@@ -107,7 +119,13 @@ export default function Proyectos({ locale }: ProyectosProps) {
         solucion: 'WooCommerce / WordPress / Stripe / Custom API',
         creditos: 'In partnership with E-me Studio',
         duracion: '5 months',
-        website: 'https://carnessantacruz.com'
+        website: 'https://carnessantacruz.com',
+        testimonio: {
+          nombre: 'Pauline Jurado',
+          cargo: 'Marketing Director',
+          imagen: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&h=120&fit=crop&crop=face',
+          texto: 'Un equipo de ensueño! Estoy emocionada con nuestra colaboración con el estudio E-me. El equipo es tan creativo como excelente para trabajar. Abordamos un gran desafío en tiempo récord, todo mientras manteníamos una energía increíble, gran comunicación y verdadera atención. Lo clavaron en todo momento. ¡Gracias, equipo!'
+        }
       }
     }
   ];
@@ -769,11 +787,11 @@ export default function Proyectos({ locale }: ProyectosProps) {
 
                       {/* Client testimonial section - Usando el nuevo componente */}
                       <TestimonialSection
-                        title="Client\ntestimonial"
-                        authorName={selectedProject.detalles.testimonio?.nombre || 'Adrien Susini'}
-                        authorJob={selectedProject.detalles.testimonio?.cargo || 'CEO OK C\'EST COOL'}
-                        quote={selectedProject.detalles.testimonio?.texto || 'Looking for true experts who are creative, proactive, efficient and cool? You\'ve come to the right place. LEOLEO fully understood our needs and turned our vision into a concrete, clear, and impactful project.'}
-                        imageSrc={selectedProject.detalles.testimonio?.imagen || 'https://images.prismic.io/leoleo-v2/Z-5PxXdAxsiBwQsE_adrien_susini-min.jpg'}
+                        title="Nuestros clientes"
+                        authorName={selectedProject.detalles.testimonio?.nombre || 'Pauline Jurado'}
+                        authorJob={selectedProject.detalles.testimonio?.cargo || 'Marketing Director'}
+                        quote={selectedProject.detalles.testimonio?.texto || 'Un equipo de ensueño! Estoy emocionada con nuestra colaboración con el estudio E-me. El equipo es tan creativo como excelente para trabajar. Abordamos un gran desafío en tiempo récord, todo mientras manteníamos una energía increíble, gran comunicación y verdadera atención. Lo clavaron en todo momento. ¡Gracias, equipo!'}
+                        imageSrc={selectedProject.detalles.testimonio?.imagen || 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&h=120&fit=crop&crop=face'}
                         className="modal-testimonial"
                       />
 

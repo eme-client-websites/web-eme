@@ -13,8 +13,9 @@ import PartnersShowcase from './components/PartnersShowcase';
 import Equipo from './components/Equipo';
 import MapaGlobal from './components/MapaGlobal';
 import MenuScrollDesktop from './components/MenuScrollDesktop';
-import LanguageSwitcher from './components/LanguageSwitcher';
+// import LanguageSwitcher from './components/LanguageSwitcher';
 import Footer from './components/Footer';
+import HeroDaniel from './components/HeroDaniel';
 
 export default function HomePage() {
   const t = useTranslations(defaultLang);
@@ -41,7 +42,7 @@ export default function HomePage() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero Section Original */}
       <section id="inicio" className="min-h-screen flex items-center justify-center relative overflow-hidden">
         {/* Imagen de fondo */}
         <div className="absolute inset-0 z-0">
@@ -76,7 +77,7 @@ export default function HomePage() {
                 href={defaultLang === 'en' ? '/en/contact' : '/contacto'}
                 className="group inline-flex items-center bg-[#FFEA1F] hover:bg-[#FFE500] text-[#030B46] font-bold text-[16px] font-medium uppercase px-6 py-3 rounded-lg transition-all duration-300 ease-in-out transform hover:scale-105 xl:text-[1.14rem]"
               >
-                LET'S TALK
+                HABLEMOS
                 <svg width="20" height="20" className="ml-2 fill-[#030B46] transition-all duration-300 ease-in-out group-hover:md:ml-3" data-icon="arrow">
                   <g>
                     <path fillRule="evenodd" clipRule="evenodd" d="M18.8457 12L8.85393 1.63591L10.4311 0L22 12L10.4311 24L8.85393 22.3641L18.8457 12Z"></path>
@@ -138,7 +139,10 @@ export default function HomePage() {
 
       {/* Sección del Equipo */}
       <div id="equipo">
-        <Equipo locale={defaultLang} />
+        {/* <Equipo locale={defaultLang} /> - OCULTO */}
+        
+        {/* Hero Daniel Section */}
+        <HeroDaniel locale={defaultLang} />
       </div>
 
       {/* Sección de Partners */}

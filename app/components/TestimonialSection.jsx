@@ -16,15 +16,16 @@ import styles from './TestimonialSection.module.css';
  * @param {string} [props.className] - Clase CSS adicional opcional
  */
 export default function TestimonialSection({
-  title = "Client\ntestimonial",
-  authorName = "Adrien Susini",
-  authorJob = "CEO OK C'EST COOL",
-  quote = "Looking for true experts who are creative, proactive, efficient and cool? You've come to the right place. LEOLEO fully understood our needs and turned our vision into a concrete, clear, and impactful project.",
-  imageSrc = "https://images.prismic.io/leoleo-v2/Z-5PxXdAxsiBwQsE_adrien_susini-min.jpg",
+  title = "Nuestros clientes",
+  authorName = "Pauline Jurado",
+  authorJob = "Marketing Director",
+  quote = "Un equipo de ensueño! Estoy emocionada con nuestra colaboración con el estudio E-me. El equipo es tan creativo como excelente para trabajar. Abordamos un gran desafío en tiempo récord, todo mientras manteníamos una energía increíble, gran comunicación y verdadera atención. Lo clavaron en todo momento. ¡Gracias, equipo!",
+  imageSrc = "/logos/partners/imgi_5_263601789_228953422693663_3786388595935595545_n.svg",
   className = ""
 }) {
-  // Procesar el título para manejar saltos de línea
-  const titleLines = title.split('\n');
+  // Procesar el título para separar las palabras en líneas
+  const titleWords = title.split(' ');
+  const titleLines = titleWords.length > 1 ? [titleWords[0], titleWords.slice(1).join(' ')] : [title];
 
   return (
     <section 

@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import { type Locale } from '../lib/i18n';
 
 interface MapaGlobalProps {
@@ -7,6 +8,105 @@ interface MapaGlobalProps {
 }
 
 export default function MapaGlobal({ locale: _locale }: MapaGlobalProps) {
+  useEffect(() => {
+    // Función para interpolar entre dos colores
+    const interpolateColor = (color1: string, color2: string, factor: number): string => {
+      const r1 = parseInt(color1.slice(1, 3), 16);
+      const g1 = parseInt(color1.slice(3, 5), 16);
+      const b1 = parseInt(color1.slice(5, 7), 16);
+      
+      const r2 = parseInt(color2.slice(1, 3), 16);
+      const g2 = parseInt(color2.slice(3, 5), 16);
+      const b2 = parseInt(color2.slice(5, 7), 16);
+      
+      const r = Math.round(r1 + (r2 - r1) * factor);
+      const g = Math.round(g1 + (g2 - g1) * factor);
+      const b = Math.round(b1 + (b2 - b1) * factor);
+      
+      return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
+    };
+
+    // Función para obtener el color de fondo actual del body
+    const getCurrentBodyColor = (): string => {
+      const bodyStyle = window.getComputedStyle(document.body);
+      const bgColor = bodyStyle.backgroundColor;
+      
+      // Convertir RGB/RGBA a hex si es necesario
+      if (bgColor.startsWith('rgb')) {
+        const matches = bgColor.match(/\d+/g);
+        if (matches && matches.length >= 3) {
+          const r = parseInt(matches[0] || '0');
+          const g = parseInt(matches[1] || '0');
+          const b = parseInt(matches[2] || '0');
+          return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
+        }
+      }
+      
+      // Fallback al color por defecto
+      return '#F1F1F1';
+    };
+
+    const updateGradientColors = () => {
+      // Esperar a que ScrollColorEffects haya actualizado el color del body
+      const currentBodyColor = getCurrentBodyColor();
+      
+      // Actualizar los degradados con el color actual del body
+      const topGradient = document.getElementById('mapa-gradient-top');
+      const bottomGradient = document.getElementById('mapa-gradient-bottom');
+      
+      if (topGradient && currentBodyColor) {
+        const r = parseInt(currentBodyColor.slice(1, 3), 16);
+        const g = parseInt(currentBodyColor.slice(3, 5), 16);
+        const b = parseInt(currentBodyColor.slice(5, 7), 16);
+        
+        topGradient.style.background = `linear-gradient(to bottom, ${currentBodyColor} 0%, ${currentBodyColor} 8%, rgba(${r}, ${g}, ${b}, 0.9) 20%, rgba(${r}, ${g}, ${b}, 0.6) 50%, rgba(${r}, ${g}, ${b}, 0.2) 80%, transparent 100%)`;
+      }
+      
+      if (bottomGradient && currentBodyColor) {
+        const r = parseInt(currentBodyColor.slice(1, 3), 16);
+        const g = parseInt(currentBodyColor.slice(3, 5), 16);
+        const b = parseInt(currentBodyColor.slice(5, 7), 16);
+        
+        bottomGradient.style.background = `linear-gradient(to top, ${currentBodyColor} 0%, ${currentBodyColor} 8%, rgba(${r}, ${g}, ${b}, 0.9) 20%, rgba(${r}, ${g}, ${b}, 0.6) 50%, rgba(${r}, ${g}, ${b}, 0.2) 80%, transparent 100%)`;
+      }
+    };
+    
+    // Esperar un delay más largo para asegurar que ScrollColorEffects se haya inicializado completamente
+    const timer = setTimeout(() => {
+      updateGradientColors();
+    }, 300);
+    
+    // Debounce para evitar actualizaciones demasiado frecuentes
+    let debounceTimer: NodeJS.Timeout;
+    const debouncedUpdate = () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(updateGradientColors, 150);
+    };
+
+    // También observar cambios en el body para reaccionar a ScrollColorEffects
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && 
+            (mutation.attributeName === 'style' || mutation.attributeName === 'data-color')) {
+          debouncedUpdate();
+        }
+      });
+    });
+    
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['style', 'data-color']
+    });
+    
+    window.addEventListener('scroll', updateGradientColors);
+    
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(debounceTimer);
+      observer.disconnect();
+      window.removeEventListener('scroll', updateGradientColors);
+    };
+  }, []);
   return (
     <section className="relative py-32 md:py-48 lg:py-56 xl:py-64 overflow-hidden min-h-screen" style={{ background: 'transparent' }}>
       {/* Mapa del mundo como fondo */}
@@ -17,6 +117,28 @@ export default function MapaGlobal({ locale: _locale }: MapaGlobalProps) {
           alt="Mapa del mundo" 
           className="w-full h-full object-cover opacity-80 scale-110"
         />
+      </div>
+      
+      {/* Degradados dinámicos para eliminar cortes entre secciones */}
+      <div className="absolute top-0 left-0 w-full h-40 z-20 pointer-events-none">
+        <div 
+          id="mapa-gradient-top"
+          className="w-full h-full opacity-95"
+          style={{
+            background: 'linear-gradient(to bottom, #F1F1F1 0%, #F1F1F1 8%, rgba(241, 241, 241, 0.9) 20%, rgba(241, 241, 241, 0.6) 50%, rgba(241, 241, 241, 0.2) 80%, transparent 100%)',
+            transition: 'background 2.5s ease-in-out'
+          }}
+        ></div>
+      </div>
+      <div className="absolute bottom-0 left-0 w-full h-40 z-20 pointer-events-none">
+        <div 
+          id="mapa-gradient-bottom"
+          className="w-full h-full opacity-95"
+          style={{
+            background: 'linear-gradient(to top, #F1F1F1 0%, #F1F1F1 8%, rgba(241, 241, 241, 0.9) 20%, rgba(241, 241, 241, 0.6) 50%, rgba(241, 241, 241, 0.2) 80%, transparent 100%)',
+            transition: 'background 2.5s ease-in-out'
+          }}
+        ></div>
       </div>
       
       {/* Efectos de fondo geométricos */}

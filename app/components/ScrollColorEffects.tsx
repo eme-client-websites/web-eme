@@ -4,22 +4,42 @@ import { useEffect } from 'react';
 
 export default function ScrollColorEffects() {
   useEffect(() => {
-    function forceFooterWhite() {
-      // Forzar footer blanco siempre
+    // Agregar transiciones suaves al body y elementos dinámicos
+    function addSmoothTransitions() {
+      // Transición suave para el body
+      document.body.style.transition = 'background-color 0.6s ease-in-out';
+      
+      // Transiciones suaves para todos los elementos con texto dinámico
+      const dynamicTexts = document.querySelectorAll('.dynamic-text:not(footer .dynamic-text):not(footer *)');
+      dynamicTexts.forEach(el => {
+        const element = el as HTMLElement;
+        element.style.transition = 'color 0.6s ease-in-out';
+      });
+    }
+    function forceFooterBlue() {
+      // Forzar footer azul profundo siempre
       const footer = document.querySelector('footer');
       if (footer) {
-        footer.style.backgroundColor = '#ffffff';
-        footer.style.background = '#ffffff';
-        footer.style.color = '#000000';
+        footer.style.backgroundColor = '#030B46';
+        footer.style.background = '#030B46';
+        footer.style.color = '#ffffff';
         
-        const footerElements = footer.querySelectorAll('*');
+        const footerElements = footer.querySelectorAll('*:not(.marquee-text)');
         footerElements.forEach(el => {
           const element = el as HTMLElement;
-          // Solo forzar color negro para texto, no para iconos SVG
+          // Solo forzar color blanco para texto, iconos SVG en blanco
           if (element.tagName !== 'SVG' && !element.closest('svg')) {
-            element.style.color = '#000000';
+            element.style.color = '#ffffff';
           }
           element.style.backgroundColor = 'transparent';
+        });
+        
+        // Forzar iconos SVG en blanco
+        const svgElements = footer.querySelectorAll('svg');
+        svgElements.forEach(svg => {
+          const svgElement = svg as HTMLElement;
+          svgElement.style.color = '#ffffff';
+          svgElement.style.fill = '#ffffff';
         });
       }
     }
@@ -30,6 +50,9 @@ export default function ScrollColorEffects() {
       const scrollPercent = (scrollY / documentHeight) * 100;
       
       console.log('ScrollY:', scrollY, 'Scroll %:', scrollPercent.toFixed(1));
+      
+      // Asegurar transiciones suaves antes de cada cambio
+      addSmoothTransitions();
       
       // Test directo con elementos (excluyendo footer)
       const dynamicTexts = document.querySelectorAll('.dynamic-text:not(footer .dynamic-text):not(footer *)');
@@ -45,8 +68,8 @@ export default function ScrollColorEffects() {
           (el as HTMLElement).style.color = '#000000'; // Texto negro
         });
         console.log('Aplicado: NEGRO sobre GRIS NIEBLA #F1F1F1 (0%-8%)');
-      } else if (scrollPercent <= 20) {
-        // Estado 2: texto blanco, fondo azul #0043FF (8% - 20%)
+      } else if (scrollPercent <= 18) {
+        // Estado 2: texto blanco, fondo azul #0043FF (8% - 18%)
         document.body.setAttribute('data-color', 'blue');
         document.body.setAttribute('data-header', 'white');
         document.body.style.background = '';
@@ -54,9 +77,9 @@ export default function ScrollColorEffects() {
         dynamicTexts.forEach(el => {
           (el as HTMLElement).style.color = '#ffffff'; // Texto blanco
         });
-        console.log('Aplicado: BLANCO sobre AZUL #0043FF (8%-20%)');
+        console.log('Aplicado: BLANCO sobre AZUL #0043FF (8%-18%)');
       } else if (scrollPercent <= 45) {
-        // Estado 3: texto blanco, fondo azul profundo #030B46 (20% - 45%)
+        // Estado 3: texto blanco, fondo azul profundo #030B46 (18% - 45%)
         document.body.setAttribute('data-color', 'blue-deep');
         document.body.setAttribute('data-header', 'white');
         document.body.style.background = '';
@@ -64,9 +87,9 @@ export default function ScrollColorEffects() {
         dynamicTexts.forEach(el => {
           (el as HTMLElement).style.color = '#ffffff'; // Texto blanco
         });
-        console.log('Aplicado: BLANCO sobre AZUL PROFUNDO #030B46 (20%-45%)');
-      } else if (scrollPercent <= 75) {
-        // Estado 4: texto negro, fondo gris niebla #F1F1F1 (45% - 75%)
+        console.log('Aplicado: BLANCO sobre AZUL PROFUNDO #030B46 (18%-45%)');
+      } else if (scrollPercent <= 70) {
+        // Estado 4: texto negro, fondo gris niebla #F1F1F1 (45% - 70%)
         document.body.setAttribute('data-color', 'gray');
         document.body.removeAttribute('data-header');
         document.body.style.background = '';
@@ -74,9 +97,9 @@ export default function ScrollColorEffects() {
         dynamicTexts.forEach(el => {
           (el as HTMLElement).style.color = '#000000'; // Texto negro
         });
-        console.log('Aplicado: NEGRO sobre GRIS NIEBLA #F1F1F1 (45%-75%)');
+        console.log('Aplicado: NEGRO sobre GRIS NIEBLA #F1F1F1 (45%-70%)');
       } else if (scrollPercent <= 85) {
-        // Estado 5: texto blanco, fondo azul #0043FF (75% - 85%)
+        // Estado 5: texto blanco, fondo azul #0043FF (70% - 85%)
         document.body.setAttribute('data-color', 'blue');
         document.body.setAttribute('data-header', 'white');
         document.body.style.background = '';
@@ -84,9 +107,9 @@ export default function ScrollColorEffects() {
         dynamicTexts.forEach(el => {
           (el as HTMLElement).style.color = '#ffffff'; // Texto blanco
         });
-        console.log('Aplicado: BLANCO sobre AZUL #0043FF (75%-85%)');
-      } else if (scrollPercent <= 95) {
-        // Estado 6: texto blanco, fondo azul profundo #030B46 (85% - 95%)
+        console.log('Aplicado: BLANCO sobre AZUL #0043FF (70%-85%)');
+      } else if (scrollPercent <= 92) {
+        // Estado 6: texto blanco, fondo azul profundo #030B46 (85% - 92%)
         document.body.setAttribute('data-color', 'blue-deep');
         document.body.setAttribute('data-header', 'white');
         document.body.style.background = '';
@@ -94,9 +117,9 @@ export default function ScrollColorEffects() {
         dynamicTexts.forEach(el => {
           (el as HTMLElement).style.color = '#ffffff'; // Texto blanco
         });
-        console.log('Aplicado: BLANCO sobre AZUL PROFUNDO #030B46 (85%-95%)');
+        console.log('Aplicado: BLANCO sobre AZUL PROFUNDO #030B46 (85%-92%)');
       } else {
-        // Estado 7: texto negro, fondo blanco #ffffff (95% - 100%)
+        // Estado 7: texto negro, fondo blanco #ffffff (92% - 100%)
         document.body.removeAttribute('data-color');
         document.body.removeAttribute('data-header');
         document.body.style.background = '';
@@ -104,15 +127,16 @@ export default function ScrollColorEffects() {
         dynamicTexts.forEach(el => {
           (el as HTMLElement).style.color = '#000000'; // Texto negro
         });
-        console.log('Aplicado: NEGRO sobre BLANCO #ffffff (95%-100%)');
+        console.log('Aplicado: NEGRO sobre BLANCO #ffffff (92%-100%)');
       }
       
-      // Forzar footer blanco después de cada cambio
-      forceFooterWhite();
+      // Forzar footer azul profundo después de cada cambio
+      forceFooterBlue();
     }
 
     // Ejecutar cuando el componente se monte
     console.log('ScrollColorEffects mounted');
+    addSmoothTransitions(); // Configurar transiciones al inicializar
     window.addEventListener('scroll', updateColors);
     updateColors(); // Ejecutar una vez al cargar
 

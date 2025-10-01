@@ -7,7 +7,7 @@
    ============================================ */
 .testimonialSection {
   background-color: #1c1c1c;
-  padding: 4rem 3rem;
+  padding: 4rem 2rem;
   width: 100%;
   min-height: auto;
   display: flex;
@@ -17,8 +17,9 @@
 
 /* Contenedor centrado con max-width para controlar el ancho */
 .container {
-  max-width: 100%;
+  max-width: 1400px;
   width: 100%;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 4rem;
