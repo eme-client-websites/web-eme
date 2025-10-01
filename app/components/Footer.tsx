@@ -67,6 +67,7 @@ export default function Footer({ locale }: FooterProps) {
         
         {/* Logo centrado arriba */}
         <div className="flex justify-center pt-16 pb-8">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img 
             src="/logo-emeblanco.svg" 
             alt="E-me Growth Agency" 

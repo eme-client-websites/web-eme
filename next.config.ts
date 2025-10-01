@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Configuración para export estático (requerido para Amplify)
+  output: 'export',
+  trailingSlash: true,
+  
   // Configuración React
   reactStrictMode: true,
   
@@ -24,49 +28,16 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   
-  // Headers de seguridad
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin',
-          },
-        ],
-      },
-    ];
-  },
+  // Headers de seguridad (deshabilitados para export estático)
+  // Los headers se configuran en el servidor web (Amplify)
   
   // Configuración experimental
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
 
-  // Redirects para mantener compatibilidad con Astro
-  async redirects() {
-    return [
-      // Ejemplo: Si había rutas específicas de Astro que ahora son diferentes
-      // { source: '/old-route', destination: '/new-route', permanent: true },
-    ]
-  },
-  
-  // Rewrites para APIs o rutas especiales
-  async rewrites() {
-    return [
-      // Mantener compatibilidad con rutas de API si existían
-      // { source: '/api/:path*', destination: '/api/:path*' },
-    ]
-  },
+  // Redirects y rewrites (deshabilitados para export estático)
+  // Los redirects se configuran en el servidor web (Amplify)
 
   // Configuración de webpack para optimizaciones adicionales
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
