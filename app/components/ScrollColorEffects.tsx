@@ -37,7 +37,7 @@ export default function ScrollColorEffects() {
         // Forzar iconos SVG en blanco
         const svgElements = footer.querySelectorAll('svg');
         svgElements.forEach(svg => {
-          const svgElement = svg as HTMLElement;
+          const svgElement = svg as SVGSVGElement;
           svgElement.style.color = '#ffffff';
           svgElement.style.fill = '#ffffff';
         });

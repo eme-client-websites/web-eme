@@ -10,7 +10,6 @@ import Servicios from './components/Servicios';
 import Proyectos from './components/Proyectos';
 import ClientesShowcase from './components/ClientesShowcase';
 import PartnersShowcase from './components/PartnersShowcase';
-import Equipo from './components/Equipo';
 import MapaGlobal from './components/MapaGlobal';
 import MenuScrollDesktop from './components/MenuScrollDesktop';
 // import LanguageSwitcher from './components/LanguageSwitcher';

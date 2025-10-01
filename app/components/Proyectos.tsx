@@ -13,7 +13,6 @@ export default function Proyectos({ locale }: ProyectosProps) {
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [modalClosing, setModalClosing] = useState(false);
   const [modalSlideUp, setModalSlideUp] = useState(0); // 0 = normal, 1-100 = porcentaje de subida
-  const [virtualScrollAccumulator, setVirtualScrollAccumulator] = useState(0); // Acumular scroll virtual
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   // Datos de proyectos - versión simplificada con los principales
@@ -133,7 +132,6 @@ export default function Proyectos({ locale }: ProyectosProps) {
   const openProjectModal = (proyecto: any) => {
     setSelectedProject(proyecto);
     setModalSlideUp(0); // Resetear la animación de subida
-    setVirtualScrollAccumulator(0); // Resetear scroll virtual
   };
 
   const closeProjectModal = () => {
@@ -143,7 +141,6 @@ export default function Proyectos({ locale }: ProyectosProps) {
       setSelectedProject(null);
       setModalClosing(false);
       setModalSlideUp(0);
-      setVirtualScrollAccumulator(0);
     }, 300);
   };
 
@@ -186,7 +183,6 @@ export default function Proyectos({ locale }: ProyectosProps) {
       if (!isAtRealEnd) {
         // No está en el final, resetear todo
         setModalSlideUp(0);
-        setVirtualScrollAccumulator(0);
       }
     };
 
@@ -206,26 +202,21 @@ export default function Proyectos({ locale }: ProyectosProps) {
       if (isAtRealEnd && e.deltaY > 0) {
         e.preventDefault(); // Prevenir scroll real
 
-        setVirtualScrollAccumulator(prev => {
-          const newAccumulator = prev + e.deltaY;
-          const maxVirtualScroll = 800; // Necesita 800px de scroll virtual para cerrar
-          
-          // Calcular progreso de 0 a 1
-          const progress = Math.min(1, newAccumulator / maxVirtualScroll);
-          
-          // Subir modal gradualmente (máximo -100% para que desaparezca completamente)
-          const slidePercentage = -(progress * 100);
-          setModalSlideUp(slidePercentage);
-          
-          // Cerrar cuando esté al 90% (antes de desaparecer completamente)
-          if (progress >= 0.9) {
-            setTimeout(() => {
-              closeProjectModal();
-            }, 200);
-          }
-          
-          return newAccumulator;
-        });
+        // Calcular progreso basado en la velocidad del scroll
+        const scrollSensitivity = 0.1;
+        const progress = Math.min(1, e.deltaY * scrollSensitivity);
+        
+        // Subir modal gradualmente
+        const currentSlide = modalSlideUp;
+        const newSlide = Math.max(-100, currentSlide - (progress * 10));
+        setModalSlideUp(newSlide);
+        
+        // Cerrar cuando esté muy arriba
+        if (newSlide <= -80) {
+          setTimeout(() => {
+            closeProjectModal();
+          }, 200);
+        }
       }
     };
 
